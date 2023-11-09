@@ -1,7 +1,7 @@
 /**
- * This is the Intro scene, played as the start
+ * This is the End Menu scene, played as the end of each game
  */
-function Intro()
+function EndMenu()
 {
     // enter() will be executed each time the SceneManager switches
     // to this Scene
@@ -9,7 +9,7 @@ function Intro()
     {
         background("teal");
         textAlign(CENTER);
-        text("Welcome in the Intro scene", width / 2, height / 2);
+        text("Welcome in the End Menu scene", width / 2, height / 2);
     }
 
     // draw() is the normal draw function, this function work like a scene

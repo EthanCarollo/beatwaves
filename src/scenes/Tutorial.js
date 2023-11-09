@@ -1,7 +1,7 @@
 /**
- * This is the Intro scene, played as the start
+ * This is the Tutorial scene, where we do the tutorial
  */
-function Intro()
+function Tutorial()
 {
     // enter() will be executed each time the SceneManager switches
     // to this Scene
@@ -9,7 +9,11 @@ function Intro()
     {
         background("teal");
         textAlign(CENTER);
-        text("Welcome in the Intro scene", width / 2, height / 2);
+        text("Welcome in the Main Menu scene", width / 2, height / 2);
+        setTimeout(() => {
+            this.goNextScene()
+            console.log("Go Next Scene")
+        }, 3000);
     }
 
     // draw() is the normal draw function, this function work like a scene
