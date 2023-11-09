@@ -6,6 +6,7 @@ function Game()
     let poseNet;
     let video;
     let poses;
+    let sceneIsLoaded = false;
     
     let poseNetOptions = {
         imageScaleFactor: 0.3,
@@ -13,7 +14,7 @@ function Game()
         maxPoseDetections: 1,
         flipHorizontal: true,
         outputStride: 16,
-        multiplier: 0.75,
+        multiplier: 0.5,
         inputResolution: 321,
         nmsRadius: 30
     }
@@ -21,6 +22,8 @@ function Game()
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = () => {
+        initializeCenterOfWindow()
+
         video = createCapture(VIDEO);
         video.size(width, height);
 
@@ -37,8 +40,10 @@ function Game()
 
     // draw() is the normal draw function, this function work like a scene
     this.draw = () => {
-        if(DEBUGMODE === true){
+        if(DEBUGMODE === true && sceneIsLoaded === true){
             this.debugScene();
+            showKeyOnMap()
+            mooveKeyOnMap()
         }
     }
 
@@ -94,6 +99,7 @@ function Game()
 
     // Function called once model is loaded
     this.modelLoaded = () => {
+        sceneIsLoaded = true
         console.log('Model Loaded, you can play !');
     }
 }
