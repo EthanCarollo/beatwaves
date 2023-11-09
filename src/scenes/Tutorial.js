@@ -12,7 +12,6 @@ function Tutorial()
         text("Welcome in the Main Menu scene", width / 2, height / 2);
         setTimeout(() => {
             this.goNextScene()
-            console.log("Go Next Scene")
         }, 3000);
     }
 

@@ -100,6 +100,7 @@ function Game()
     // Function called once model is loaded
     this.modelLoaded = () => {
         sceneIsLoaded = true
-        console.log('Model Loaded, you can play !');
+        if(DEBUGMODE === true)
+            console.log('/-Model Loaded, you can play-/');
     }
 }
