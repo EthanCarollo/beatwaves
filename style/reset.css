@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	{
+		margin :				0;
+		padding :				0;
+		border :				0;
+		font-size :				100%;
+		font :				inherit;
+		vertical-align :			baseline;
+	}
+
+pre, xmp, code
+	{
+		font-size :				95%;
+		font-family :			monospace;
+		line-height :			0.7em;
+	}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section
+	{
+		display :				block;
+	}
+
+
+/* ------------------------------------------------------------------------------------ FULL SCREEN */
+
+html:-moz-full-screen
+	{
+		background :			#FFFFFF;
+	}
+
+html:-webkit-full-screen
+	{
+		background :			#FFFFFF;
+	}
+
+html:fullscreen
+	{
+		background :			#FFFFFF;
+	}
+
+
+/* ------------------------------------------------------------------------------------ HTML + BODY */
+
+html,
+body
+	{
+		width :				100%;
+		min-width :				100%;
+		height :				100%;
+		min-height :			100%;
+	}
+
+html
+	{
+		font-family :			sans-serif;
+		overflow-y :			scroll;
+
+		-webkit-box-sizing :		border-box;
+		 -khtml-box-sizing :		border-box;
+		   -moz-box-sizing :		border-box;
+			  box-sizing :		border-box;
+	}
+
+*,
+*:before,
+*:after
+	{
+		-webkit-box-sizing :		inherit;
+		 -khtml-box-sizing :		inherit;
+		   -moz-box-sizing :		inherit;
+			  box-sizing :		inherit;
+	}
+
+
+
+body
+	{
+		margin :				0;
+		-webkit-text-size-adjust :	100%;
+		    -ms-text-size-adjust :	100%;
+		-webkit-tap-highlight-color :	rgba(0,0,0,0);
+		-webkit-touch-callout :		none;
+		outline :				none;
+	}
+
+
+/* ------------------------------------------------------------------------------------ ELEMENTS */
+
+blockquote, q
+	{
+		quotes :				none;
+	}
+blockquote:before,
+blockquote:after,
+q:before, q:after
+	{
+		content :				"";
+		content :				none;
+	}
+
+table
+	{
+		border-collapse :			collapse;
+		border-spacing :			0;
+	}
+
+textarea
+	{
+		resize :				none;
+	}
+
+img,
+object,
+embed,
+video
+	{
+		max-width :				100%;
+	}
+
+video
+	{
+		height :				auto;
+	}
+
+
+svg:not(:root)
+	{
+		overflow :				hidden;
+	}
+
+h1	{ font-size : 1.7em; }
+h2	{ font-size : 1.5em; }
+h3	{ font-size : 1.3em; }
+h4	{ font-size : 1.2em; }
+h5	{ font-size : 1.1em; }
+h6	{ font-size :   1em; }
