@@ -1,10 +1,10 @@
 //create a synth and connect it to the main output (your speakers)
-let classicSynth;
+let classicSynth = new Tone.Synth();
 
 // Function need to be called by a button from a player action
 const initializeMusic = () => {
     Tone.start()
-    classicSynth = new Tone.Synth().toDestination();
+    classicSynth.toDestination();
     audioIsLoad = true
 
     // Test the synth if we are on Debug Mode

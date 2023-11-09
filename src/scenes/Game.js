@@ -8,13 +8,14 @@ function Game()
     let poses;
     let sceneIsLoaded = false;
     
+    // This is the options for load pose net
     let poseNetOptions = {
         imageScaleFactor: 0.3,
         minConfidence: 0.5,
         maxPoseDetections: 1,
         flipHorizontal: true,
         outputStride: 16,
-        multiplier: 0.5,
+        multiplier: 0.75,
         inputResolution: 321,
         nmsRadius: 30
     }
@@ -25,6 +26,7 @@ function Game()
         initializeCenterOfWindow()
 
         video = createCapture(VIDEO);
+        // Full size the video
         video.size(width, height);
 
         background("teal");
@@ -33,7 +35,7 @@ function Game()
 
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
 
-        poseNet.on('pose', this.setPose);
+        poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
 
         video.hide();
     }
@@ -64,6 +66,7 @@ function Game()
         if(!pose)
             return
         
+        // Every position to draw on sketch
         const positionArray = [
             pose.pose.leftShoulder,
             pose.pose.leftElbow,
@@ -82,19 +85,9 @@ function Game()
         // Fill the color of the circle with the confidence
         for (let i = 0; i < positionArray.length; i++) {
             const elementPosition = positionArray[i];
-            
-            if(i > (positionArray.length-1)/2){
-                fill(255, 0, 0, elementPosition.confidence*255)
-            }else{
-                fill(0, 255, 0, elementPosition.confidence*255)
-            }
+            (i > (positionArray.length-1)/2) ? fill(255, 0, 0, elementPosition.confidence*255) : fill(0, 255, 0, elementPosition.confidence*255)
             circle(elementPosition.x, elementPosition.y, 30) 
         }
-    }
-
-    // Function called on every pose
-    this.setPose = (results) => {
-        poses = results;
     }
 
     // Function called once model is loaded

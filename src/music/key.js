@@ -19,9 +19,16 @@ const showKeyOnMap = () =>{
 
 // Function called every frame if we need to moove the key on map
 const mooveKeyOnMap = () => {
+    // Moove or play the key !
     for(key of keyOnMap){
         // Every key is necessary going to the center of the map
-        mooveKeyTo(key, centerOfMap) 
+        key.position === centerOfMap ? playKey(key) : mooveKeyTo(key, centerOfMap)
+    }
+
+    // Second verification where we chech if a key has been played or no
+    // ? If we wan't to save some statistics, we can do it here !
+    for (let i = 0; i < keyOnMap.length; i++) {
+        (keyOnMap[i].isPlayed === true) ? keyOnMap.splice(i,1):null;
     }
 }
 
@@ -31,16 +38,41 @@ const mooveKeyOnMap = () => {
  * @param {p5.vector} destination a simple p5 vector for the destination
  */
 const mooveKeyTo = (key, destination) => {
-    key.position.lerp(destination, keySpeed/15)
+    (Math.abs(key.position.x - destination.x) < 0.1 && Math.abs(key.position.y - destination.y) < 0.1) 
+    ? key.position = centerOfMap
+    : key.position.lerp(destination, keySpeed/15)
 }
 
-// This function will just return a random key actually
-const getRandomKey = () => {
+/**
+ * Play a note normally, take the key and woopala
+ * @param {object} key 
+ */
+const playKey = (key) => {
+    if(DEBUGMODE === true)
+        console.log("/-- Key has been played --/")
+    // ! Temporary use 8n for the vel, it is just for debugging actually because i didn't
+    // ! find any other solutions
+    key.instr.triggerAttackRelease(key.note, "8n");
+    key.isPlayed = true;
+}
+
+/**
+ * This function will just return a random key actually
+ * @param {string} note a string like C5, C#5, F5,...
+ * @param {float} velocity the velocity of the key
+ * @param {Instrument} instrument an instrument from tone js used for the key
+ * @returns {object} return a key object
+ */
+const getRandomKey = (note, velocity, instrument = classicSynth) => {
     // This will generate a random position for the key actually
     let isHorizontal = getRandomBool()
     let xPosition = isHorizontal ? getRandomInt(width) : (getRandomBool() ? width : 0)
     let yPosition = isHorizontal ? (getRandomBool() ? height : 0) : getRandomInt(height)
     return {
-        position : createVector(xPosition,yPosition)
+        position : createVector(xPosition,yPosition), // Position on map of the note
+        note: note, // The note of... the note..
+        vel: velocity, // The velocity of the note
+        isPlayed: false, // If the note is played or no
+        instr : instrument, // The instrument of the note
     }
 }
