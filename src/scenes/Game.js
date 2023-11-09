@@ -12,6 +12,10 @@ function Game()
         minConfidence: 0.5,
         maxPoseDetections: 1,
         flipHorizontal: true,
+        outputStride: 16,
+        multiplier: 0.75,
+        inputResolution: 321,
+        nmsRadius: 30
     }
 
     // enter() will be executed each time the SceneManager switches
@@ -70,12 +74,14 @@ function Game()
 
         // For the debug, i boucle on the array of position and then draw every parts of the body
         // And for the color, i just check if we here in the second half of the array or not
+        // Fill the color of the circle with the confidence
         for (let i = 0; i < positionArray.length; i++) {
             const elementPosition = positionArray[i];
+            
             if(i > (positionArray.length-1)/2){
-                fill(255, 0, 0, 90)
+                fill(255, 0, 0, elementPosition.confidence*255)
             }else{
-                fill(0, 255, 0, 90)
+                fill(0, 255, 0, elementPosition.confidence*255)
             }
             circle(elementPosition.x, elementPosition.y, 30) 
         }

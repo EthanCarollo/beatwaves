@@ -6,7 +6,10 @@ function setup()
 
     SceneManager = new SceneManager();
     setupScene();
-    SceneManager.showScene( Intro );
+    
+    //SceneManager.showScene( Intro );
+    // For the developpement on this branch, i only show the scene for the game
+    SceneManager.showScene( Game );
 }
 
 function draw()
