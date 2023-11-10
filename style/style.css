@@ -26,3 +26,54 @@
 #splide__list{
     pointer-events: all;
 }
+
+/* SPLASHSCREEN */
+#splash_screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Rotunda Extra Bold", sans-serif;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    letter-spacing: 6px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+span {
+    display: inline-block;
+}
+
+
+/* REQUEST CAPTURE */
+#request_capture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Rotunda Extra Bold", sans-serif;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    letter-spacing: 6px;
+    margin: 0;
+    line-height: 1.2;
+}
