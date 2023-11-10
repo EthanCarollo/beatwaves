@@ -7,9 +7,14 @@ const initializeMusic = () => {
     classicSynth.toDestination();
     audioIsLoad = true
 
+    for(instr of Object.keys(Instruments))
+        Instruments[instr].toDestination()
+
     // Test the synth if we are on Debug Mode
-    if(DEBUGMODE === true)
+    if(DEBUGMODE === true){
         classicSynth.triggerAttackRelease("C4", "8n");
+        console.log("Set every instruments to destination")
+    }
     
 }
 

@@ -4,13 +4,14 @@
  */
 
 var Assets = { }
+var Instruments = { }
 
 /**
  * This function return an asset 
  * @param {string} asset_slug the slug of the asset to uppercase
  * @returns 
  */
-Assets.get = (asset_slug) => (isAssetsLoaded === true) ? (Assets[asset_slug.toUpperCase()] !== undefined ? Assets[asset_slug.toUpperCase()] : null) : null;
+Assets.get = (asset_slug) => Assets[asset_slug.toUpperCase()] !== undefined ? Assets[asset_slug.toUpperCase()] : null;
 
 
 /**
@@ -26,7 +27,29 @@ function loadAssets(path, assetname, _assetIterator){
             Assets[assetname] = res;
             _assetIterator[0]++
             (_assetIterator[0] === Object.keys(ASSETSPATH).length) ? isAssetsLoaded = true : isAssetsLoaded = false
+            assetsLoaded(assetname)
         })
+}
+
+/**
+ * 
+ * @param {string} assetname 
+ */
+function assetsLoaded (assetname){
+    if(DEBUGMODE === true)
+        console.log("Extra Load for : - " + assetname)
+    switch(assetname){
+        case "INSTRUMENTS":
+            for(instrument of Object.keys(Assets.get(assetname).instruments)){
+                Instruments[instrument] = new Tone.Sampler({
+                    urls: Assets.get(assetname).instruments[instrument],
+                    baseUrl: "./"
+                })
+            }
+            break;
+        default :
+            break;
+    }
 }
 
 /**

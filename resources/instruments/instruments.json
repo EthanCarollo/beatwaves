@@ -1,15 +1,15 @@
 {
     "instruments" : {
         "cloud_key" : {
-            "C5" : "./assets/instruments/HS_D_C5_1.wav",
-            "C#5" : "./assets/instruments/HS_D_C#5_1.wav",
-            "D5" : "./assets/instruments/HS_D_D5_1.wav",
-            "D#5" : "./assets/instruments/HS_D_D#5_1.wav",
-            "E5" : "./assets/instruments/HS_D_E5_1.wav",
-            "F5" : "./assets/instruments/HS_D_F5_1.wav",
-            "F#5" : "./assets/instruments/HS_D_F#5_1.wav",
-            "G5" : "./assets/instruments/HS_D_G#5_1.wav",
-            "G#5" : "./assets/instruments/HS_D_G5_1.wav"
+            "C5" : "assets/instruments/cloud_keys/HS_D_C5_1.wav",
+            "C#5" : "assets/instruments/cloud_keys/HS_D_CS5_1.wav",
+            "D5" : "assets/instruments/cloud_keys/HS_D_D5_1.wav",
+            "D#5" : "assets/instruments/cloud_keys/HS_D_DS5_1.wav",
+            "E5" : "assets/instruments/cloud_keys/HS_D_E5_1.wav",
+            "F5" : "assets/instruments/cloud_keys/HS_D_F5_1.wav",
+            "F#5" : "assets/instruments/cloud_keys/HS_D_FS5_1.wav",
+            "G5" : "assets/instruments/cloud_keys/HS_D_GS5_1.wav",
+            "G#5" : "assets/instruments/cloud_keys/HS_D_G5_1.wav"
         }
     }
 }

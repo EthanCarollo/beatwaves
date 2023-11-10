@@ -38,6 +38,8 @@ function Game()
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
 
         video.hide();
+
+        keyOnMap.push(getRandomKey("C5", "n8", Instruments.cloud_key))
     }
 
     // draw() is the normal draw function, this function work like a scene
