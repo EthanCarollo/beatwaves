@@ -43,6 +43,7 @@ function MainMenu()
             var button = document.createElement("button")
             button.innerHTML = "Choose Music"
             button.addEventListener("click", () => {
+                initializeMusic()
                 this.goNextScene()
             })
             doc.appendChild(button)

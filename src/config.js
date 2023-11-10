@@ -9,3 +9,5 @@ const ASSETSPATH = {
 var isAssetsLoaded = false;
 var sceneIsLoad = false;
 var audioIsLoad = false;
+
+var video = undefined;

@@ -10,9 +10,17 @@ function Intro()
         background("teal");
         textAlign(CENTER);
         text("Welcome in the Intro scene", width / 2, height / 2);
-        setTimeout(() => {
+        
+        // The function that request the capture and then go to the next scene
+        this.requestCapture()
+    }
+
+    this.requestCapture = function(){
+        video = createCapture(VIDEO, () => {
+            video.size(width, height);
             this.goNextScene()
-        }, 1000);
+
+        });
     }
 
     // draw() is the normal draw function, this function work like a scene

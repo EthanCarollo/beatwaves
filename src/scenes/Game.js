@@ -4,7 +4,6 @@
 function Game()
 {
     let poseNet;
-    let video;
     let poses;
     let sceneIsLoaded = false;
     
@@ -24,10 +23,6 @@ function Game()
     // to this Scene
     this.enter = () => {
         initializeCenterOfWindow()
-
-        video = createCapture(VIDEO);
-        // Full size the video
-        video.size(width, height);
 
         background("teal");
         textAlign(CENTER);
