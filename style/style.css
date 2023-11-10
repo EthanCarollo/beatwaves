@@ -1,0 +1,28 @@
+.caroussel_game_slider{
+    position: absolute;
+    left: 0;
+    top : 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.song_element{
+    width: 20vw;
+    height: 20vw;
+    background-color: rgba(0, 255, 255, 0.431);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#game_caroussel{
+    pointer-events: none;
+}
+
+#splide__list{
+    pointer-events: all;
+}

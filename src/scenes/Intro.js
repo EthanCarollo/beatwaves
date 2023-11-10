@@ -10,6 +10,9 @@ function Intro()
         background("teal");
         textAlign(CENTER);
         text("Welcome in the Intro scene", width / 2, height / 2);
+        setTimeout(() => {
+            this.goNextScene()
+        }, 1000);
     }
 
     // draw() is the normal draw function, this function work like a scene

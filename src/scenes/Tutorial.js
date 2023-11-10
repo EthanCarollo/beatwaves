@@ -9,10 +9,10 @@ function Tutorial()
     {
         background("teal");
         textAlign(CENTER);
-        text("Welcome in the Main Menu scene", width / 2, height / 2);
+        text("Welcome in the Tutorial scene", width / 2, height / 2);
         setTimeout(() => {
             this.goNextScene()
-        }, 3000);
+        }, 1000);
     }
 
     // draw() is the normal draw function, this function work like a scene

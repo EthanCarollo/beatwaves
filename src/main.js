@@ -16,7 +16,7 @@ function setup()
     setupScene();
     // SceneManager.showScene( Intro );
     // For the developpement on this branch, i only show the scene for the game
-    SceneManager.showScene( Game );
+    SceneManager.showScene( SCENELIST[0] );
 
     if(DEBUGMODE){
         logGameInformations()
