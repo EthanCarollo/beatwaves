@@ -31,7 +31,6 @@ function MainMenu()
         document.getElementById("game_caroussel").style.display = "flex"
         let splideList = document.getElementById("splide__list")
         splideList.innerHTML = ""
-        console.log(Assets)
         for(song of Assets.get("songs").songs){
             // Happends the text document
             var doc = document.createElement("div")

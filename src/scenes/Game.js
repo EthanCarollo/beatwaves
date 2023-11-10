@@ -6,6 +6,11 @@ function Game()
     let poseNet;
     let poses;
     let sceneIsLoaded = false;
+    let lifeTime = 60;
+    let handPoseHistory = {
+        "right" : [],
+        "left" : []
+    }
     
     // This is the options for load pose net
     let poseNetOptions = {
@@ -23,28 +28,86 @@ function Game()
     // to this Scene
     this.enter = () => {
         initializeCenterOfWindow()
-
-        background("teal");
-        textAlign(CENTER);
-        text("Welcome in the Game scene", width / 2, height / 2);
+        frameRate(200)
 
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
-
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
 
-        video.hide();
-
-        keyOnMap.push(getRandomKey("C5", "n8", Instruments.cloud_key))
+        setInterval(() => {
+            keyOnMap.push(getRandomKey("C5", "n8", Instruments.cloud_key))
+        }, 1000);
     }
 
     // draw() is the normal draw function, this function work like a scene
     this.draw = () => {
-        if(DEBUGMODE === true && sceneIsLoaded === true){
+        // this scene needs to be loaded if we want to draw in
+        if(sceneIsLoaded === false) return;
+
+        
+        this.registerHandPosition()
+        
+
+        if(DEBUGMODE === true){
             this.debugScene();
             showKeyOnMap()
             mooveKeyOnMap()
         }
+
+        this.drawHandHistory()
     }
+
+    this.drawHandHistory = () => {
+        if(handPoseHistory.right.length > 0)
+            handPoseHistory.right[0].life--
+
+        // Boucle on the right hand history
+        for (let i = 1; i < handPoseHistory.right.length; i++) {
+            // Draw of the back of that
+            const hand = handPoseHistory.right[i];
+            line(handPoseHistory.right[i-1].x, handPoseHistory.right[i-1].y,hand.x, hand.y)
+            circle(hand.x, hand.y, 10, 10)
+            hand.life--;
+        }
+
+        // This boucle on the hand life
+        for (let i = 0; i < handPoseHistory.right.length; i++) {
+            const hand = handPoseHistory.right[i];
+            if(hand.life <= 0)
+                handPoseHistory.right.splice(i, 1)
+        }
+    }
+
+    this.registerHandPosition = () => {
+        if(!poses || !poses[0])
+            return
+
+        var pose = poses[0];
+
+        let _rightWrist = this.getHandForHistory(pose.pose.rightWrist)
+        if(_rightWrist.confidence > 0.6) handPoseHistory.right.push(_rightWrist);
+        
+        let _leftWrist = this.getHandForHistory(pose.pose.leftWrist)        
+        if(_leftWrist.confidence > 0.6) handPoseHistory.left.push(_leftWrist)
+        
+    }
+
+    this.getHandForHistory = (hand) => {
+        return {
+            x: hand.x,
+            y: hand.y,
+            confidence: hand.confidence,
+            life: lifeTime
+        }
+    }
+
+    // Function called once model is loaded
+    this.modelLoaded = () => {
+        sceneIsLoaded = true
+        if(DEBUGMODE === true)
+            console.log('/-Model Loaded, you can play-/');
+    }
+
+    //#region Debug Functions
 
     // Function called if DEBUGMODE const is true
     this.debugScene = () => {
@@ -53,6 +116,7 @@ function Game()
         scale(-1,1);
         image(video, -width, 0, width, height)
         scale(-1,1);
+
         if(poses){
             this.drawDebugPose(poses[0])
         }
@@ -85,12 +149,9 @@ function Game()
             (i > (positionArray.length-1)/2) ? fill(255, 0, 0, elementPosition.confidence*255) : fill(0, 255, 0, elementPosition.confidence*255)
             circle(elementPosition.x, elementPosition.y, 30) 
         }
+
     }
 
-    // Function called once model is loaded
-    this.modelLoaded = () => {
-        sceneIsLoaded = true
-        if(DEBUGMODE === true)
-            console.log('/-Model Loaded, you can play-/');
-    }
+    //#endregion
+
 }

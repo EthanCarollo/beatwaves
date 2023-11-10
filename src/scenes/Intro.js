@@ -28,7 +28,7 @@ function Intro() {
     this.requestCapture = function(){
         video = createCapture(VIDEO, () => {
             video.size(width, height);
-
+            video.hide();
             // Hide request capture text and go next scene
             anime({
                 targets: ".request_capture",
