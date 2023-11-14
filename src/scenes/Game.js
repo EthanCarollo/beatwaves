@@ -28,7 +28,7 @@ function Game()
     // to this Scene
     this.enter = () => {
         initializeCenterOfWindow()
-        frameRate(200)
+        frameRate(60)
 
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
@@ -49,23 +49,17 @@ function Game()
 
         if(DEBUGMODE === true){
             this.debugScene();
-            showKeyOnMap()
+            showKeyOnMap(handPoseHistory)
             mooveKeyOnMap()
         }
 
-        this.drawHandHistory()
+        this.checkHand()
     }
 
-    this.drawHandHistory = () => {
-        if(handPoseHistory.right.length > 0)
-            handPoseHistory.right[0].life--
-
+    this.checkHand = () => {
         // Boucle on the right hand history
-        for (let i = 1; i < handPoseHistory.right.length; i++) {
-            // Draw of the back of that
+        for (let i = 0; i < handPoseHistory.right.length; i++) {
             const hand = handPoseHistory.right[i];
-            line(handPoseHistory.right[i-1].x, handPoseHistory.right[i-1].y,hand.x, hand.y)
-            circle(hand.x, hand.y, 10, 10)
             hand.life--;
         }
 
@@ -93,8 +87,7 @@ function Game()
 
     this.getHandForHistory = (hand) => {
         return {
-            x: hand.x,
-            y: hand.y,
+            position: createVector(hand.x, hand.y),
             confidence: hand.confidence,
             life: lifeTime
         }

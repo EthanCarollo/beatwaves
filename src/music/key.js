@@ -1,7 +1,7 @@
 let keyOnMap = []
 let keyWidth = 40
 let keyHeight = 40
-let keySpeed = 1
+let keySpeed = 0.25
 let centerOfMap;
 
 // Function called on every resize of the window & at the start of the game
@@ -10,11 +10,61 @@ const initializeCenterOfWindow = () => {
 }
 
 // Function called every frames to show the key on map
-const showKeyOnMap = () =>{
-    fill(255,255,255)
+const showKeyOnMap = (handPoseHist) =>{
     for(key of keyOnMap){
+        if(key.isClean === true){
+            fill(0,0,255)
+        }else{
+            fill(255,0,0)
+        }
         rect(key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
+        keyIsInside(handPoseHist, key)
     }
+}
+
+const keyIsInside = (handPoseHistory, key) => {
+    let trailSize = 15;
+    fill(255,255,255,120)
+    let cnt = 0
+    // Boucle on the right hand history
+    for (let i = 1; i < handPoseHistory.right.length; i++) {
+        // Draw of the back of that
+        const hand = handPoseHistory.right[i];
+        let edge1 = {
+            x1 : hand.position.x-trailSize, 
+            y1 : hand.position.y,
+            x2 : handPoseHistory.right[i-1].position.x-trailSize, 
+            y2 : handPoseHistory.right[i-1].position.y
+        }
+        if(keyIsInEdge(key, edge1)===true){
+            cnt++
+        }
+        
+        let edge2 = {
+            x1 : hand.position.x+trailSize, 
+            y1 : hand.position.y,
+            x2 : handPoseHistory.right[i-1].position.x+trailSize, 
+            y2 : handPoseHistory.right[i-1].position.y
+        }
+        if (keyIsInEdge(key, edge2)===true){
+            cnt++
+        }
+        line(edge1.x1, edge1.y1, edge1.x2, edge1.y2)
+        line(edge2.x1, edge2.y1, edge2.x2, edge2.y2)
+        //circle(hand.position.x, hand.position.y, 15, 15)
+    }
+    fill(255,0,0)
+    if(cnt%2===1){
+        key.isClean = true
+    }
+}
+
+function keyIsInEdge(key,edge){
+    if((key.position.y < edge.y1) !== (key.position.y < edge.y2) && 
+    key.position.x < edge.x1 + ((key.position.y - edge.y1)/(edge.y2-edge.y1))*(edge.x2-edge.x1)){
+        return true
+    }
+    return false
 }
 
 // Function called every frame if we need to moove the key on map
@@ -52,7 +102,7 @@ const playKey = (key) => {
         console.log("/-- Key has been played --/")
     // ! Temporary use 8n for the vel, it is just for debugging actually because i didn't
     // ! find any other solutions
-    key.instr.triggerAttackRelease(key.note, "8n");
+    // key.instr.triggerAttackRelease(key.note, "8n");
     key.isPlayed = true;
 }
 
@@ -71,6 +121,7 @@ const getRandomKey = (note, velocity, instrument = classicSynth) => {
     return {
         position : createVector(xPosition,yPosition), // Position on map of the note
         note: note, // The note of... the note..
+        isClean: false,
         vel: velocity, // The velocity of the note
         isPlayed: false, // If the note is played or no
         instr : instrument, // The instrument of the note
