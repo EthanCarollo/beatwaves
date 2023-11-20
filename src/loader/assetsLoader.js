@@ -7,7 +7,7 @@ var Assets = { }
 var Instruments = { }
 
 /**
- * This function return an asset 
+ * This function return an asset by passing an asset slug
  * @param {string} asset_slug the slug of the asset to uppercase
  * @returns 
  */
@@ -32,14 +32,17 @@ function loadAssets(path, assetname, _assetIterator){
 }
 
 /**
- * 
+ * A function called after an asset is loaded
  * @param {string} assetname 
  */
 function assetsLoaded (assetname){
     if(DEBUGMODE === true)
         console.log("Extra Load for : - " + assetname)
+
     switch(assetname){
         case "INSTRUMENTS":
+            // This code will add to the instruments object a new synth with every sample of
+            // the instruments in the instrument.json
             for(instrument of Object.keys(Assets.get(assetname).instruments)){
                 Instruments[instrument] = new Tone.Sampler({
                     urls: Assets.get(assetname).instruments[instrument],
@@ -48,6 +51,7 @@ function assetsLoaded (assetname){
             }
             break;
         default :
+            console.log("Extra Load Not registered for : - " + assetname)
             break;
     }
 }
@@ -58,6 +62,7 @@ function assetsLoaded (assetname){
  */
 function loadAllAssets(_ASSETSPATH){
     // Need to tell the variable she is in an array to make it a reference for a function
+    // This is probably stupid but it is the only solution i found quickly
     var assetsIterator = [0]
     for(assetsName of Object.keys(_ASSETSPATH)){
         loadAssets(_ASSETSPATH[assetsName], assetsName, assetsIterator);

@@ -31,21 +31,24 @@ function MainMenu()
         document.getElementById("game_caroussel").style.display = "flex"
         let splideList = document.getElementById("splide__list")
         splideList.innerHTML = ""
-        for(song of Assets.get("songs").songs){
-            // Happends the text document
-            var doc = document.createElement("div")
+        for (let i = 0; i < Assets.get("songs").songs.length; i++) {
+            const song = Assets.get("songs").songs[i];
+            // Appends the text document
+            let doc = document.createElement("div")
             doc.classList.add("song_element")
             doc.classList.add("splide__slide")
             doc.innerHTML = "<h1>"+song.nameSong+"</h1>"
+
+            let song_button = document.createElement("button")
+            song_button.innerHTML = "Choose Music"
+            song_button.addEventListener("click", () => {
+                console.log(song.nameSong)
+                initializeMusic(song)
+                this.goNextScene()
+            })   
+            doc.appendChild(song_button)
             splideList.appendChild(doc)
 
-            var button = document.createElement("button")
-            button.innerHTML = "Choose Music"
-            button.addEventListener("click", () => {
-                initializeMusic()
-                this.goNextScene()
-            })
-            doc.appendChild(button)
         }
     }
 

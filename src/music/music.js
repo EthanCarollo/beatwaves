@@ -2,7 +2,7 @@
 let classicSynth = new Tone.Synth();
 
 // Function need to be called by a button from a player action
-const initializeMusic = () => {
+const initializeMusic = (melody = null) => {
     Tone.start()
     classicSynth.toDestination();
     audioIsLoad = true
@@ -15,6 +15,10 @@ const initializeMusic = () => {
         classicSynth.triggerAttackRelease("C4", "8n");
         console.log("Set every instruments to destination")
     }
+
+    if(melody !== null){
+        console.log(melody)
+    }
     
 }
 
@@ -24,7 +28,7 @@ if(DEBUGMODE === true){
     document.getElementById("active-music-debug-button").addEventListener("click" , () => {
         initializeMusic()
         // And then make the button disappear, this can be problematic for some reason so, if you
-        // have a problem with that, you can easily comment this line
+        // have a problem with that, you can easily comment the line behind
         document.getElementById("active-music-debug-button").style.display = "none"
     })
 }

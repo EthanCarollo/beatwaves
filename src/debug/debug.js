@@ -7,5 +7,4 @@ function logGameInformations(){
     console.log('/----AUDIO LOADED : '+audioIsLoad+'----/');
     console.log('/---ASSETS LOADED : '+isAssetsLoaded+'----/');
     console.log('/----------------------------/');
-
 }

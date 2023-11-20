@@ -22,6 +22,11 @@ const showKeyOnMap = (handPoseHist) =>{
     }
 }
 
+/**
+ * Check if the key is inside a rail
+ * @param {*} handPoseHistory 
+ * @param {*} key 
+ */
 const keyIsInside = (handPoseHistory, key) => {
     let trailSize = 15;
     fill(255,255,255,120)
@@ -59,6 +64,12 @@ const keyIsInside = (handPoseHistory, key) => {
     }
 }
 
+/**
+ * Check if the key is between some edge
+ * @param {*} key 
+ * @param {*} edge 
+ * @returns 
+ */
 function keyIsInEdge(key,edge){
     if((key.position.y < edge.y1) !== (key.position.y < edge.y2) && 
     key.position.x < edge.x1 + ((key.position.y - edge.y1)/(edge.y2-edge.y1))*(edge.x2-edge.x1)){
@@ -102,7 +113,7 @@ const playKey = (key) => {
         console.log("/-- Key has been played --/")
     // ! Temporary use 8n for the vel, it is just for debugging actually because i didn't
     // ! find any other solutions
-    // key.instr.triggerAttackRelease(key.note, "8n");
+    key.instr.triggerAttackRelease(key.note, "8n");
     key.isPlayed = true;
 }
 
