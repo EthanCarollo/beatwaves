@@ -17,9 +17,21 @@ const initializeMusic = (melody = null) => {
     }
 
     if(melody !== null){
-        console.log(melody)
+        initializeMelody(melody)
     }
     
+}
+
+const initializeMelody = (melody) => {
+    let melo = melody.melo_principal.melody.notes
+    console.log(melo)
+    for(melo_key of melo){
+        const meloof = melo_key;
+        setTimeout(() => {
+            console.log(meloof)
+            keyOnMap.push(getRandomKey(meloof.name, "n8", meloof.end - meloof.start, Instruments.cloud_key))
+        }, melo_key.start*1000);
+    }
 }
 
 // This is used for debug so, if we are in debug mode, we have a button for active music at every moment

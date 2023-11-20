@@ -33,9 +33,6 @@ function Game()
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
 
-        setInterval(() => {
-            keyOnMap.push(getRandomKey("C5", "n8", Instruments.cloud_key))
-        }, 1000);
     }
 
     // draw() is the normal draw function, this function work like a scene

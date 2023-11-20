@@ -50,9 +50,25 @@ function assetsLoaded (assetname){
                 })
             }
             break;
+        case "SONGS":
+            // Fetch the differents melody in the assets and set it to the melody key
+            fetchSongs()
+            break;
         default :
             console.log("Extra Load Not registered for : - " + assetname)
             break;
+    }
+}
+
+const fetchSongs = () => {
+    let assetname = "SONGS";
+    for (let i = 0; i < Assets[assetname].songs.length; i++) {
+        const song = Assets[assetname].songs[i];
+        fetch(song.melo_principal.melody_url)
+            .then(res => res.json())
+            .then(res => {
+                song.melo_principal["melody"] = res
+            })
     }
 }
 

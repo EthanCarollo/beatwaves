@@ -111,9 +111,9 @@ const mooveKeyTo = (key, destination) => {
 const playKey = (key) => {
     if(DEBUGMODE === true)
         console.log("/-- Key has been played --/")
-    // ! Temporary use 8n for the vel, it is just for debugging actually because i didn't
-    // ! find any other solutions
-    key.instr.triggerAttackRelease(key.note, "8n");
+    
+    let time_now = Tone.now();
+    key.instr.triggerAttackRelease(key.note, "+"+key.timeNote);
     key.isPlayed = true;
 }
 
@@ -124,7 +124,7 @@ const playKey = (key) => {
  * @param {Instrument} instrument an instrument from tone js used for the key
  * @returns {object} return a key object
  */
-const getRandomKey = (note, velocity, instrument = classicSynth) => {
+const getRandomKey = (note, velocity, noteTime, instrument = classicSynth) => {
     // This will generate a random position for the key actually
     let isHorizontal = getRandomBool()
     let xPosition = isHorizontal ? getRandomInt(width) : (getRandomBool() ? width : 0)
@@ -133,6 +133,7 @@ const getRandomKey = (note, velocity, instrument = classicSynth) => {
         position : createVector(xPosition,yPosition), // Position on map of the note
         note: note, // The note of... the note..
         isClean: false,
+        timeNote : noteTime,
         vel: velocity, // The velocity of the note
         isPlayed: false, // If the note is played or no
         instr : instrument, // The instrument of the note
