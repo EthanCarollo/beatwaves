@@ -2,24 +2,24 @@
     "songs": [
         {
             "melo_principal": {
-                "melody": "./songs/1/melo_one.json",
+                "melody_url": "./resources/songs/1/melo_one.json",
                 "instrument": "cloud_key"
             },
             "different_melo": [
                 {
-                    "melody": "./songs/1/melo_two.json",
+                    "melody_url": "./resources/songs/1/melo_two.json",
                     "instrument": "cloud_key"
                 },
                 {
-                    "melody": "./songs/1/melo_three.json",
+                    "melody_url": "./resources/songs/1/melo_three.json",
                     "instrument": "cloud_key"
                 },
                 {
-                    "melody": "./songs/1/melo_four.json",
+                    "melody_url": "./resources/songs/1/melo_four.json",
                     "instrument": "cloud_key"
                 },
                 {
-                    "melody": "./songs/1/melo_five.json",
+                    "melody_url": "./resources/songs/1/melo_five.json",
                     "instrument": "cloud_key"
                 }
             ],
@@ -27,12 +27,12 @@
         },
         {
             "melo_principal": {
-                "melody": "./songs/1/melo_one.json",
+                "melody_url": "./resources/songs/1/melo_one.json",
                 "instrument": "cloud_key"
             },
             "different_melo": [
                 {
-                    "melody": "./songs/1/melo_one.json",
+                    "melody_url": "./resources/songs/1/melo_one.json",
                     "instrument": "cloud_key"
                 }
             ],
@@ -40,12 +40,12 @@
         },
         {
             "melo_principal": {
-                "melody": "./songs/1/melo_one.json",
+                "melody_url": "./resources/songs/1/melo_one.json",
                 "instrument": "cloud_key"
             },
             "different_melo": [
                 {
-                    "melody": "./songs/1/melo_one.json",
+                    "melody_url": "./resources/songs/1/melo_one.json",
                     "instrument": "cloud_key"
                 }
             ],
