@@ -50,6 +50,13 @@ function Game()
             mooveKeyOnMap()
         }
 
+        if(gameEnd === true){
+            if(DEBUGMODE === true){
+                console.log("GAME IS FINISH ! --->")
+            }
+            this.goNextScene()
+        }
+
         this.checkHand()
     }
 
@@ -95,6 +102,10 @@ function Game()
         sceneIsLoaded = true
         if(DEBUGMODE === true)
             console.log('/-Model Loaded, you can play-/');
+    }
+
+    this.goNextScene = () => {
+        SceneManager.showNextScene()
     }
 
     //#region Debug Functions
