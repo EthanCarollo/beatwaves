@@ -2,6 +2,7 @@
  * This is the Intro scene, played as the start
  */
 function Intro() {
+    let isIntroFinish = false
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = function () {
@@ -13,7 +14,14 @@ function Intro() {
         this.splashScreen()
     }
 
-    this.showRequest = function () {
+    this.draw = () => {
+        // Go automatically to the next scene if the asset is loaded and the intro is finished
+        if(isIntroFinish === true && isAssetsLoaded === true){
+            this.goNextScene()
+        }
+    }
+
+    this.showRequest = () => {
         // Show capture text
         anime({
             targets: ".request_capture",
@@ -25,7 +33,7 @@ function Intro() {
         })
     }
 
-    this.requestCapture = function(){
+    this.requestCapture = () => {
         video = createCapture(VIDEO, () => {
             video.size(width, height);
             video.hide();
@@ -36,14 +44,15 @@ function Intro() {
                 complete: () => {
                     // Hide request capture text and go next scene
                     document.getElementById("request_capture").style.display = "none"
-                    this.goNextScene()
+                    console.log(isIntroFinish)
+                    isIntroFinish = true;
                 }
             })
 
         });
     }
 
-    this.splashScreen = function () {
+    this.splashScreen = () => {
         var animationSplashScreen = new Letterize({
             targets: ".splash_screen"
         });
@@ -67,11 +76,6 @@ function Intro() {
                 translateY: 0,
                 opacity: 0
             });
-    }
-
-    // draw() is the normal draw function, this function work like a scene
-    this.draw = function () {
-
     }
 
     this.goNextScene = () => {

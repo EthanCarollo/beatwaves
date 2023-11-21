@@ -3,7 +3,8 @@ const DEBUGMODE = true;
 
 const ASSETSPATH = {
     SONGS: "./resources/songs/songs.json",
-    INSTRUMENTS: "./resources/instruments/instruments.json"
+    INSTRUMENTS: "./resources/instruments/instruments.json",
+    IMAGES: "./resources/image.json"
 }
 
 var isAssetsLoaded = false;
