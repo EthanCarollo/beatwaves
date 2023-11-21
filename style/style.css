@@ -12,7 +12,9 @@
 .song_element{
     width: 20vw;
     height: 20vw;
-    background-color: rgba(0, 255, 255, 0.431);
+    background-size: 20%;
+    color: #fff;
+    image-rendering: pixelated;
     display: flex;
     flex-direction: column;
     align-items: center;

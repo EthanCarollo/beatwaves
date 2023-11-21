@@ -1,0 +1,12 @@
+{
+    "data": [
+        {
+            "id" : 0,
+            "url": "./assets/debug/debug-asset.png"
+        },
+        {
+            "id" : 1,
+            "url": "./assets/debug/debug-asset-lightblue.png"
+        }
+    ]
+}

@@ -36,6 +36,7 @@ function MainMenu()
             // Appends the text document
             let doc = document.createElement("div")
             doc.classList.add("song_element")
+            doc.style.backgroundImage = "url("+Assets.get("IMAGES").data[0].url+")";
             doc.classList.add("splide__slide")
             doc.innerHTML = "<h1>"+song.nameSong+"</h1>"
 
