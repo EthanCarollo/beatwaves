@@ -105,6 +105,14 @@ function Game()
     }
 
     this.goNextScene = () => {
+        if(DEBUGMODE){
+            console.log("Clear Melody + Clear HandPoseHistory")
+        }
+        clearMelody()
+        handPoseHistory = {
+            "right" : [],
+            "left" : []
+        }
         SceneManager.showNextScene()
     }
 
