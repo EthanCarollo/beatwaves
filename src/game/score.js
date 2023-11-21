@@ -1,32 +1,31 @@
-
 const alphabeticalNotation = {
     "S": {
-        "Pourcent": 94,
-        "ScoreMin": null
+        "pourcent": 94,
+        "scoreMin": null
     },
     "A": {
-        "Pourcent": 84,
-        "ScoreMin": null
+        "pourcent": 84,
+        "scoreMin": null
     },
     "B": {
-        "Pourcent": 68,
-        "ScoreMin": null
+        "pourcent": 68,
+        "scoreMin": null
     },
     "C": {
-        "Pourcent": 52,
-        "ScoreMin": null
+        "pourcent": 52,
+        "scoreMin": null
     },
     "D": {
-        "Pourcent": 36,
-        "ScoreMin": null
+        "pourcent": 36,
+        "scoreMin": null
     },
     "E": {
-        "Pourcent": 20,
-        "ScoreMin": null
+        "pourcent": 20,
+        "scoreMin": null
     },
     "F": {
-        "Pourcent": 4,
-        "ScoreMin": null
+        "pourcent": 4,
+        "scoreMin": null
     }
 }
 
@@ -45,12 +44,22 @@ const overallScore = (keyTouch, keyMiss) => {
     * @returns {object} return a key object
     */
     const resultScore = (keyTouch, keyMiss) => {
-        let score
-        return score = {
-            "ScorePlayer": (keyTouch * 300) - (keyMiss * 200),
-            "MaxRating": (keyTouch + keyMiss) * 300,
-            "Touch": keyTouch,
-            "Miss": keyMiss
+        let scorePlayer, isLower
+
+        if (keyTouch < keyMiss) {
+            isLower = true
+            scorePlayer = 0
+        } else {
+            isLower = false
+            scorePlayer = (keyTouch * 300) - (keyMiss * 200)
+        }
+
+        return {
+            "scorePlayer": scorePlayer,
+            "maxRating": (keyTouch + keyMiss) * 300,
+            "touch": keyTouch,
+            "miss": keyMiss,
+            "isLower": isLower
         }
     }
 
@@ -64,8 +73,8 @@ const overallScore = (keyTouch, keyMiss) => {
         const newNotation = {};
 
         newNotation['S'] = {
-            Pourcent: 100,
-            ScoreMin: resultNotation,
+            pourcent: 100,
+            scoreMin: resultNotation,
         };
 
         let currentScoreMin = resultNotation;
@@ -74,8 +83,8 @@ const overallScore = (keyTouch, keyMiss) => {
             const scoreMin = Math.max(currentScoreMin - reduction, 0);
 
             newNotation[grade] = {
-                Pourcent: alphabeticalNotation[grade].Pourcent,
-                ScoreMin: scoreMin,
+                pourcent: alphabeticalNotation[grade].pourcent,
+                scoreMin: scoreMin,
             };
 
             currentScoreMin = scoreMin;
@@ -89,19 +98,20 @@ const overallScore = (keyTouch, keyMiss) => {
     * @param {string} scorePlayer a player score string
     * @returns {object} return a key object
     */
-    function thresholdLevelPoint(gradeThreshold, scorePlayer) {
+    function thresholdLevelPoint(gradeThreshold, scorePlayer, isLower) {
         const matchingGrades = {
             Max: null,
             Min: null,
         };
-
         Object.entries(gradeThreshold).forEach(([grade, info]) => {
-            if (scorePlayer >= info.ScoreMin) {
-                if (!matchingGrades.Min || info.ScoreMin > matchingGrades.Min.ScoreMin) {
-                    matchingGrades.Min = { Grade: grade, Pourcent: info.Pourcent, ScoreMin: info.ScoreMin };
+            if (scorePlayer >= info.scoreMin) {
+                if (!matchingGrades.Min || info.scoreMin > matchingGrades.Min.scoreMin) {
+                    matchingGrades.Min = { grade: grade, pourcent: info.pourcent, scoreMin: info.scoreMin };
                 }
-            } else if (!matchingGrades.Max || info.ScoreMin < matchingGrades.Max.ScoreMin) {
-                matchingGrades.Max = { Grade: grade, Pourcent: info.Pourcent, ScoreMax: info.ScoreMin };
+            } else if (!matchingGrades.Max || info.scoreMin < matchingGrades.Max.scoreMin) {
+                matchingGrades.Max = { grade: grade, pourcent: info.pourcent, scoreMax: info.scoreMin };
+            } else if (isLower) {
+                matchingGrades.Min = { grade: "F", pourcent: info.pourcent, scoreMin: info.scoreMin };
             }
         });
         return matchingGrades
@@ -116,34 +126,45 @@ const overallScore = (keyTouch, keyMiss) => {
     * @param {string} percentageMax a string that contains the maximum value of the player's highest percentage
     * @returns {object} return a key object
     */
-    function valueTwoPercentage(valueScorePlayer, valueMinRating, valueMaxRating, percentageMinRating, percentageMaxRating) {
-        let differencePercentage = percentageMaxRating - percentageMinRating;
+    function valueTwoPercentage(valueScorePlayer, valueMinRating, valueMaxRating, percentageMinRating, percentageMaxRating, isLower) {
+        let percentageFinal
+        if (isLower) {
 
-        let proportion = differencePercentage * ((valueScorePlayer - valueMinRating) / (valueMaxRating - valueMinRating));
+            percentageFinal = "0"
 
-        let percentageFinal = percentageMinRating + proportion;
+            return percentageFinal;
 
-        return percentageFinal;
+        } else {
+
+            let differencePercentage = percentageMaxRating - percentageMinRating;
+
+            let proportion = differencePercentage * ((valueScorePlayer - valueMinRating) / (valueMaxRating - valueMinRating));
+
+            percentageFinal = percentageMinRating + proportion;
+
+            return percentageFinal;
+        }
     }
 
-    // This variable allows the use of data and easier readability
+    //! This variable allows the use of data and easier readability
     let score = {
-        "ScoreMin": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).MaxRating), resultScore(keyTouch, keyMiss).ScorePlayer).Min.ScoreMin,
-        "ScoreMax": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).MaxRating), resultScore(keyTouch, keyMiss).ScorePlayer).Max.ScoreMax,
-        "MinPourcent": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).MaxRating), resultScore(keyTouch, keyMiss).ScorePlayer).Min.Pourcent,
-        "ScoreMaxPourcent": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).MaxRating), resultScore(keyTouch, keyMiss).ScorePlayer).Max.Pourcent,
-        "Note": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).MaxRating), resultScore(keyTouch, keyMiss).ScorePlayer).Min.Grade
+        "scoreMin": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).maxRating), resultScore(keyTouch, keyMiss).scorePlayer, resultScore(keyTouch, keyMiss).isLower).Min.scoreMin,
+        "scoreMax": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).maxRating), resultScore(keyTouch, keyMiss).scorePlayer, resultScore(keyTouch, keyMiss).isLower).Max.scoreMax,
+        "minPourcent": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).maxRating), resultScore(keyTouch, keyMiss).scorePlayer, resultScore(keyTouch, keyMiss).isLower).Min.pourcent,
+        "scoreMaxPourcent": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).maxRating), resultScore(keyTouch, keyMiss).scorePlayer, resultScore(keyTouch, keyMiss).isLower).Max.pourcent,
+        "note": thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, keyMiss).maxRating), resultScore(keyTouch, keyMiss).scorePlayer, resultScore(keyTouch, keyMiss).isLower).Min.grade
     }
 
     //! This variable collects all the information for the dataviz at the end of the game
     allInformationScore = {
-        "Keys touch": resultScore(keyTouch, keyMiss).Touch,
-        "Keys miss": resultScore(keyTouch, keyMiss).Miss,
-        "Maximum score": resultScore(keyTouch, keyMiss).MaxRating + " pts",
-        "Maximum score": resultScore(keyTouch, keyMiss).MaxRating + " pts",
-        "Player Score": resultScore(keyTouch, keyMiss).ScorePlayer + " pts",
-        "Success percentage": valueTwoPercentage(resultScore(keyTouch, keyMiss).ScorePlayer, score.ScoreMin, score.ScoreMax, score.MinPourcent, score.ScoreMaxPourcent) + "%",
-        "Player rating": score.Note
+        "keysTouch": resultScore(keyTouch, keyMiss).touch,
+        "keysMiss": resultScore(keyTouch, keyMiss).miss,
+        "maximumScore": resultScore(keyTouch, keyMiss).maxRating + " pts",
+        "playerScore": resultScore(keyTouch, keyMiss).scorePlayer + " pts",
+        "successPercentage": Math.round(valueTwoPercentage(resultScore(keyTouch, keyMiss).scorePlayer, score.scoreMin, score.scoreMax, score.minPourcent, score.scoreMaxPourcent, resultScore(keyTouch, keyMiss).isLower)) + "%",
+        "playerRating": score.note
     }
     console.log(allInformationScore)
+
+    return allInformationScore
 }

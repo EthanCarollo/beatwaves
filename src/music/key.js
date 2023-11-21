@@ -3,6 +3,11 @@ let keyWidth = 40
 let keyHeight = 40
 let keySpeed = 0.25
 let centerOfMap;
+let TouchOrNot = {
+    "Touch":0,
+    "Miss":0
+}
+
 
 
 // Function called on every resize of the window & at the start of the game
@@ -113,6 +118,13 @@ const playKey = (key) => {
     if (DEBUGMODE === true)
         console.log("/-- Key has been played --/")
     
+    if (key.isClean === true){
+        TouchOrNot.Touch++
+        lifeSystem(TouchOrNot.Miss, true, false)
+    } else if(!key.isClean){
+        TouchOrNot.Miss++
+        lifeSystem(TouchOrNot.Miss, false, false)
+    }
     let time_now = Tone.now();
     key.instr.triggerAttackRelease(key.note, "+"+key.timeNote);
     key.isPlayed = true;

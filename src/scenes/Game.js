@@ -39,7 +39,7 @@ function Game()
     this.draw = () => {
         // this scene needs to be loaded if we want to draw in
         if(sceneIsLoaded === false) return;
-
+        lifeSystem(null,null,true)
         
         this.registerHandPosition()
         
