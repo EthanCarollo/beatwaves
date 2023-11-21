@@ -10,6 +10,83 @@
             "F#5" : "assets/instruments/cloud_keys/HS_D_FS5_1.wav",
             "G5" : "assets/instruments/cloud_keys/HS_D_GS5_1.wav",
             "G#5" : "assets/instruments/cloud_keys/HS_D_G5_1.wav"
+        },
+        "clean_gr_key" : {
+            "C5" : "assets/instruments/clean_gr_keys/C5.wav",
+            "C#5" : "assets/instruments/clean_gr_keys/CS5.wav",
+            "D5" : "assets/instruments/clean_gr_keys/D5.wav",
+            "D#5" : "assets/instruments/clean_gr_keys/DS5.wav",
+            "E5" : "assets/instruments/clean_gr_keys/E5.wav",
+            "F5" : "assets/instruments/clean_gr_keys/F5.wav",
+            "F#5" : "assets/instruments/clean_gr_keys/FS5.wav",
+            "G5" : "assets/instruments/clean_gr_keys/GS5.wav",
+            "G#5" : "assets/instruments/clean_gr_keys/G5.wav"
+        },
+        "8-bit-pluck" : {
+            "C5" : "assets/instruments/8-bit-pluck/C5.wav",
+            "C#5" : "assets/instruments/8-bit-pluck/CS5.wav",
+            "D5" : "assets/instruments/8-bit-pluck/D5.wav",
+            "D#5" : "assets/instruments/8-bit-pluck/DS5.wav",
+            "E5" : "assets/instruments/8-bit-pluck/E5.wav",
+            "F5" : "assets/instruments/8-bit-pluck/F5.wav",
+            "F#5" : "assets/instruments/8-bit-pluck/FS5.wav",
+            "G5" : "assets/instruments/8-bit-pluck/GS5.wav",
+            "G#5" : "assets/instruments/8-bit-pluck/G5.wav"
+        },
+        "8-bit-ease-pluck" : {
+            "C5" : "assets/instruments/8-bit-ease-pluck/C5.wav",
+            "C#5" : "assets/instruments/8-bit-ease-pluck/CS5.wav",
+            "D5" : "assets/instruments/8-bit-ease-pluck/D5.wav",
+            "D#5" : "assets/instruments/8-bit-ease-pluck/DS5.wav",
+            "E5" : "assets/instruments/8-bit-ease-pluck/E5.wav",
+            "F5" : "assets/instruments/8-bit-ease-pluck/F5.wav",
+            "F#5" : "assets/instruments/8-bit-ease-pluck/FS5.wav",
+            "G5" : "assets/instruments/8-bit-ease-pluck/GS5.wav",
+            "G#5" : "assets/instruments/8-bit-ease-pluck/G5.wav"
+        },
+        "8-bit-wavescan-pluck" : {
+            "C5" : "assets/instruments/8-bit-wavescan-pluck/C5.wav",
+            "C#5" : "assets/instruments/8-bit-wavescan-pluck/CS5.wav",
+            "D5" : "assets/instruments/8-bit-wavescan-pluck/D5.wav",
+            "D#5" : "assets/instruments/8-bit-wavescan-pluck/DS5.wav",
+            "E5" : "assets/instruments/8-bit-wavescan-pluck/E5.wav",
+            "F5" : "assets/instruments/8-bit-wavescan-pluck/F5.wav",
+            "F#5" : "assets/instruments/8-bit-wavescan-pluck/FS5.wav",
+            "G5" : "assets/instruments/8-bit-wavescan-pluck/GS5.wav",
+            "G#5" : "assets/instruments/8-bit-wavescan-pluck/G5.wav"
+        },
+        "behind_pad" : {
+            "C5" : "assets/instruments/behind_pad/C5.wav",
+            "C#5" : "assets/instruments/behind_pad/CS5.wav",
+            "D5" : "assets/instruments/behind_pad/D5.wav",
+            "D#5" : "assets/instruments/behind_pad/DS5.wav",
+            "E5" : "assets/instruments/behind_pad/E5.wav",
+            "F5" : "assets/instruments/behind_pad/F5.wav",
+            "F#5" : "assets/instruments/behind_pad/FS5.wav",
+            "G5" : "assets/instruments/behind_pad/GS5.wav",
+            "G#5" : "assets/instruments/behind_pad/G5.wav"
+        },
+        "digital_chimes_key" : {
+            "C5" : "assets/instruments/digital_chimes_key/C5.wav",
+            "C#5" : "assets/instruments/digital_chimes_key/CS5.wav",
+            "D5" : "assets/instruments/digital_chimes_key/D5.wav",
+            "D#5" : "assets/instruments/digital_chimes_key/DS5.wav",
+            "E5" : "assets/instruments/digital_chimes_key/E5.wav",
+            "F5" : "assets/instruments/digital_chimes_key/F5.wav",
+            "F#5" : "assets/instruments/digital_chimes_key/FS5.wav",
+            "G5" : "assets/instruments/digital_chimes_key/GS5.wav",
+            "G#5" : "assets/instruments/digital_chimes_key/G5.wav"
+        },
+        "entertaining_bell" : {
+            "C5" : "assets/instruments/entertaining_bell/C5.wav",
+            "C#5" : "assets/instruments/entertaining_bell/CS5.wav",
+            "D5" : "assets/instruments/entertaining_bell/D5.wav",
+            "D#5" : "assets/instruments/entertaining_bell/DS5.wav",
+            "E5" : "assets/instruments/entertaining_bell/E5.wav",
+            "F5" : "assets/instruments/entertaining_bell/F5.wav",
+            "F#5" : "assets/instruments/entertaining_bell/FS5.wav",
+            "G5" : "assets/instruments/entertaining_bell/GS5.wav",
+            "G#5" : "assets/instruments/entertaining_bell/G5.wav"
         }
     }
 }
