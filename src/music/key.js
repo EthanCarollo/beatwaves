@@ -120,8 +120,7 @@ const playKey = (key) => {
     if(DEBUGMODE === true)
         console.log("/-- Key has been played --/")
     
-
-    key.instr.triggerAttackRelease(key.note, "+"+key.timeNote);
+    key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
     key.isPlayed = true;
 }
 
