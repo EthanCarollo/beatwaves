@@ -128,10 +128,10 @@ const playKey = (key) => {
     
     if (key.isClean === true){
         TouchOrNot.Touch++
-        lifeSystem(TouchOrNot.Miss, true, false)
+        lifeSystem(TouchOrNot.Miss, true)
     } else if(!key.isClean){
         TouchOrNot.Miss++
-        lifeSystem(TouchOrNot.Miss, false, false)
+        lifeSystem(TouchOrNot.Miss, false)
     }
     let time_now = Tone.now();
     key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
