@@ -50,6 +50,9 @@ function assetsLoaded (assetname){
                 })
             }
             break;
+        case "IMAGES":
+            fetchImage()
+            break;
         case "SONGS":
             // Fetch the differents melody in the assets and set it to the melody key
             fetchSongs()
@@ -57,6 +60,17 @@ function assetsLoaded (assetname){
         default :
             console.log("Extra Load Not registered for : - " + assetname)
             break;
+    }
+    // ! TEMPORARY REMOVE THAT PLZ
+    isAssetsLoaded = true 
+}
+
+const fetchImage = () => {
+    let assetname = "IMAGES";
+    const images = Assets[assetname].data
+    for (let i = 0; i < images.length; i++) {
+        const image = images[i];
+        image.img = loadImage(image.url);
     }
 }
 
@@ -95,4 +109,3 @@ function loadAllAssets(_ASSETSPATH){
     }
 }
 
-loadAllAssets(ASSETSPATH)

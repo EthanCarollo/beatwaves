@@ -7,8 +7,12 @@ const SCENELIST = [
     EndMenu
 ]
 
-function setup()
-{
+function preload(){
+    loadAllAssets(ASSETSPATH)
+}
+
+
+function setup(){
 
     createCanvas(window.innerWidth, window.innerHeight);
 
