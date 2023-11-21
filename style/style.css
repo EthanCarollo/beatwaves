@@ -14,11 +14,19 @@
     height: 20vw;
     background-size: 20%;
     color: #fff;
+    opacity: 50%;
     image-rendering: pixelated;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: all 1s;
+    transform: scale(0.8);
+}
+
+.song_element.is-active{
+    transition: all 1s;
+    transform: scale(1);
 }
 
 #game_caroussel{
