@@ -40,12 +40,12 @@ function Game() {
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
         this.registerHandPosition()
-        this.lifeOfPlayer()
-
+        
         if (DEBUGMODE === true) {
             this.debugScene();
             showKeyOnMap(handPoseHistory)
             mooveKeyOnMap()
+            this.lifeOfPlayer()
         }
 
         if (gameEnd === true) {
@@ -103,11 +103,6 @@ function Game() {
     }
 
 
-    this.lifeOfPlayer = () => {
-        let lifeOfPlayer = playerError - TouchOrNot.Miss
-        // Crée ici par rapport a LifeOfPlayer le nombre de vie
-    }
-
 
     this.goNextScene = () => {
         if (DEBUGMODE) {
@@ -164,6 +159,22 @@ function Game() {
             circle(elementPosition.x, elementPosition.y, 30)
         }
 
+    }
+
+    //Debug function which allows you to view errors/remaining lives
+    this.lifeOfPlayer = () => {
+        let lifePlayer = playerError - TouchOrNot.Error
+        let rectWidth = 20;
+        let rectHeight = 20;
+        let spacing = 20;
+
+        for (let i = 0; i < lifePlayer; i++) {
+            let xPos = i * (rectWidth + spacing); 
+            let yPos = height / 2 - rectHeight / 2;
+
+            fill(255,0,0)
+            rect(xPos, yPos, rectWidth, rectHeight);
+        }
     }
 
     //#endregion
