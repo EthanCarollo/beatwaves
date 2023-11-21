@@ -1,7 +1,7 @@
 let keyOnMap = []
 let keyWidth = 40
 let keyHeight = 40
-let keySpeed = 0.25
+let keySpeed = 180
 let centerOfMap;
 let TouchOrNot = {
     "Touch":0,
@@ -105,9 +105,17 @@ const mooveKeyOnMap = () => {
  * @param {p5.vector} destination a simple p5 vector for the destination
  */
 const mooveKeyTo = (key, destination) => {
-    (Math.abs(key.position.x - destination.x) < 0.1 && Math.abs(key.position.y - destination.y) < 0.1)
-        ? key.position = centerOfMap
-        : key.position.lerp(destination, keySpeed / 15)
+    if(key.speedX === null || key.speedY === null){
+        key.speedX = -((key.position.x - destination.x) / keySpeed )
+        key.speedY = -((key.position.y - destination.y) / keySpeed )
+    }
+
+    if(Math.abs(key.position.x - destination.x) < 0.1 && Math.abs(key.position.y - destination.y) < 0.1) {
+        key.position = centerOfMap
+    }else{
+        key.position.x += key.speedX
+        key.position.y += key.speedY
+    }
 }
 
 /**
@@ -126,7 +134,7 @@ const playKey = (key) => {
         lifeSystem(TouchOrNot.Miss, false, false)
     }
     let time_now = Tone.now();
-    key.instr.triggerAttackRelease(key.note, "+"+key.timeNote);
+    key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
     key.isPlayed = true;
 }
 
@@ -147,6 +155,8 @@ const getRandomKey = (note, velocity, noteTime, instrument = classicSynth) => {
         note: note, // The note of... the note..
         isClean: false,
         timeNote : noteTime,
+        speedX : null,
+        speedY: null,
         vel: velocity, // The velocity of the note
         isPlayed: false, // If the note is played or no
         instr: instrument, // The instrument of the note

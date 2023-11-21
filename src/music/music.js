@@ -3,7 +3,7 @@ let classicSynth = new Tone.Synth();
 let gameEnd = false;
 
 // Function need to be called by a button from a player action
-const initializeMusic = (melody = null) => {
+const initializeMusic = (song = null) => {
     Tone.start()
     classicSynth.toDestination();
     audioIsLoad = true
@@ -17,8 +17,9 @@ const initializeMusic = (melody = null) => {
         console.log("Set every instruments to destination")
     }
 
-    if(melody !== null){
-        initializeMelody(melody)
+    if(song !== null){
+        initializeMelody(song)
+        console.log(song)
     }
     
 }
@@ -27,21 +28,36 @@ const initializeMusic = (melody = null) => {
  * @param {object} melody 
  */
 const initializeMelody = (melody) => {
-    let melo = melody.melo_principal.melody.notes
-
-    // Appends the key in the array with a time out, in that way, we can have the good melody playing
-    for (let i = 0; i < melo.length; i++) {
-        const melody_key = melo[i];
-        setTimeout(() => {
-            keyOnMap.push(getRandomKey(melody_key.name, "n8", melody_key.end - melody_key.start, Instruments.cloud_key))
-        }, melody_key.start*1000);
-    }
+    let mainMelody = melody.melo_principal.melody.notes
+    initializeGameMelody(melody.melo_principal)
+    initalizeOtherMelody(melody.different_melo)
 
     // End the game at the end of the party ! (2500 ms after in fact...)
     setTimeout(() => {
         gameEnd = true;
-    }, melo[melo.length-1].end*1000+2500);
+    }, mainMelody[mainMelody.length-1].end*1000+2500);
 }
+
+const initalizeOtherMelody = (otherMelodies) => {
+    for(melodyObject of otherMelodies){
+        for(note of melodyObject.melody.notes){
+            // ! Play the other note of the melody, it is possible that is not really in time
+            setTimeout(() => {
+                Instruments[melodyObject.instrument].triggerAttackRelease(note.name, "+"+(note.end - note.start), Tone.now(), note.velocity);
+            }, (note.start*1000+keySpeed*10));
+        }
+    }
+}
+
+const initializeGameMelody = (melodyObject) => {
+    for (let i = 0; i < melodyObject.melody.notes.length; i++) {
+        const melody_key = melodyObject.melody.notes[i];
+        setTimeout(() => {
+            keyOnMap.push(getRandomKey(melody_key.name, melody_key.velocity, melody_key.end - melody_key.start, Instruments[melodyObject.instrument]))
+        }, melody_key.start*1000);
+    }
+}
+
 
 // This is used for debug so, if we are in debug mode, we have a button for active music at every moment
 if(DEBUGMODE === true){

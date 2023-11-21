@@ -69,6 +69,16 @@ const fetchSongs = () => {
             .then(res => {
                 song.melo_principal["melody"] = res
             })
+        
+
+        for (let j = 0; j < song.different_melo.length; j++) {
+            const other_melody = song.different_melo[j];
+            fetch(other_melody.melody_url)
+                .then(res => res.json())
+                .then(res => {
+                    other_melody["melody"] = res
+                })
+        }
     }
 }
 
