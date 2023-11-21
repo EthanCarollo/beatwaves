@@ -19,11 +19,11 @@ const initializeCenterOfWindow = () => {
 const showKeyOnMap = (handPoseHist) => {
     for (key of keyOnMap) {
         if (key.isClean === true) {
-            fill(0, 0, 255)
+            image(Assets.get("IMAGES").data[1].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
         } else {
-            fill(255, 0, 0)
+            image(Assets.get("IMAGES").data[0].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
         }
-        rect(key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
+
         keyIsInside(handPoseHist, key)
     }
 }
