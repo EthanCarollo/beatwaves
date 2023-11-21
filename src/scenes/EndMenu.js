@@ -14,7 +14,7 @@ function EndMenu()
 
     // draw() is the normal draw function, this function work like a scene
     this.draw = function(){
-
+        clearMelody()
     }
 
     this.goNextScene = () => {

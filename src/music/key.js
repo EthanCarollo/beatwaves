@@ -5,7 +5,8 @@ let keySpeed = 180
 let centerOfMap;
 let TouchOrNot = {
     "Touch":0,
-    "Miss":0
+    "Miss":0,
+    "Error":0
 }
 
 
@@ -128,10 +129,11 @@ const playKey = (key) => {
     
     if (key.isClean === true){
         TouchOrNot.Touch++
-        lifeSystem(TouchOrNot.Miss, true, false)
+        lifeSystem(TouchOrNot.Error, true)
     } else if(!key.isClean){
         TouchOrNot.Miss++
-        lifeSystem(TouchOrNot.Miss, false, false)
+        TouchOrNot.Error++
+        lifeSystem(TouchOrNot.Error, false)
     }
     let time_now = Tone.now();
     key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);

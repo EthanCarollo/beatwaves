@@ -1,6 +1,7 @@
 //create a synth and connect it to the main output (your speakers)
 let classicSynth = new Tone.Synth();
 let gameEnd = false;
+let timeOutMelody = []
 
 // Function need to be called by a button from a player action
 const initializeMusic = (song = null) => {
@@ -38,26 +39,43 @@ const initializeMelody = (melody) => {
     }, mainMelody[mainMelody.length-1].end*1000+2500);
 }
 
+/**
+ * Initialize the other melodies of the game (the melody played in the background)
+ * @param {Object} otherMelodies 
+ */
 const initalizeOtherMelody = (otherMelodies) => {
     for(melodyObject of otherMelodies){
         for(note of melodyObject.melody.notes){
             // ! Play the other note of the melody, it is possible that is not really in time
-            setTimeout(() => {
+            timeOutMelody.push(setTimeout(() => {
                 Instruments[melodyObject.instrument].triggerAttackRelease(note.name, "+"+(note.end - note.start), Tone.now(), note.velocity);
-            }, (note.start*1000+keySpeed*10));
+            }, (note.start*1000+keySpeed*10)));
         }
     }
 }
 
+/**
+ * Just initialize the main game melody that the player is playing
+ * @param {Object} melodyObject 
+ */
 const initializeGameMelody = (melodyObject) => {
     for (let i = 0; i < melodyObject.melody.notes.length; i++) {
         const melody_key = melodyObject.melody.notes[i];
-        setTimeout(() => {
+        timeOutMelody.push(setTimeout(() => {
             keyOnMap.push(getRandomKey(melody_key.name, melody_key.velocity, melody_key.end - melody_key.start, Instruments[melodyObject.instrument]))
-        }, melody_key.start*1000);
+        }, melody_key.start*1000));
     }
 }
 
+/**
+ * This function will just clear all time out of the incoming melody, so we need to call it at the end of the game
+ */
+const clearMelody = () => {
+    for (let i = 0; i < timeOutMelody.length; i++) {
+        clearTimeout(timeOutMelody[i])
+    }
+    timeOutMelody = []
+}
 
 // This is used for debug so, if we are in debug mode, we have a button for active music at every moment
 if(DEBUGMODE === true){

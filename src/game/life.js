@@ -1,12 +1,15 @@
+let playerError = 5
+
 function lifeSystem(touch, recovery) {
-    let error = 5
     if ((touch != null)) {
-        console.log(touch, error, recovery, gameEnd)
-        if (touch === error && !recovery) {
+        if(DEBUGMODE){
+            // console.log("Touch :" + touch, " | Error :" + playerError, " | Recovery ? " + recovery, " | Game end ? " + gameEnd)
+        }
+        if (touch === playerError && !recovery) {
             gameEnd = true
         } else if (recovery) {
-            error = 0
-            recovery = false
+            playerError = 5
+            TouchOrNot.Error = 0;
         }
     }
 }
