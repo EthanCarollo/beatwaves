@@ -8,11 +8,11 @@ function getRandomBool() {
 
 
 
-function isInRect(pointX, pointY, squareX, squareY, squareSize) {
+function isInRect(pointX, pointY, squareX, squareY, squareWidth, squareHeight) {
   if (DEBUGMODE) {
-    fill(255, 0, 0, 80)
-    rect(squareX, squareY, squareSize)
+    fill(255, 0, 0, 20)
+    rect(squareX, squareY, squareWidth, squareHeight)
   }
 
-  return (pointX >= squareX && pointX <= squareX + squareSize && pointY >= squareY && pointY <= squareY + squareSize)
+  return (pointX >= squareX && pointX <= squareX + squareWidth && pointY >= squareY && pointY <= squareY + squareHeight)
 }

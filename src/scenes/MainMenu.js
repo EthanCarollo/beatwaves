@@ -22,7 +22,8 @@ function MainMenu() {
         outputStride: 16,
         multiplier: 0.75,
         inputResolution: 321,
-        nmsRadius: 30
+        nmsRadius: 30,
+        autoplay: false
     }
 
     // enter() will be executed each time the SceneManager switches
@@ -53,8 +54,6 @@ function MainMenu() {
             gap: '3vw'
         }).mount();
 
-        this.slider.go("+1");
-
     }
 
     this.setCarousselSlide = function () {
@@ -74,7 +73,6 @@ function MainMenu() {
             let song_button = document.createElement("button")
             song_button.innerHTML = "Choose Music"
             song_button.addEventListener("click", () => {
-                console.log(song.nameSong)
                 initializeMusic(song)
                 this.goNextScene()
             })
@@ -164,25 +162,54 @@ function MainMenu() {
 
     }
 
+    const interactiveButtons = [
+        {
+            position: {
+                x:120,
+                y:height/2-200/2
+            },
+            width: 200,
+            height: 200,
+            loading: 0,
+            isReady: false,
+            callback : () => { this.slider.go("-1") }
+        },
+        {
+            position: {
+                x:width-200-120,
+                y:height/2-200/2
+            },
+            width: 200,
+            height: 200,
+            loading: 0,
+            isReady: false,
+            callback : () => { this.slider.go("+1") }
+        },
+        {
+            position: {
+                x:width/2-200/2,
+                y:height-400
+            },
+            width: 200,
+            height: 200,
+            loading: 0,
+            isReady: false,
+            callback : () => { 
+                initializeMusic(Assets.get("songs").songs[this.slider.index])
+                this.goNextScene()
+            }
+        }
+    ]
+
     this.navigateMenu = () => {
         if (DEBUGMODE) {
             // console.log("==== " + handPosition.x + "X ====== ")
             // console.log("==== " + handPosition.y + "Y ====== ")
         }
-        let margin = 140
-        let widthMenu = width - margin - 200
-        let heightMenu = height / 2 - 200 / 2
-        let waitingHand = 0
 
-
-        if (isInRect(handPosition.x, handPosition.y, widthMenu, heightMenu, 300)) {
-            console.log("Je suis a droite")
-        } 
-        else if (isInRect(handPosition.x, handPosition.y, width / 2 - 200 / 2, heightMenu + margin, 200)) {
-            console.log("Je suis au milieu")
-        } 
-        else if (isInRect(handPosition.x, handPosition.y, margin, heightMenu, 300)) {
-            console.log("Je suis a gauche")
+        for (let i = 0; i < interactiveButtons.length; i++) {
+            const button = interactiveButtons[i];
+            showInteractiveButton(button, handPosition)
         }
     }
 }
