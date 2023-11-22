@@ -19,13 +19,20 @@ const initializeCenterOfWindow = () => {
 // Function called every frames to show the key on map
 const showKeyOnMap = (handPoseHist) => {
     for (key of keyOnMap) {
-        if (key.isClean === true) {
-            image(Assets.get("IMAGES").data[1].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
-        } else {
-            image(Assets.get("IMAGES").data[0].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
-        }
+        if(key.isVisible === true){
+            if (key.isClean === true) {
+                image(Assets.get("IMAGES").data[1].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
+            } else {
+                image(Assets.get("IMAGES").data[0].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
+            }
 
-        keyIsInside(handPoseHist, key)
+            keyIsInside(handPoseHist, key)
+        }else{
+            if(DEBUGMODE === true){
+                fill(0,0,255) // The fake key used for play music in background is blue
+                rect(key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20);
+            }
+        }
     }
 }
 
@@ -135,9 +142,27 @@ const playKey = (key) => {
         TouchOrNot.Error++
         lifeSystem(TouchOrNot.Error, false)
     }
-    let time_now = Tone.now();
-    key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
+
+    if(key.isVisible === false){
+        key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
+    }else{
+        if(key.isClean){
+            key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
+        }else{
+            key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
+            //triggerBugKey(key)
+        }
+    }
+
+
     key.isPlayed = true;
+}
+
+const triggerBugKey = (key) => {
+    if(DEBUGMODE){
+        console.log("trigger a bug on a key")
+    }
+    timeGlitched = 5
 }
 
 /**
@@ -147,7 +172,7 @@ const playKey = (key) => {
  * @param {Instrument} instrument an instrument from tone js used for the key
  * @returns {object} return a key object
  */
-const getRandomKey = (note, velocity, noteTime, instrument = classicSynth) => {
+const getRandomKey = (note, velocity, noteTime, instrument = classicSynth, _isVisible = true) => {
     // This will generate a random position for the key actually
     let isHorizontal = getRandomBool()
     let xPosition = isHorizontal ? getRandomInt(width) : (getRandomBool() ? width : 0)
@@ -156,6 +181,7 @@ const getRandomKey = (note, velocity, noteTime, instrument = classicSynth) => {
         position: createVector(xPosition, yPosition), // Position on map of the note
         note: note, // The note of... the note..
         isClean: false,
+        isVisible: _isVisible,
         timeNote : noteTime,
         speedX : null,
         speedY: null,

@@ -2,12 +2,12 @@
     "songs": [
         {
             "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_one.json",
+                "melody_url": "./resources/songs/1/melo_two.json",
                 "instrument": "cloud_key"
             },
             "different_melo": [
                 {
-                    "melody_url": "./resources/songs/1/melo_two.json",
+                    "melody_url": "./resources/songs/1/melo_one.json",
                     "instrument": "cloud_key"
                 },
                 {
@@ -27,13 +27,13 @@
         },
         {
             "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_one.json",
-                "instrument": "8-bit-pluck"
+                "melody_url": "./resources/songs/1/melo_four.json",
+                "instrument": "entertaining_bell"
             },
             "different_melo": [
                 {
                     "melody_url": "./resources/songs/1/melo_one.json",
-                    "instrument": "cloud_key"
+                    "instrument": "8-bit-pluck"
                 }
             ],
             "nameSong": "2"

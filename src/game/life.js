@@ -1,4 +1,4 @@
-let playerError = 5
+let playerError = 9000
 
 function lifeSystem(touch, recovery) {
     if ((touch != null)) {

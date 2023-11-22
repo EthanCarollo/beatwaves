@@ -45,11 +45,14 @@ const initializeMelody = (melody) => {
  */
 const initalizeOtherMelody = (otherMelodies) => {
     for(melodyObject of otherMelodies){
-        for(note of melodyObject.melody.notes){
-            // ! Play the other note of the melody, it is possible that is not really in time
+        // Play the other sounds of the melody
+        for (let i = 0; i < melodyObject.melody.notes.length; i++) {
+            const melody_key = melodyObject.melody.notes[i];
             timeOutMelody.push(setTimeout(() => {
-                Instruments[melodyObject.instrument].triggerAttackRelease(note.name, "+"+(note.end - note.start), Tone.now(), note.velocity);
-            }, (note.start*1000+keySpeed*10)));
+                //Instruments[melodyObject.instrument].triggerAttackRelease(melody_key.name, "+"+(melody_key.end - melody_key.start), Tone.now(), melody_key.velocity-0.3);
+                keyOnMap.push(getRandomKey(melody_key.name, melody_key.velocity, melody_key.end - melody_key.start, Instruments[melodyObject.instrument], false))
+            }, (melody_key.start*1000))); // A totally random value but it works..
+            
         }
     }
 }
