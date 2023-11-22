@@ -3,24 +3,24 @@
         {
             "melo_principal": {
                 "melody_url": "./resources/songs/1/melo_one.json",
-                "instrument": "8-bit-pluck"
+                "instrument": "cloud_key"
             },
             "different_melo": [
                 {
                     "melody_url": "./resources/songs/1/melo_two.json",
-                    "instrument": "8-bit-pluck"
+                    "instrument": "cloud_key"
                 },
                 {
                     "melody_url": "./resources/songs/1/melo_three.json",
-                    "instrument": "8-bit-pluck"
+                    "instrument": "cloud_key"
                 },
                 {
                     "melody_url": "./resources/songs/1/melo_four.json",
-                    "instrument": "8-bit-pluck"
+                    "instrument": "cloud_key"
                 },
                 {
                     "melody_url": "./resources/songs/1/melo_five.json",
-                    "instrument": "8-bit-pluck"
+                    "instrument": "cloud_key"
                 }
             ],
             "nameSong": "Blue"
@@ -28,7 +28,7 @@
         {
             "melo_principal": {
                 "melody_url": "./resources/songs/1/melo_one.json",
-                "instrument": "cloud_key"
+                "instrument": "8-bit-pluck"
             },
             "different_melo": [
                 {

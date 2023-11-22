@@ -7,10 +7,14 @@
     display: none;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .song_element{
-    width: 20vw;
     height: 20vw;
     background-size: 20%;
     color: #fff;
