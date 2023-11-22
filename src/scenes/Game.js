@@ -1,3 +1,6 @@
+let glitch
+let timeGlitched = 0
+
 /**
  * This is the Game scene played when we launch a game
  */
@@ -32,6 +35,9 @@ function Game() {
 
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
+
+        glitch = new Glitch();
+        glitch.pixelate(1);
     }
 
     // draw() is the normal draw function, this function work like a scene
@@ -123,6 +129,16 @@ function Game() {
         // Flip video horizontaly
         scale(-1, 1);
         image(video, -width, 0, width, height)
+
+        if(timeGlitched > 0){
+            glitch.loadImage(video);
+            // map mouseX to # of randomBytes() + mouseY to limitBytes()
+            glitch.limitBytes(map(25, 0, height, 0, 1));
+            glitch.randomBytes(map(25, 0, width, 0, 100));
+            glitch.buildImage();
+            image(glitch.image, -width, 0, width, height)
+            timeGlitched--
+        }
         scale(-1, 1);
 
         if (poses) {

@@ -2,6 +2,8 @@
 let classicSynth = new Tone.Synth();
 let gameEnd = false;
 let timeOutMelody = []
+// If the music speed is at 2, this doesnt mean that the music will go faster, it means that the music is 2x slower
+let globalMusicSpeed = 1.25;
 
 // Function need to be called by a button from a player action
 const initializeMusic = (song = null) => {
@@ -45,11 +47,14 @@ const initializeMelody = (melody) => {
  */
 const initalizeOtherMelody = (otherMelodies) => {
     for(melodyObject of otherMelodies){
-        for(note of melodyObject.melody.notes){
-            // ! Play the other note of the melody, it is possible that is not really in time
+        // Play the other sounds of the melody
+        for (let i = 0; i < melodyObject.melody.notes.length; i++) {
+            const melody_key = melodyObject.melody.notes[i];
             timeOutMelody.push(setTimeout(() => {
-                Instruments[melodyObject.instrument].triggerAttackRelease(note.name, "+"+(note.end - note.start), Tone.now(), note.velocity);
-            }, (note.start*1000+keySpeed*10)));
+                //Instruments[melodyObject.instrument].triggerAttackRelease(melody_key.name, "+"+(melody_key.end - melody_key.start), Tone.now(), melody_key.velocity-0.3);
+                keyOnMap.push(getRandomKey(melody_key.name, melody_key.velocity, melody_key.end - melody_key.start, Instruments[melodyObject.instrument], false))
+            }, (melody_key.start*1000)*globalMusicSpeed)); // A totally random value but it works..
+            
         }
     }
 }
@@ -63,7 +68,7 @@ const initializeGameMelody = (melodyObject) => {
         const melody_key = melodyObject.melody.notes[i];
         timeOutMelody.push(setTimeout(() => {
             keyOnMap.push(getRandomKey(melody_key.name, melody_key.velocity, melody_key.end - melody_key.start, Instruments[melodyObject.instrument]))
-        }, melody_key.start*1000));
+        }, (melody_key.start*1000)*globalMusicSpeed));
     }
 }
 

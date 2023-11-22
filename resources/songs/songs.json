@@ -2,54 +2,16 @@
     "songs": [
         {
             "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_one.json",
-                "instrument": "cloud_key"
-            },
-            "different_melo": [
-                {
-                    "melody_url": "./resources/songs/1/melo_two.json",
-                    "instrument": "cloud_key"
-                },
-                {
-                    "melody_url": "./resources/songs/1/melo_three.json",
-                    "instrument": "cloud_key"
-                },
-                {
-                    "melody_url": "./resources/songs/1/melo_four.json",
-                    "instrument": "cloud_key"
-                },
-                {
-                    "melody_url": "./resources/songs/1/melo_five.json",
-                    "instrument": "cloud_key"
-                }
-            ],
-            "nameSong": "Blue"
-        },
-        {
-            "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_one.json",
-                "instrument": "8-bit-pluck"
+                "melody_url": "./resources/songs/1/melo_four.json",
+                "instrument": "entertaining_bell"
             },
             "different_melo": [
                 {
                     "melody_url": "./resources/songs/1/melo_one.json",
-                    "instrument": "cloud_key"
+                    "instrument": "digital_chimes_key"
                 }
             ],
-            "nameSong": "2"
-        },
-        {
-            "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_one.json",
-                "instrument": "cloud_key"
-            },
-            "different_melo": [
-                {
-                    "melody_url": "./resources/songs/1/melo_one.json",
-                    "instrument": "cloud_key"
-                }
-            ],
-            "nameSong": "3"
+            "nameSong": "The Real Blue"
         }
     ]
 }
