@@ -20,7 +20,7 @@ function Game() {
         flipHorizontal: true,
         outputStride: 16,
         multiplier: 0.75,
-        inputResolution: 321,
+        inputResolution: 257,
         nmsRadius: 30
     }
 
@@ -28,11 +28,10 @@ function Game() {
     // to this Scene
     this.enter = () => {
         initializeCenterOfWindow()
-        frameRate(60)
+        frameRate(30)
 
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
-
     }
 
     // draw() is the normal draw function, this function work like a scene
