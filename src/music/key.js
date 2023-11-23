@@ -153,13 +153,18 @@ const playKey = (key) => {
         if(key.isClean){
             key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
         }else{
-            key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
-            //triggerBugKey(key)
+            key.instr.triggerAttackRelease(getRandomNote(), "+"+key.timeNote, Tone.now(), key.vel);
+            triggerBugKey(key)
         }
     }
 
 
     key.isPlayed = true;
+}
+
+const getRandomNote = () => {
+    let arrayNote = ["C#6", "F6", "D6", "C6"]
+    return arrayNote[getRandomInt(arrayNote.length)]
 }
 
 const triggerBugKey = (key) => {
