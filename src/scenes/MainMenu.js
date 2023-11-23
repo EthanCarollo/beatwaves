@@ -44,7 +44,7 @@ function MainMenu() {
         this.setCarousselSlide()
         // Create and mount the slider with splide, show the documentation here : https://splidejs.com/guides/
         this.slider = new Splide('#splide', {
-            type: 'slide',
+            type: 'loop',
             perPage: 3,
             focus: 'center',
             arrows: false,
@@ -52,9 +52,12 @@ function MainMenu() {
             interval: 8000,
             flickMaxPages: 1,
             updateOnMove: true,
-            pagination: false
+            pagination: false,
+            gap:"2vw"
         }).mount();
-        this.slider.go("+1")
+        setTimeout(() => {
+            this.slider.go("+1")
+        }, 200);
 
         spawnCharacter("mainMenu")
     }
