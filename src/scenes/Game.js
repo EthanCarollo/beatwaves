@@ -102,14 +102,6 @@ function Game() {
         // Check every hands of the history
         this.checkHand(handPoseHistory.right)
         this.checkHand(handPoseHistory.left)
-        if (DEBUGMODE === true) {
-            this.debugScene();
-            showLifeOfPlayer()
-            if (poses) {
-                this.drawDebugPose(poses[0])
-            }
-        }
-
 
         if (gameEnd === true) {
             if (DEBUGMODE === true) {

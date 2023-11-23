@@ -13,7 +13,7 @@ function preload(){
 
 
 function setup(){
-    createCanvas(window.innerWidth, window.innerHeight);
+    createCanvas(window.innerWidth, window.innerHeight, P2D);
     noSmooth();
 
     SceneManager = new SceneManager();
