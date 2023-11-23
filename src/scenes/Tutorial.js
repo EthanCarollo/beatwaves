@@ -12,7 +12,7 @@ function Tutorial()
         text("Welcome in the Tutorial scene", width / 2, height / 2);
         setTimeout(() => {
             this.goNextScene()
-        }, 1000);
+        }, 1500);
     }
 
     // draw() is the normal draw function, this function work like a scene
@@ -21,6 +21,6 @@ function Tutorial()
     }
 
     this.goNextScene = () => {
-        SceneManager.showNextScene()
+        goToScene()
     }
 }

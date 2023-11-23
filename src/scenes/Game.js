@@ -1,5 +1,6 @@
 let glitch
 let timeGlitched = 0
+let gameStartDelay = 5000
 
 /**
  * This is the Game scene played when we launch a game
@@ -32,6 +33,7 @@ function Game() {
     this.enter = () => {
         initializeCenterOfWindow()
         frameRate(30)
+        this.launchDecount()
 
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
@@ -40,15 +42,44 @@ function Game() {
         glitch.pixelate(1);
     }
 
+    this.launchDecount = () => {
+        document.getElementById("game-start-decount").style.display = "flex";
+        document.getElementById("game-start-decount").style.opacity = "80%";
+
+        let countNumber = 5
+        // This show the count progressively according to the game start delay
+        for(let i = 1; i <= countNumber; i++){
+            setTimeout(() => {
+                document.getElementById("counter-text").innerHTML = countNumber - i 
+                if(i === countNumber){
+                    console.log("start animation")
+                    anime({
+                        targets: "#game-start-decount",
+                        opacity: 0,
+                        easing: 'easeInOutQuad'
+                    })
+                }
+            }, gameStartDelay / countNumber * (i-1));
+        }
+
+        setTimeout(() => {
+            // Do it at the end of the timer
+            document.getElementById("game-start-decount").style.display = "none";
+        }, gameStartDelay);
+
+
+    }
+
     // draw() is the normal draw function, this function work like a scene
     this.draw = () => {
+
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
         background(255,255,255,80)
         this.registerHandPosition()
         // Show Key on map
-        showKeyOnMap(handPoseHistory)
         mooveKeyOnMap()
+        showKeyOnMap(handPoseHistory)
         // Check every hands of the history
         this.checkHand(handPoseHistory.right)
         this.checkHand(handPoseHistory.left)
@@ -126,7 +157,7 @@ function Game() {
             "right": [],
             "left": []
         }
-        SceneManager.showNextScene()
+        goToScene()
     }
 
     //#region Debug Functions

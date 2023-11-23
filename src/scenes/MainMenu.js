@@ -132,7 +132,7 @@ function MainMenu() {
 
     this.goNextScene = () => {
         document.getElementById("game_caroussel").style.display = "none"
-        SceneManager.showNextScene()
+        goToScene()
     }
 
     // Function called if DEBUGMODE const is true

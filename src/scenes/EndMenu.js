@@ -68,6 +68,6 @@ function EndMenu() {
     }
 
     this.goNextScene = () => {
-        SceneManager.showNextScene()
+        goToScene( MainMenu )
     }
 }

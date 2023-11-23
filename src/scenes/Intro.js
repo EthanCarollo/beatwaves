@@ -44,7 +44,6 @@ function Intro() {
                 complete: () => {
                     // Hide request capture text and go next scene
                     document.getElementById("request_capture").style.display = "none"
-                    console.log(isIntroFinish)
                     isIntroFinish = true;
                 }
             })
@@ -79,6 +78,6 @@ function Intro() {
     }
 
     this.goNextScene = () => {
-        SceneManager.showNextScene()
+        goToScene()
     }
 }
