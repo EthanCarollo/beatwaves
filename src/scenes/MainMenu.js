@@ -15,6 +15,7 @@ function MainMenu() {
         x: 0,
         y: 0
     }
+    
 
     // This is the options for load pose net
     // This can probably need a small improvement
