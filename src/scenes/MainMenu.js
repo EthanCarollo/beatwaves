@@ -56,7 +56,7 @@ function MainMenu() {
         }).mount();
         this.slider.go("+1")
 
-        character("mainMenu")
+        spawnCharacter("mainMenu")
     }
 
     this.setCarousselSlide = function () {

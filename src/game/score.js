@@ -147,9 +147,9 @@ const overallScore = (keyTouch, keyMiss) => {
     }
 
     if(allInformationScore.playerRating === "F"){
-        character("ratingF")
+        spawnCharacter("ratingF")
     }else{
-        character("ratingAbove")
+        spawnCharacter("aboveB")
     }
 
     console.log(allInformationScore)
