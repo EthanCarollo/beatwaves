@@ -1,12 +1,28 @@
 {
     "data": [
         {
-            "id" : 0,
+            "id": 0,
             "url": "./assets/debug/debug-asset.png"
         },
         {
-            "id" : 1,
+            "id": 1,
             "url": "./assets/debug/debug-asset-lightblue.png"
+        },
+        {
+            "id": 2,
+            "url": "./assets/images/characters/character_mainmenu.webp"
+        },
+        {
+            "id": 3,
+            "url": "./assets/images/characters/character_combo.webp"
+        },
+        {
+            "id": 4,
+            "url": "./assets/images/characters/character_aboveB.webp"
+        },
+        {
+            "id": 5,
+            "url": "./assets/images/characters/character_ratingF.webp"
         }
     ]
 }
