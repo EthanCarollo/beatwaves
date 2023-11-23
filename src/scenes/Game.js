@@ -1,6 +1,8 @@
 let glitch
 let timeGlitched = 0
 let gameStartDelay = 5000
+let melodyOne
+let melodyOther
 
 /**
  * This is the Game scene played when we launch a game
@@ -13,7 +15,9 @@ function Game() {
     let handPoseHistory = {
         "right": [],
         "left": []
+
     }
+
 
 
     // This is the options for load pose net
@@ -48,10 +52,10 @@ function Game() {
 
         let countNumber = 5
         // This show the count progressively according to the game start delay
-        for(let i = 1; i <= countNumber; i++){
+        for (let i = 1; i <= countNumber; i++) {
             setTimeout(() => {
-                document.getElementById("counter-text").innerHTML = countNumber - i 
-                if(i === countNumber){
+                document.getElementById("counter-text").innerHTML = countNumber - i
+                if (i === countNumber) {
                     console.log("start animation")
                     anime({
                         targets: "#game-start-decount",
@@ -59,7 +63,7 @@ function Game() {
                         easing: 'easeInOutQuad'
                     })
                 }
-            }, gameStartDelay / countNumber * (i-1));
+            }, gameStartDelay / countNumber * (i - 1));
         }
 
         setTimeout(() => {
@@ -75,7 +79,7 @@ function Game() {
 
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
-        background(255,255,255,80)
+        background(255, 255, 255, 80)
         this.registerHandPosition()
         // Show Key on map
         mooveKeyOnMap()
@@ -83,7 +87,7 @@ function Game() {
         // Check every hands of the history
         this.checkHand(handPoseHistory.right)
         this.checkHand(handPoseHistory.left)
-        
+
         if (DEBUGMODE === true) {
             this.debugScene();
             showLifeOfPlayer()
@@ -169,7 +173,7 @@ function Game() {
         scale(-1, 1);
         image(video, -width, 0, width, height)
 
-        if(timeGlitched > 0){
+        if (timeGlitched > 0) {
             glitch.loadImage(video);
             // map mouseX to # of randomBytes() + mouseY to limitBytes()
             glitch.limitBytes(map(25, 0, height, 0, 1));
@@ -212,5 +216,7 @@ function Game() {
     }
 
     //#endregion
+
+
 
 }
