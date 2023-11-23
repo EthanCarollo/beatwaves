@@ -102,12 +102,12 @@ span {
     height: 400px;
 }
 
-#textData{
-    height: 400px; 
+#textData {
+    height: 400px;
     width: 700px;
 }
 
-#keysMiss{
+#keysMiss {
     left: 7%;
 }
 
@@ -175,7 +175,7 @@ span {
 #bottomRight {
     bottom: 0;
     right: 0;
-border-radius: 0px 0px 41px 0px;
+    border-radius: 0px 0px 41px 0px;
     background-color: gray;
 }
 
@@ -189,4 +189,40 @@ border-radius: 0px 0px 41px 0px;
     width: 300px;
     height: 300px;
     border: 10px solid transparent;
+}
+
+
+
+/* CHARACTER */
+
+
+#character {
+    width: 15%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    animation: characterAnim 4s infinite 0s 1 normal forwards;
+}
+
+@keyframes characterAnim {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    25% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
 }
