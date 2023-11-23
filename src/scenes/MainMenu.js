@@ -3,7 +3,7 @@
  */
 function MainMenu() {
     let slider
-
+    console.log((width / 2) / 2)
     let poseNet;
     let poses;
     let sceneIsLoaded = false;
