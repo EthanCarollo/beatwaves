@@ -110,3 +110,21 @@ span {
     opacity: 100%;
     transition: all 0.5s;
 }
+
+#game-start-decount{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+#counter-text{
+    font-size: 5vw;
+    color: white;
+}

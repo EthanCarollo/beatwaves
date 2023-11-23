@@ -71,7 +71,6 @@ const keyIsInside = (handPoseHistory, key) => {
         }
         line(edge1.x1, edge1.y1, edge1.x2, edge1.y2)
         line(edge2.x1, edge2.y1, edge2.x2, edge2.y2)
-        //circle(hand.position.x, hand.position.y, 15, 15)
     }
     fill(255, 0, 0)
     if (cnt % 2 === 1) {

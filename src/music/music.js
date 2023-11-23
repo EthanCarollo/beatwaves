@@ -22,23 +22,25 @@ const initializeMusic = (song = null) => {
 
     if(song !== null){
         initializeMelody(song)
-        console.log(song)
     }
     
 }
+
 /**
  * Initialize the melody for the game, played before the launch of the scene
  * @param {object} melody 
  */
 const initializeMelody = (melody) => {
     let mainMelody = melody.melo_principal.melody.notes
-    initializeGameMelody(melody.melo_principal)
-    initalizeOtherMelody(melody.different_melo)
+    setTimeout(() => {
+        initializeGameMelody(melody.melo_principal)
+        initalizeOtherMelody(melody.different_melo)
+    }, gameStartDelay);
 
     // End the game at the end of the party ! (2500 ms after in fact...)
     setTimeout(() => {
         gameEnd = true;
-    }, mainMelody[mainMelody.length-1].end*1000+2500);
+    }, mainMelody[mainMelody.length-1].end*1000+2500 + gameStartDelay);
 }
 
 /**
