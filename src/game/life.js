@@ -7,6 +7,7 @@ function lifeSystem(touch, recovery) {
         }
         if (touch === playerError && !recovery) {
             gameEnd = true
+            playerError = 0
         } else if (recovery) {
             playerError = 5
             TouchOrNot.Error = 0;

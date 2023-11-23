@@ -3,18 +3,13 @@
  */
 function EndMenu() {
 
-
-    // let dataviz = [overallScore(TouchOrNot.Touch, TouchOrNot.Miss), playerError] 
-    let dataviz = [overallScore(30, 10), 2]
-
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = function () {
         // background("teal");
-        textAlign(CENTER);
-        text("Welcome in the End Menu scene", width / 2, height / 2);
-
-
+        // textAlign(CENTER);
+        // text("Welcome in the End Menu scene", width / 2, height / 2);
+        let dataviz = [overallScore(TouchOrNot.Touch, TouchOrNot.Miss), playerError] 
         this.seeDataviz(dataviz)
 
     }
@@ -33,78 +28,83 @@ function EndMenu() {
             "playerScore": data[0].playerScore,
             "playerRating": data[0].playerRating,
             "successPercentage": data[0].successPercentage,
-            "livesRemaining": data[1]
+            "livesRemaining": data[1],
+            "leftArm":null,
+            "rightArm":null
         };
 
         let domDataviz = {
-            "keysMiss": { "title": "Keys Missed", "font": "2vm" },
-            "keysTouch": { "title": "Keys Touch", "font": "2vm" },
-            "playerScore": { "title": "Score player", "font": "2vm" },
-            "playerRating": { "title": "playerRating", "font": "2vm" },
-            "successPercentage": { "title": "successPercentage", "font": "2vm" },
-            "livesRemaining": { "title": "livesRemaining", "font": "2vm" },
+            "keysMiss": { "title": "Keys Missed", "font": "2vm", "nameId":"keysMiss" },
+            "keysTouch": { "title": "Keys Touch", "font": "2vm", "nameId":"keysTouch" },
+            "playerScore": { "title": "Score player", "font": "2vm", "nameId":"playerScore" },
+            "playerRating": { "title": "playerRating", "font": "2vm", "nameId":"playerRating" },
+            "successPercentage": { "title": "successPercentage", "font": "2vm", "nameId":"successPercentage" },
+            "livesRemaining": { "title": "livesRemaining", "font": "2vm", "nameId":"livesRemaining" },
+            "leftArm": { "title": "leftArm", "font": "2vm", "nameId": "leftArm" },
+            "rightArm": { "title": "rightArm", "font": "2vm", "nameId": "rightArm" },
         };
-
-        this.createZooning();
 
         let divDataviz = document.getElementById("dataviz");
         divDataviz.style.display = "block";
 
-        // Boucle sur les propriétés de fullValue
+        this.createZooningDOM();
+
+
         for (let key in fullValue) {
             if (fullValue.hasOwnProperty(key)) {
-                // Vérifiez si domDataviz a une configuration pour cette clé
                 if (domDataviz[key]) {
-                    let pElement = document.createElement("p");
-                    pElement.textContent = `${domDataviz[key].title}: ${fullValue[key]}`;
-                    pElement.style.fontSize = domDataviz[key].font;
-                    pElement.style.left = "50px"; // Vous pouvez ajuster ceci
-                    divDataviz.appendChild(pElement);
+                    let newDiv = document.getElementById(domDataviz[key].nameId)
+                    newDiv.textContent = `${domDataviz[key].title}: ${fullValue[key]}`;
+                    newDiv.style.fontSize = domDataviz[key].font;
+                    newDiv.style.position = "relative";
+                    newDiv.style.width = "25%"
+                    newDiv.style.height = "auto"
+                    newDiv.style.zIndex = "1"
                 }
             }
         }
+
     }
 
+    this.createZooningDOM = () => {
+        let container = document.getElementById("container")
+        container.style.position = "absolute"
+        container.style.top = ((height / 2) - 200) + "px"
+        console.log(((height / 2) - 200) + "px")
+        container.style.left = ((width / 2) / 2) + "px"
+        container.style.width = "700px"
+        container.style.height = "400px"
 
-    this.createZooning = () => {
-        let form = {
-            "Rect": {
-                "posX": (width / 2) / 2,
-                "posY": height / 2 - 200,
-                "width": 700,
-                "height": 400,
-                "border": 20
-            },
-            "Cercle": {
-                "posX": (width / 2),
-                "posY": height / 2,
-                "width": 200
-            },
-            "rectLineVertical": {
-                "posX": (width / 2) - 30,
-                "posY": 158,
-                "width": 20,
-                "height": 400,
-            },
-            "rectLineHorizon": {
-                "posX": (width / 2) / 2,
-                "posY": height / 2,
-                "width": 700,
-                "height": 20,
-            },
 
-        }
+        let keysMissDiv = document.getElementById("keysMiss")
+        keysMissDiv.style.left = "7%"
 
-        fill("gray")
-        rect(form.Rect.posX, form.Rect.posY, form.Rect.width, form.Rect.height, form.Rect.border)
-        // noStroke()
-        fill(0, 0, 255, 1)
-        rect(form.rectLineVertical.posX, form.rectLineVertical.posY, form.rectLineVertical.width, form.rectLineVertical.height)
-        // noStroke()
-        fill(0, 0, 255, 1)
-        rect(form.rectLineHorizon.posX, form.rectLineHorizon.posY, form.rectLineHorizon.width, form.rectLineHorizon.height)
-        fill(0, 0, 255, 10)
-        ellipse(form.Cercle.posX - 20, form.Cercle.posY, form.Cercle.width)
+        let keysTouchDiv = document.getElementById("keysTouch")
+        keysTouchDiv.style.left = "7%"
+
+        let playerScoreDiv = document.getElementById("playerScore")
+        playerScoreDiv.style.left = "78%"
+        playerScoreDiv.style.top = "82%"
+
+        let playerRatingDiv = document.getElementById("playerRating")
+        playerRatingDiv.style.left = "42%"
+        playerRatingDiv.style.top = "35%"
+
+        let successPercentageDiv = document.getElementById("successPercentage")
+        successPercentageDiv.style.bottom = "10%"
+        successPercentageDiv.style.left = "7%"
+
+        let livesRemainingDiv = document.getElementById("livesRemaining")
+        livesRemainingDiv.style.left = "79%"
+        livesRemainingDiv.style.bottom = "20%"
+
+        let leftArmDiv = document.getElementById("leftArm")
+        leftArmDiv.style.top = "59%"
+        leftArmDiv.style.left = "7%"
+
+        let rightArmDiv = document.getElementById("rightArm")
+        rightArmDiv.style.top = "60%"
+        rightArmDiv.style.left = "7%"
     }
 
     this.goNextScene = () => {
