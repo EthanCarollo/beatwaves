@@ -50,7 +50,7 @@ function Game() {
             this.debugScene();
             showKeyOnMap(handPoseHistory)
             mooveKeyOnMap()
-            this.lifeOfPlayer()
+            showLifeOfPlayer()
         }
 
         if (gameEnd === true) {
@@ -60,21 +60,22 @@ function Game() {
             this.goNextScene()
         }
 
-        this.checkHand()
+        this.checkHand(handPoseHistory.right)
+        this.checkHand(handPoseHistory.left)
     }
 
-    this.checkHand = () => {
+    this.checkHand = (handPoseHist) => {
         // Boucle on the right hand history
-        for (let i = 0; i < handPoseHistory.right.length; i++) {
-            const hand = handPoseHistory.right[i];
+        for (let i = 0; i < handPoseHist.length; i++) {
+            const hand = handPoseHist[i];
             hand.life--;
         }
 
         // This boucle on the hand life
-        for (let i = 0; i < handPoseHistory.right.length; i++) {
-            const hand = handPoseHistory.right[i];
+        for (let i = 0; i < handPoseHist.length; i++) {
+            const hand = handPoseHist[i];
             if (hand.life <= 0)
-                handPoseHistory.right.splice(i, 1)
+                handPoseHist.splice(i, 1)
         }
     }
 
@@ -174,22 +175,6 @@ function Game() {
             circle(elementPosition.x, elementPosition.y, 30)
         }
 
-    }
-
-    //Debug function which allows you to view errors/remaining lives
-    this.lifeOfPlayer = () => {
-        let lifePlayer = playerError - TouchOrNot.Error
-        let rectWidth = 20;
-        let rectHeight = 20;
-        let spacing = 20;
-
-        for (let i = 0; i < lifePlayer; i++) {
-            let xPos = i * (rectWidth + spacing); 
-            let yPos = height / 2 - rectHeight / 2;
-
-            fill(255,0,0)
-            rect(xPos, yPos, rectWidth, rectHeight);
-        }
     }
 
     //#endregion

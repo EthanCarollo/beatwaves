@@ -13,3 +13,18 @@ function lifeSystem(touch, recovery) {
         }
     }
 }
+
+const showLifeOfPlayer = () =>{
+    let lifePlayer = playerError - TouchOrNot.Error
+    let rectWidth = 20;
+    let rectHeight = 20;
+    let spacing = 20;
+
+    for (let i = 0; i < lifePlayer; i++) {
+        let xPos = i * (rectWidth + spacing); 
+        let yPos = 20;
+
+        fill(255,0,0)
+        rect(xPos, yPos, rectWidth, rectHeight);
+    }
+}
