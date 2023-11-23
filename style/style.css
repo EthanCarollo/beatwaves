@@ -138,12 +138,12 @@ span {
     height: 400px;
 }
 
-#textData{
-    height: 400px; 
+#textData {
+    height: 400px;
     width: 700px;
 }
 
-#keysMiss{
+#keysMiss {
     left: 7%;
 }
 
@@ -211,7 +211,7 @@ span {
 #bottomRight {
     bottom: 0;
     right: 0;
-border-radius: 0px 0px 41px 0px;
+    border-radius: 0px 0px 41px 0px;
     background-color: gray;
 }
 
@@ -226,3 +226,5 @@ border-radius: 0px 0px 41px 0px;
     height: 300px;
     border: 10px solid transparent;
 }
+
+

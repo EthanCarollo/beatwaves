@@ -3,15 +3,65 @@
  */
 function EndMenu() {
 
+    let poseNet;
+    let poses;
+    let handPosition = {
+        x: 0,
+        y: 0
+    }
+    let mousePosition = {
+        x: 0,
+        y: 0
+    }
+
+    // This is the options for load pose net
+    // This can probably need a small improvement
+    let poseNetOptions = {
+        imageScaleFactor: 0.3,
+        minConfidence: 0.5,
+        maxPoseDetections: 1,
+        flipHorizontal: true,
+        outputStride: 16,
+        multiplier: 0.75,
+        inputResolution: 257,
+        nmsRadius: 30
+    }
+
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = function () {
         this.seeDataviz([overallScore(TouchOrNot.Touch, addition(melodyOne, melodyOther)), playerError])
+        frameRate(30)
+        poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
+        poseNet.on('pose', (results) => { poses = results; }); 
     }
 
     // draw() is the normal draw function, this function work like a scene
     this.draw = function () {
         clearMelody()
+        background(255,255,255,80)
+        this.registerHandPosition()
+        this.drawHandPosition()
+        this.showEndButton()
+    }
+
+    this.registerHandPosition = () => {
+        if (!poses || !poses[0])
+            return
+
+        var pose = poses[0];
+
+        if (pose.pose.rightWrist.confidence > 0.6) handPosition = pose.pose.rightWrist;
+    }
+
+
+    this.drawHandPosition = () => {
+        // ! This will need some improvement, actually it's just circle
+        if(handPosition){
+            mousePosition.x = lerp(mousePosition.x, handPosition.x, 0.07)
+            mousePosition.y = lerp(mousePosition.y, handPosition.y, 0.07)
+            circle(mousePosition.x, mousePosition.y, 20)
+        }
     }
 
 
@@ -68,6 +118,27 @@ function EndMenu() {
     }
 
     this.goNextScene = () => {
+        let divDataviz = document.getElementById("dataviz");
+        divDataviz.style.display = "none";
         goToScene( MainMenu )
+    }
+
+    let sizeButton = width/8;
+    const interactiveButton = {
+            position: {
+                x:width/2-sizeButton/2,
+                y:height-sizeButton*1.5
+            },
+            width: sizeButton,
+            height: sizeButton,
+            loading: 0,
+            isReady: false,
+            callback : () => { this.goNextScene() }
+        }
+
+    this.showEndButton = () => {
+        showInteractiveButton(interactiveButton, handPosition)
+        fill(255, interactiveButton.loading*2, 0)
+        rect(interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height)
     }
 }

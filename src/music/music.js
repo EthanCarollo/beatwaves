@@ -84,6 +84,7 @@ const clearMelody = () => {
         clearTimeout(timeOutMelody[i])
     }
     timeOutMelody = []
+    keyOnMap = []
 }
 
 // This is used for debug so, if we are in debug mode, we have a button for active music at every moment

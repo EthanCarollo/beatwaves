@@ -1,5 +1,5 @@
 
-const DEBUGMODE = false;
+const DEBUGMODE = true;
 
 const ASSETSPATH = {
     SONGS: "./resources/songs/songs.json",

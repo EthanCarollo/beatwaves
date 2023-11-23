@@ -35,13 +35,19 @@ function Game() {
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = () => {
+        TouchOrNot = {
+            "Touch":0,
+            "Miss":0,
+            "Error":0
+        }
+
         initializeCenterOfWindow()
         frameRate(30)
         this.launchDecount()
 
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
-
+        gameEnd = false;
         glitch = new Glitch();
         glitch.pixelate(1);
     }
@@ -79,7 +85,16 @@ function Game() {
 
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
-        background(255, 255, 255, 80)
+        background(255,255,255,80)
+
+        if (DEBUGMODE === true) {
+            this.debugScene();
+            showLifeOfPlayer()
+            if (poses) {
+                this.drawDebugPose(poses[0])
+            }
+        }
+
         this.registerHandPosition()
         // Show Key on map
         mooveKeyOnMap()
@@ -87,7 +102,6 @@ function Game() {
         // Check every hands of the history
         this.checkHand(handPoseHistory.right)
         this.checkHand(handPoseHistory.left)
-
         if (DEBUGMODE === true) {
             this.debugScene();
             showLifeOfPlayer()
