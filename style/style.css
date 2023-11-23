@@ -1,7 +1,7 @@
-.caroussel_game_slider{
+.caroussel_game_slider {
     position: absolute;
     left: 0;
-    top : 0;
+    top: 0;
     width: 100vw;
     height: 100vh;
     display: none;
@@ -14,7 +14,8 @@
     justify-content: center;
 }
 
-.song_element{
+.song_element {
+    width: 20vw;
     height: 20vw;
     background-size: 20%;
     color: #fff;
@@ -28,16 +29,16 @@
     transform: scale(0.8);
 }
 
-.song_element.is-active{
+.song_element.is-active {
     transition: all 1s;
     transform: scale(1);
 }
 
-#game_caroussel{
+#game_caroussel {
     pointer-events: none;
 }
 
-#splide__list{
+#splide__list {
     pointer-events: all;
 }
 
@@ -127,4 +128,101 @@ span {
 #counter-text{
     font-size: 5vw;
     color: white;
+}
+
+
+/* DATAVIZ */
+#container {
+    position: absolute;
+    width: 700px;
+    height: 400px;
+}
+
+#textData{
+    height: 400px; 
+    width: 700px;
+}
+
+#keysMiss{
+    left: 7%;
+}
+
+#keysTouch {
+    left: 7%;
+}
+
+#playerScore {
+    left: 78%;
+    top: 82%;
+}
+
+#playerRating {
+    left: 42%;
+    top: 35%;
+}
+
+#successPercentage {
+    left: 7%;
+    bottom: 10%;
+}
+
+#livesRemaining {
+    left: 79%;
+    bottom: 20%;
+}
+
+#leftArm {
+    left: 7%;
+    top: 59%;
+}
+
+#rightArm {
+    left: 7%;
+    top: 60%;
+}
+
+.square {
+    position: absolute;
+    width: 49%;
+    height: 49%;
+}
+
+#topLeft {
+    top: 0;
+    left: 0;
+    border-radius: 41px 0px 0px 0px;
+    background-color: gray;
+}
+
+#topRight {
+    top: 0;
+    right: 0;
+    border-radius: 0px 41px 0px 0px;
+    background-color: gray
+}
+
+#bottomLeft {
+    bottom: 0;
+    left: 0;
+    border-radius: 0px 0px 0px 41px;
+    background-color: gray
+}
+
+#bottomRight {
+    bottom: 0;
+    right: 0;
+border-radius: 0px 0px 41px 0px;
+    background-color: gray;
+}
+
+#circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gray;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: 10px solid transparent;
 }
