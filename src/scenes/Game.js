@@ -44,14 +44,23 @@ function Game() {
     this.draw = () => {
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
+        background(255,255,255,80)
         this.registerHandPosition()
+        // Show Key on map
+        showKeyOnMap(handPoseHistory)
+        mooveKeyOnMap()
+        // Check every hands of the history
+        this.checkHand(handPoseHistory.right)
+        this.checkHand(handPoseHistory.left)
         
         if (DEBUGMODE === true) {
             this.debugScene();
-            showKeyOnMap(handPoseHistory)
-            mooveKeyOnMap()
             showLifeOfPlayer()
+            if (poses) {
+                this.drawDebugPose(poses[0])
+            }
         }
+
 
         if (gameEnd === true) {
             if (DEBUGMODE === true) {
@@ -60,8 +69,6 @@ function Game() {
             this.goNextScene()
         }
 
-        this.checkHand(handPoseHistory.right)
-        this.checkHand(handPoseHistory.left)
     }
 
     this.checkHand = (handPoseHist) => {
@@ -141,10 +148,6 @@ function Game() {
             timeGlitched--
         }
         scale(-1, 1);
-
-        if (poses) {
-            this.drawDebugPose(poses[0])
-        }
     }
 
     // Function called when we need to show the pose
