@@ -30,7 +30,7 @@ function EndMenu() {
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = function () {
-        this.seeDataviz([overallScore(TouchOrNot.Touch, addition(melodyOne, melodyOther)), playerError])
+        this.seeDataviz([overallScore(TouchOrNot.Touch, addition(melodyOne, melodyOther), TouchOrNot.Miss), playerError])
         frameRate(30)
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); 
@@ -68,6 +68,7 @@ function EndMenu() {
     this.seeDataviz = (data) => {
 
         let fullValue = {
+            "totalsKeys": data[0].totalsKeys,
             "keysMiss": data[0].keysMiss,
             "keysTouch": data[0].keysTouch,
             "playerScore": data[0].playerScore,
@@ -79,6 +80,7 @@ function EndMenu() {
         };
 
         let domDataviz = {
+            "totalsKeys": { "title": "Total keys", "fontSize": "2vm", "nameId": "totalsKeys" },
             "keysMiss": { "title": "Keys Missed", "fontSize": "2vm", "nameId": "keysMiss" },
             "keysTouch": { "title": "Keys Touch", "fontSize": "2vm", "nameId": "keysTouch" },
             "playerScore": { "title": "Score player", "fontSize": "2vm", "nameId": "playerScore" },
