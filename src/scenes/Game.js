@@ -126,7 +126,7 @@ function Game() {
             "right": [],
             "left": []
         }
-        SceneManager.showNextScene()
+        goToScene()
     }
 
     //#region Debug Functions

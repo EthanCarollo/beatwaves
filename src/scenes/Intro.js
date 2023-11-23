@@ -79,6 +79,6 @@ function Intro() {
     }
 
     this.goNextScene = () => {
-        SceneManager.showNextScene()
+        goToScene()
     }
 }
