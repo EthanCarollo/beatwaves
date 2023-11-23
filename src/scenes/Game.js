@@ -44,13 +44,21 @@ function Game() {
 
     this.launchDecount = () => {
         document.getElementById("game-start-decount").style.display = "flex";
+        document.getElementById("game-start-decount").style.opacity = "80%";
 
         let countNumber = 5
         // This show the count progressively according to the game start delay
         for(let i = 1; i <= countNumber; i++){
             setTimeout(() => {
-                console.log("change it dude")
                 document.getElementById("counter-text").innerHTML = countNumber - i 
+                if(i === countNumber){
+                    console.log("start animation")
+                    anime({
+                        targets: "#game-start-decount",
+                        opacity: 0,
+                        easing: 'easeInOutQuad'
+                    })
+                }
             }, gameStartDelay / countNumber * (i-1));
         }
 
