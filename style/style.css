@@ -89,10 +89,55 @@ span {
 }
 
 
+
+/* DATAVIZ */
 #container {
-    position: relative;
+    position: absolute;
     width: 700px;
     height: 400px;
+}
+
+#textData{
+    height: 400px; 
+    width: 700px;
+}
+
+#keysMiss{
+    left: 7%;
+}
+
+#keysTouch {
+    left: 7%;
+}
+
+#playerScore {
+    left: 78%;
+    top: 82%;
+}
+
+#playerRating {
+    left: 42%;
+    top: 35%;
+}
+
+#successPercentage {
+    left: 7%;
+    bottom: 10%;
+}
+
+#livesRemaining {
+    left: 79%;
+    bottom: 20%;
+}
+
+#leftArm {
+    left: 7%;
+    top: 59%;
+}
+
+#rightArm {
+    left: 7%;
+    top: 60%;
 }
 
 .square {
