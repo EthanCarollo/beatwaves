@@ -7,7 +7,7 @@ const showInteractiveButton = (interactiveButton, checkPosition) => {
             interactiveButton.callback()
             interactiveButton.isReady = false
         }
-    } else{
+    } else {
         interactiveButton.loading = lerp(interactiveButton.loading, 0, 0.1)
         if(interactiveButton.loading < 1){
             interactiveButton.isReady = true
@@ -15,8 +15,6 @@ const showInteractiveButton = (interactiveButton, checkPosition) => {
     }
 
     fill(255, interactiveButton.loading*2, 0)
-
-
     if(DEBUGMODE){
         rect(interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height)
     }

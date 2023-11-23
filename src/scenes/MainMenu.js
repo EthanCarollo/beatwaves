@@ -12,8 +12,13 @@ function MainMenu() {
         x: 0,
         y: 0
     }
+    let mousePosition = {
+        x: 0,
+        y: 0
+    }
 
     // This is the options for load pose net
+    // This can probably need a small improvement
     let poseNetOptions = {
         imageScaleFactor: 0.3,
         minConfidence: 0.5,
@@ -21,9 +26,8 @@ function MainMenu() {
         flipHorizontal: true,
         outputStride: 16,
         multiplier: 0.75,
-        inputResolution: 321,
-        nmsRadius: 30,
-        autoplay: false
+        inputResolution: 257,
+        nmsRadius: 30
     }
 
     // enter() will be executed each time the SceneManager switches
@@ -31,17 +35,16 @@ function MainMenu() {
     this.enter = function () {
 
         initializeCenterOfWindow()
-        frameRate(60)
+        frameRate(30)
 
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
-
 
         background(255, 255, 255)
         this.setCarousselSlide()
         // Create and mount the slider with splide, show the documentation here : https://splidejs.com/guides/
         this.slider = new Splide('#splide', {
-            type: 'loop',
+            type: 'slide',
             perPage: 3,
             focus: 'center',
             arrows: false,
@@ -49,11 +52,9 @@ function MainMenu() {
             interval: 8000,
             flickMaxPages: 1,
             updateOnMove: true,
-            pagination: false,
-            padding: '-5%',
-            gap: '3vw'
+            pagination: false
         }).mount();
-
+        this.slider.go("+1")
     }
 
     this.setCarousselSlide = function () {
@@ -85,13 +86,24 @@ function MainMenu() {
     // draw() is the normal draw function, this function work like a scene
     this.draw = function () {
         if (sceneIsLoaded === false) return;
+        background(255,255,255,80)
 
         if (DEBUGMODE === true) {
             this.debugScene();
         }
 
         this.registerHandPosition()
+        this.drawHandPosition()
         this.navigateMenu()
+    }
+
+    this.drawHandPosition = () => {
+        // ! This will need some improvement, actually it's just circle
+        if(handPosition){
+            mousePosition.x = lerp(mousePosition.x, handPosition.x, 0.07)
+            mousePosition.y = lerp(mousePosition.y, handPosition.y, 0.07)
+            circle(mousePosition.x, mousePosition.y, 20)
+        }
     }
 
     this.registerHandPosition = () => {
@@ -100,8 +112,7 @@ function MainMenu() {
 
         var pose = poses[0];
 
-        handPosition = pose.pose.rightWrist
-        //if (_rightWrist.confidence > 0.6) handPoseHistory.right.push(_rightWrist);
+        if (pose.pose.rightWrist.confidence > 0.6) handPosition = pose.pose.rightWrist;
     }
 
     this.getHandForHistory = (hand) => {
@@ -162,36 +173,37 @@ function MainMenu() {
 
     }
 
+    let sizeButton = width/8;
     const interactiveButtons = [
         {
             position: {
                 x:120,
-                y:height/2-200/2
+                y:height/2-sizeButton/2
             },
-            width: 200,
-            height: 200,
+            width: sizeButton,
+            height: sizeButton,
             loading: 0,
             isReady: false,
             callback : () => { this.slider.go("-1") }
         },
         {
             position: {
-                x:width-200-120,
-                y:height/2-200/2
+                x:width-sizeButton-120,
+                y:height/2-sizeButton/2
             },
-            width: 200,
-            height: 200,
+            width: sizeButton,
+            height: sizeButton,
             loading: 0,
             isReady: false,
             callback : () => { this.slider.go("+1") }
         },
         {
             position: {
-                x:width/2-200/2,
+                x:width/2-sizeButton/2,
                 y:height-400
             },
-            width: 200,
-            height: 200,
+            width: sizeButton,
+            height: sizeButton,
             loading: 0,
             isReady: false,
             callback : () => { 
@@ -210,6 +222,9 @@ function MainMenu() {
         for (let i = 0; i < interactiveButtons.length; i++) {
             const button = interactiveButtons[i];
             showInteractiveButton(button, handPosition)
+            fill(255, button.loading*2, 0)
+            rect(button.position.x, button.position.y, button.width, button.height)
+            
         }
     }
 }
