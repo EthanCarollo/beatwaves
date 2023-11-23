@@ -145,6 +145,13 @@ const overallScore = (keyTouch, keyMiss) => {
         "successPercentage": Math.round(valueTwoPercentage(resultScore(keyTouch, keyMiss).scorePlayer,resultScore(keyTouch, keyMiss).maxRating,)) + "%",
         "playerRating": score.note
     }
+
+    if(allInformationScore.playerRating === "F"){
+        spawnCharacter("ratingF")
+    }else{
+        spawnCharacter("aboveB")
+    }
+
     console.log(allInformationScore)
 
     return allInformationScore
