@@ -26,7 +26,8 @@ const showKeyOnMap = (handPoseHist) => {
                 image(Assets.get("IMAGES").data[0].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
             }
 
-            keyIsInside(handPoseHist, key)
+            keyIsInside(handPoseHist.right, key)
+            keyIsInside(handPoseHist.left, key)
         }else{
             if(DEBUGMODE === true){
                 fill(0,0,255) // The fake key used for play music in background is blue
@@ -46,14 +47,14 @@ const keyIsInside = (handPoseHistory, key) => {
     fill(255, 255, 255, 120)
     let cnt = 0
     // Boucle on the right hand history
-    for (let i = 1; i < handPoseHistory.right.length; i++) {
+    for (let i = 1; i < handPoseHistory.length; i++) {
         // Draw of the back of that
-        const hand = handPoseHistory.right[i];
+        const hand = handPoseHistory[i];
         let edge1 = {
             x1: hand.position.x - trailSize,
             y1: hand.position.y,
-            x2: handPoseHistory.right[i - 1].position.x - trailSize,
-            y2: handPoseHistory.right[i - 1].position.y
+            x2: handPoseHistory[i - 1].position.x - trailSize,
+            y2: handPoseHistory[i - 1].position.y
         }
         if (keyIsInEdge(key, edge1) === true) {
             cnt++
@@ -62,8 +63,8 @@ const keyIsInside = (handPoseHistory, key) => {
         let edge2 = {
             x1: hand.position.x + trailSize,
             y1: hand.position.y,
-            x2: handPoseHistory.right[i - 1].position.x + trailSize,
-            y2: handPoseHistory.right[i - 1].position.y
+            x2: handPoseHistory[i - 1].position.x + trailSize,
+            y2: handPoseHistory[i - 1].position.y
         }
         if (keyIsInEdge(key, edge2) === true) {
             cnt++
