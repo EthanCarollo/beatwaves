@@ -1,10 +1,8 @@
-let playerError = 9000
+let playerError = 5
 
 function lifeSystem(touch, recovery) {
-    if ((touch != null) && touch.isVisible === true) {
-        if(DEBUGMODE){
-            // console.log("Touch :" + touch, " | Error :" + playerError, " | Recovery ? " + recovery, " | Game end ? " + gameEnd)
-        }
+    if (touch != null) {
+        console.log("in life system")
         if (touch === playerError && !recovery) {
             gameEnd = true
         } else if (recovery) {

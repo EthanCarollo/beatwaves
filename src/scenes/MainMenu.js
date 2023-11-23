@@ -12,8 +12,13 @@ function MainMenu() {
         x: 0,
         y: 0
     }
+    let mousePosition = {
+        x: 0,
+        y: 0
+    }
 
     // This is the options for load pose net
+    // This can probably need a small improvement
     let poseNetOptions = {
         imageScaleFactor: 0.3,
         minConfidence: 0.5,
@@ -81,13 +86,24 @@ function MainMenu() {
     // draw() is the normal draw function, this function work like a scene
     this.draw = function () {
         if (sceneIsLoaded === false) return;
+        background(255,255,255,80)
 
         if (DEBUGMODE === true) {
             this.debugScene();
         }
 
         this.registerHandPosition()
+        this.drawHandPosition()
         this.navigateMenu()
+    }
+
+    this.drawHandPosition = () => {
+        // ! This will need some improvement, actually it's just circle
+        if(handPosition){
+            mousePosition.x = lerp(mousePosition.x, handPosition.x, 0.07)
+            mousePosition.y = lerp(mousePosition.y, handPosition.y, 0.07)
+            circle(mousePosition.x, mousePosition.y, 20)
+        }
     }
 
     this.registerHandPosition = () => {
@@ -96,8 +112,7 @@ function MainMenu() {
 
         var pose = poses[0];
 
-        handPosition = pose.pose.rightWrist
-        //if (_rightWrist.confidence > 0.6) handPoseHistory.right.push(_rightWrist);
+        if (pose.pose.rightWrist.confidence > 0.6) handPosition = pose.pose.rightWrist;
     }
 
     this.getHandForHistory = (hand) => {
@@ -207,6 +222,9 @@ function MainMenu() {
         for (let i = 0; i < interactiveButtons.length; i++) {
             const button = interactiveButtons[i];
             showInteractiveButton(button, handPosition)
+            fill(255, button.loading*2, 0)
+            rect(button.position.x, button.position.y, button.width, button.height)
+            
         }
     }
 }

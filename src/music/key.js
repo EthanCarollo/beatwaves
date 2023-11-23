@@ -132,17 +132,21 @@ const mooveKeyTo = (key, destination) => {
  * @param {object} key 
  */
 const playKey = (key) => {
-    if (DEBUGMODE === true)
+    if (DEBUGMODE === true){
         console.log("/-- Key has been played --/")
-    
-    if (key.isClean === true){
-        TouchOrNot.Touch++
-        lifeSystem(TouchOrNot.Error, true)
-    } else if(!key.isClean){
-        TouchOrNot.Miss++
-        TouchOrNot.Error++
-        lifeSystem(TouchOrNot.Error, false)
     }
+    
+    if(key.isVisible === true){
+        if (key.isClean === true){
+            TouchOrNot.Touch++
+            lifeSystem(TouchOrNot.Error, true)
+        } else if(!key.isClean){
+            TouchOrNot.Miss++
+            TouchOrNot.Error++
+            lifeSystem(TouchOrNot.Error, false)
+        }
+    }
+    
 
     if(key.isVisible === false){
         key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
