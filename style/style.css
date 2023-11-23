@@ -143,6 +143,10 @@ span {
     width: 700px;
 }
 
+#totalsKeys {
+    left: 7%;
+}
+
 #keysMiss {
     left: 7%;
 }
