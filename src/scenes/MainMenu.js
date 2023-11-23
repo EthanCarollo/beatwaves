@@ -55,6 +55,8 @@ function MainMenu() {
             pagination: false
         }).mount();
         this.slider.go("+1")
+
+        character("mainMenu")
     }
 
     this.setCarousselSlide = function () {
