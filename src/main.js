@@ -29,6 +29,7 @@ function setup(){
 
 function draw() {
     SceneManager.draw();
+    character()
 }
 
 // Just setup every scene of SCENELIST const
