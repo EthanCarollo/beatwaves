@@ -13,7 +13,7 @@ function MainMenu() {
         x: 0,
         y: 0
     }
-    
+
 
     // This is the options for load pose net
     // This can probably need a small improvement
@@ -48,7 +48,7 @@ function MainMenu() {
             flickMaxPages: 1,
             updateOnMove: true,
             pagination: false,
-            gap:"2vw"
+            gap: "2vw"
         }).mount();
         setTimeout(() => {
             this.slider.go("+1")
@@ -77,6 +77,7 @@ function MainMenu() {
             song_button.addEventListener("click", () => {
                 initializeMusic(song)
                 this.goNextScene()
+                return melodyOne = song.melo_principal.melody.notes.length, melodyOther = song.different_melo[0].melody.notes.length
             })
             doc.appendChild(song_button)
             splideList.appendChild(doc)
@@ -87,7 +88,7 @@ function MainMenu() {
     // draw() is the normal draw function, this function work like a scene
     this.draw = function () {
         if (sceneIsLoaded === false) return;
-        background(255,255,255,80)
+        background(255, 255, 255, 80)
 
         if (DEBUGMODE === true) {
             this.debugScene();
@@ -104,7 +105,7 @@ function MainMenu() {
 
     this.drawHandPosition = () => {
         // ! This will need some improvement, actually it's just circle
-        if(handPosition){
+        if (handPosition) {
             mousePosition.x = lerp(mousePosition.x, handPosition.x, 0.07)
             mousePosition.y = lerp(mousePosition.y, handPosition.y, 0.07)
             drawMouse(mousePosition)
@@ -175,40 +176,40 @@ function MainMenu() {
 
     }
 
-    let sizeButton = width/8;
+    let sizeButton = width / 8;
     const interactiveButtons = [
         {
             position: {
-                x:120,
-                y:height/2-sizeButton/2
+                x: 120,
+                y: height / 2 - sizeButton / 2
             },
             width: sizeButton,
             height: sizeButton,
             loading: 0,
             isReady: false,
-            callback : () => { this.slider.go("-1") }
+            callback: () => { this.slider.go("-1") }
         },
         {
             position: {
-                x:width-sizeButton-120,
-                y:height/2-sizeButton/2
+                x: width - sizeButton - 120,
+                y: height / 2 - sizeButton / 2
             },
             width: sizeButton,
             height: sizeButton,
             loading: 0,
             isReady: false,
-            callback : () => { this.slider.go("+1") }
+            callback: () => { this.slider.go("+1") }
         },
         {
             position: {
-                x:width/2-sizeButton/2,
-                y:height-400
+                x: width / 2 - sizeButton / 2,
+                y: height - 400
             },
             width: sizeButton,
             height: sizeButton,
             loading: 0,
             isReady: false,
-            callback : () => { 
+            callback: () => {
                 initializeMusic(Assets.get("songs").songs[this.slider.index])
                 this.goNextScene()
             }
@@ -226,7 +227,6 @@ function MainMenu() {
             fill(255, button.loading*2, 0)
             rect(button.position.x, button.position.y, button.width, button.height)
             showInteractiveButton(button, mousePosition)
-            
         }
     }
 }

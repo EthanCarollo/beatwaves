@@ -84,7 +84,6 @@ const fetchSongs = () => {
             .then(res => res.json())
             .then(res => {
                 song.melo_principal["melody"] = res
-               return melodyOne = res.notes.length
             })
 
 
@@ -94,7 +93,6 @@ const fetchSongs = () => {
                 .then(res => res.json())
                 .then(res => {
                     other_melody["melody"] = res
-                   return melodyOther = res.notes.length
                 })
         }
     }

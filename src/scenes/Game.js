@@ -69,16 +69,17 @@ function Game() {
 
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
-        //background(255,255,255,80)
+        background(255,255,255,80)
+        showLifeOfPlayer()
 
         if (DEBUGMODE === true) {
-            showLifeOfPlayer()
+            this.debugScene();
             if (poses) {
                 this.drawDebugPose(poses[0])
             }
         }
-        this.showScene();
-
+        
+        this.showScene()
         this.registerHandPosition()
         // Show Key on map
         mooveKeyOnMap()
