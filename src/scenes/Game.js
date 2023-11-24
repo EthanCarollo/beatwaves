@@ -78,6 +78,8 @@ function Game() {
             }
         }
 
+
+        this.showScene()
         this.registerHandPosition()
         // Show Key on map
         mooveKeyOnMap()
