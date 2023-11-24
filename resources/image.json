@@ -23,6 +23,14 @@
         {
             "id": 5,
             "url": "./assets/images/characters/character_ratingF.webp"
+        },
+        {
+            "id": 6,
+            "url": "./assets/images/key/note_touchee.png"
+        },
+        {
+            "id": 7,
+            "url": "./assets/images/key/note_bleue_BeatWaves.png"
         }
     ]
 }
