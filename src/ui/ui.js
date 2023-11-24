@@ -1,3 +1,5 @@
+let mouseSize = 80;
+
 const showInteractiveButton = (interactiveButton, checkPosition) => {
 
     if (isInRect(checkPosition.x, checkPosition.y, interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height) && interactiveButton.isReady) {
@@ -18,4 +20,18 @@ const showInteractiveButton = (interactiveButton, checkPosition) => {
     if(DEBUGMODE){
         rect(interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height)
     }
+
+    if(interactiveButton.loading > 1){
+        noStroke()
+        fill(255,255,255)
+        circle(checkPosition.x, checkPosition.y, mouseSize*interactiveButton.loading/100)
+    }
+}
+
+const drawMouse = (_position) => {
+    fill(255,0,0,0)
+    strokeWeight(10)
+    stroke(255,255,255)
+    circle(_position.x, _position.y, mouseSize)
+    fill(255,0,0,255)
 }

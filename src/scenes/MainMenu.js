@@ -93,9 +93,13 @@ function MainMenu() {
             this.debugScene();
         }
 
+        scale(-1, 1);
+        image(video, -width, 0, width, height)
+        scale(-1, 1);
+
         this.registerHandPosition()
-        this.drawHandPosition()
         this.navigateMenu()
+        this.drawHandPosition()
     }
 
     this.drawHandPosition = () => {
@@ -103,7 +107,7 @@ function MainMenu() {
         if(handPosition){
             mousePosition.x = lerp(mousePosition.x, handPosition.x, 0.07)
             mousePosition.y = lerp(mousePosition.y, handPosition.y, 0.07)
-            circle(mousePosition.x, mousePosition.y, 20)
+            drawMouse(mousePosition)
         }
     }
 
@@ -140,9 +144,6 @@ function MainMenu() {
     this.debugScene = () => {
 
         // Flip video horizontaly
-        scale(-1, 1);
-        image(video, -width, 0, width, height)
-        scale(-1, 1);
 
         if (poses) {
             this.drawDebugPose(poses[0])
@@ -222,9 +223,9 @@ function MainMenu() {
 
         for (let i = 0; i < interactiveButtons.length; i++) {
             const button = interactiveButtons[i];
-            showInteractiveButton(button, handPosition)
             fill(255, button.loading*2, 0)
             rect(button.position.x, button.position.y, button.width, button.height)
+            showInteractiveButton(button, mousePosition)
             
         }
     }
