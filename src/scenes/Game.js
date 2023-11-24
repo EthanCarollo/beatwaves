@@ -78,9 +78,7 @@ function Game() {
                 this.drawDebugPose(poses[0])
             }
         }
-
-
-
+        
         this.showScene()
         this.registerHandPosition()
         // Show Key on map
