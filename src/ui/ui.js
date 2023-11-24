@@ -1,5 +1,6 @@
 let mouseSize = 80;
 
+// Function called to show an interactive button and checking if a position is in the button
 const showInteractiveButton = (interactiveButton, checkPosition) => {
 
     if (isInRect(checkPosition.x, checkPosition.y, interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height) && interactiveButton.isReady) {
@@ -24,10 +25,12 @@ const showInteractiveButton = (interactiveButton, checkPosition) => {
     if(interactiveButton.loading > 1){
         noStroke()
         fill(255,255,255)
+        // Draw the circle that fullfill the mouse
         circle(checkPosition.x, checkPosition.y, mouseSize*interactiveButton.loading/100)
     }
 }
 
+// Draw the shape of the mouse
 const drawMouse = (_position) => {
     fill(255,0,0,0)
     strokeWeight(10)
