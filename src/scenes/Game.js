@@ -69,10 +69,10 @@ function Game() {
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
         background(255,255,255,80)
+        showLifeOfPlayer()
 
         if (DEBUGMODE === true) {
             this.debugScene();
-            showLifeOfPlayer()
             if (poses) {
                 this.drawDebugPose(poses[0])
             }
