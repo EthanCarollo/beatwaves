@@ -3,8 +3,6 @@
  */
 function MainMenu() {
     let slider
-    let poseNet;
-    let poses;
     let sceneIsLoaded = false;
     let lifeTime = 60;
     let handPosition = {
@@ -37,9 +35,6 @@ function MainMenu() {
         initializeCenterOfWindow()
         frameRate(30)
 
-        poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
-        poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
-
         background(255, 255, 255)
         this.setCarousselSlide()
         // Create and mount the slider with splide, show the documentation here : https://splidejs.com/guides/
@@ -60,6 +55,7 @@ function MainMenu() {
         }, 200);
 
         spawnCharacter("mainMenu")
+        this.sceneLoaded()
     }
 
     this.setCarousselSlide = function () {
@@ -129,10 +125,10 @@ function MainMenu() {
     }
 
     // Function called once model is loaded
-    this.modelLoaded = () => {
+    this.sceneLoaded = () => {
         sceneIsLoaded = true
         if (DEBUGMODE === true)
-            console.log('/-Model Loaded, you can play-/');
+            console.log('/-Scene Loaded, you can play-/');
     }
 
     this.goNextScene = () => {
