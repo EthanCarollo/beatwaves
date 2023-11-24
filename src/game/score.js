@@ -32,8 +32,8 @@ const alphabeticalNotation = {
 /**
  * This function will return all the values ​​at the end of the game! (dataviz)
  * @param {string} keyTouch a string for touch key values
+ * @param {string} totalsKey a string for totals key values
  * @param {string} keyMiss a string for missed key values
-*  @param {string} totalsKey a string for missed key values
  * @returns {object} return a key object
 */
 const overallScore = (keyTouch, totalsKey, keyMiss ) => {
