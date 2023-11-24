@@ -27,3 +27,5 @@ var poseNetOptions = {
     inputResolution: 257,
     nmsRadius: 30
 }
+
+var loadingMouse = 0;
