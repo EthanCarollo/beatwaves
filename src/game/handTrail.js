@@ -36,7 +36,7 @@ function showHandTrail(handPoseHistory){
         };
 
         for (let j = 0; j < keyOnMap.length; j++) {
-            cnt = 0;
+            let cnt = 0;
             const key = keyOnMap[j];
 
             let edge1 = {
@@ -55,6 +55,26 @@ function showHandTrail(handPoseHistory){
                 y2: sp2.y
             }
             if (keyIsInEdge(key, edge2) === true) {
+                cnt++
+            }
+
+            let edge3 = {
+                x1: fp2.x,
+                y1: fp2.y,
+                x2: sp1.x,
+                y2: sp1.y
+            }
+            if (keyIsInEdge(key, edge3) === true) {
+                cnt++
+            }
+
+            let edge4 = {
+                x1: fp1.x,
+                y1: fp1.y,
+                x2: sp2.x,
+                y2: sp2.y
+            }
+            if (keyIsInEdge(key, edge4) === true) {
                 cnt++
             }
 

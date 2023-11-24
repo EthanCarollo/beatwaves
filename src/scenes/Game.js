@@ -69,15 +69,15 @@ function Game() {
 
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
-        background(255,255,255,80)
+        //background(255,255,255,80)
 
         if (DEBUGMODE === true) {
-            this.debugScene();
             showLifeOfPlayer()
             if (poses) {
                 this.drawDebugPose(poses[0])
             }
         }
+        this.showScene();
 
         this.registerHandPosition()
         // Show Key on map
@@ -159,7 +159,7 @@ function Game() {
     //#region Debug Functions
 
     // Function called if DEBUGMODE const is true
-    this.debugScene = () => {
+    this.showScene = () => {
 
         // Flip video horizontaly
         scale(-1, 1);
