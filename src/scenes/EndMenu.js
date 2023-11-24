@@ -30,7 +30,7 @@ function EndMenu() {
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = function () {
-        this.seeDataviz([overallScore(TouchOrNot.Touch, addition(melodyOne, melodyOther), TouchOrNot.Miss), playerError])
+        this.seeDataviz([overallScore(TouchOrNot.Touch, melodyOne + melodyOther, TouchOrNot.Miss), playerLife])
         frameRate(30)
         poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
         poseNet.on('pose', (results) => { poses = results; }); 

@@ -50,6 +50,8 @@ function Game() {
         gameEnd = false;
         glitch = new Glitch();
         glitch.pixelate(1);
+
+
     }
 
     this.launchDecount = () => {
