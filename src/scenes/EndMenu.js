@@ -2,9 +2,6 @@
  * This is the End Menu scene, played as the end of each game
  */
 function EndMenu() {
-
-    let poseNet;
-    let poses;
     let handPosition = {
         x: 0,
         y: 0
@@ -14,26 +11,11 @@ function EndMenu() {
         y: 0
     }
 
-    // This is the options for load pose net
-    // This can probably need a small improvement
-    let poseNetOptions = {
-        imageScaleFactor: 0.3,
-        minConfidence: 0.5,
-        maxPoseDetections: 1,
-        flipHorizontal: true,
-        outputStride: 16,
-        multiplier: 0.75,
-        inputResolution: 257,
-        nmsRadius: 30
-    }
-
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = function () {
         this.seeDataviz([overallScore(TouchOrNot.Touch, melodyOne + melodyOther, TouchOrNot.Miss), playerLife])
         frameRate(30)
-        poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
-        poseNet.on('pose', (results) => { poses = results; }); 
     }
 
     // draw() is the normal draw function, this function work like a scene
