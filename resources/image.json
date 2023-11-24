@@ -25,11 +25,11 @@
             "url": "./assets/images/characters/character_ratingF.webp"
         },
         {
-            "id": 6,
+            "id": 9,
             "url": "./assets/images/heart.webp"
         },
         {
-            "id": 7,
+            "id": 10,
             "url": "./assets/images/lastheart.png"
         }
     ]

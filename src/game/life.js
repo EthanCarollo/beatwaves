@@ -19,8 +19,8 @@ const showLifeOfPlayer = () => {
     let rectHeight = 80;
     let spacing = 0;
     let lifeImage = {
-        "heart": Assets.get("IMAGES").data[6].img,
-        "lastheart": Assets.get("IMAGES").data[7].img
+        "heart": Assets.get("IMAGES").data[9].img,
+        "lastheart": Assets.get("IMAGES").data[10].img
     }
 
     for (let i = 0; i < lifePlayer; i++) {
