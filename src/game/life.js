@@ -1,4 +1,4 @@
-let playerLife = 6
+let playerLife = 600
 
 function lifeSystem(touch, recovery) {
     if (touch != null) {

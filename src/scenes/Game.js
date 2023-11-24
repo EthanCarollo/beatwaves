@@ -3,13 +3,14 @@ let timeGlitched = 0
 let gameStartDelay = 5000
 let melodyOne
 let melodyOther
+let handLifeTime = 25;
+let minusLifeTime = 0.75;
 
 /**
  * This is the Game scene played when we launch a game
  */
 function Game() {
     let sceneIsLoaded = false;
-    let lifeTime = 60;
     let handPoseHistory = {
         "right": [],
         "left": []
@@ -81,7 +82,9 @@ function Game() {
         this.registerHandPosition()
         // Show Key on map
         mooveKeyOnMap()
-        showKeyOnMap(handPoseHistory)
+        showKeyOnMap()
+        showHandTrail(handPoseHistory.right)
+        showHandTrail(handPoseHistory.left)
         // Check every hands of the history
         this.checkHand(handPoseHistory.right)
         this.checkHand(handPoseHistory.left)
@@ -99,7 +102,7 @@ function Game() {
         // Boucle on the right hand history
         for (let i = 0; i < handPoseHist.length; i++) {
             const hand = handPoseHist[i];
-            hand.life--;
+            hand.life-=minusLifeTime;
         }
 
         // This boucle on the hand life
@@ -117,10 +120,10 @@ function Game() {
         var pose = poses[0];
 
         let _rightWrist = this.getHandForHistory(pose.pose.rightWrist)
-        if (_rightWrist.confidence > 0.6) handPoseHistory.right.push(_rightWrist);
+        if (_rightWrist.confidence > 0.4) handPoseHistory.right.push(_rightWrist);
 
         let _leftWrist = this.getHandForHistory(pose.pose.leftWrist)
-        if (_leftWrist.confidence > 0.6) handPoseHistory.left.push(_leftWrist)
+        if (_leftWrist.confidence > 0.4) handPoseHistory.left.push(_leftWrist)
 
     }
 
@@ -128,7 +131,7 @@ function Game() {
         return {
             position: createVector(hand.x, hand.y),
             confidence: hand.confidence,
-            life: lifeTime
+            life: handLifeTime
         }
     }
 

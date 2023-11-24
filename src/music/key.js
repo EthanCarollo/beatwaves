@@ -17,7 +17,7 @@ const initializeCenterOfWindow = () => {
 }
 
 // Function called every frames to show the key on map
-const showKeyOnMap = (handPoseHist) => {
+const showKeyOnMap = () => {
     for (key of keyOnMap) {
         if(key.isVisible === true){
             if (key.isClean === true) {
@@ -25,9 +25,6 @@ const showKeyOnMap = (handPoseHist) => {
             } else {
                 image(Assets.get("IMAGES").data[0].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, 20, 20)
             }
-
-            keyIsInside(handPoseHist.right, key)
-            keyIsInside(handPoseHist.left, key)
         }else{
             if(DEBUGMODE === true){
                 fill(0,0,255) // The fake key used for play music in background is blue
@@ -35,61 +32,6 @@ const showKeyOnMap = (handPoseHist) => {
             }
         }
     }
-}
-
-/**
- * Check if the key is inside a rail
- * @param {*} handPoseHistory 
- * @param {*} key 
- */
-const keyIsInside = (handPoseHistory, key) => {
-    let trailSize = 15;
-    fill(255, 255, 255, 120)
-    let cnt = 0
-    // Boucle on the right hand history
-    for (let i = 1; i < handPoseHistory.length; i++) {
-        // Draw of the back of that
-        const hand = handPoseHistory[i];
-        let edge1 = {
-            x1: hand.position.x - trailSize,
-            y1: hand.position.y,
-            x2: handPoseHistory[i - 1].position.x - trailSize,
-            y2: handPoseHistory[i - 1].position.y
-        }
-        if (keyIsInEdge(key, edge1) === true) {
-            cnt++
-        }
-
-        let edge2 = {
-            x1: hand.position.x + trailSize,
-            y1: hand.position.y,
-            x2: handPoseHistory[i - 1].position.x + trailSize,
-            y2: handPoseHistory[i - 1].position.y
-        }
-        if (keyIsInEdge(key, edge2) === true) {
-            cnt++
-        }
-        line(edge1.x1, edge1.y1, edge1.x2, edge1.y2)
-        line(edge2.x1, edge2.y1, edge2.x2, edge2.y2)
-    }
-    fill(255, 0, 0)
-    if (cnt % 2 === 1) {
-        key.isClean = true
-    }
-}
-
-/**
- * Check if the key is between some edge
- * @param {*} key 
- * @param {*} edge 
- * @returns 
- */
-function keyIsInEdge(key, edge) {
-    if ((key.position.y < edge.y1) !== (key.position.y < edge.y2) &&
-        key.position.x < edge.x1 + ((key.position.y - edge.y1) / (edge.y2 - edge.y1)) * (edge.x2 - edge.x1)) {
-        return true
-    }
-    return false
 }
 
 // Function called every frame if we need to moove the key on map
@@ -154,7 +96,7 @@ const playKey = (key) => {
             key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
         }else{
             key.instr.triggerAttackRelease(getRandomNote(), "+"+key.timeNote, Tone.now(), key.vel);
-            triggerBugKey(key)
+            //triggerBugKey(key)
         }
     }
 
