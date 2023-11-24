@@ -8,8 +8,6 @@ let melodyOther
  * This is the Game scene played when we launch a game
  */
 function Game() {
-    let poseNet;
-    let poses;
     let sceneIsLoaded = false;
     let lifeTime = 60;
     let handPoseHistory = {
@@ -18,19 +16,6 @@ function Game() {
 
     }
 
-
-
-    // This is the options for load pose net
-    let poseNetOptions = {
-        imageScaleFactor: 0.3,
-        minConfidence: 0.5,
-        maxPoseDetections: 1,
-        flipHorizontal: true,
-        outputStride: 16,
-        multiplier: 0.75,
-        inputResolution: 257,
-        nmsRadius: 30
-    }
 
     // enter() will be executed each time the SceneManager switches
     // to this Scene
@@ -44,12 +29,10 @@ function Game() {
         initializeCenterOfWindow()
         frameRate(30)
         this.launchDecount()
-
-        poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
-        poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
         gameEnd = false;
         glitch = new Glitch();
         glitch.pixelate(1);
+        this.sceneLoaded()
     }
 
     this.launchDecount = () => {
@@ -150,10 +133,10 @@ function Game() {
     }
 
     // Function called once model is loaded
-    this.modelLoaded = () => {
+    this.sceneLoaded = () => {
         sceneIsLoaded = true
         if (DEBUGMODE === true)
-            console.log('/-Model Loaded, you can play-/');
+            console.log('/-Scene Loaded, you can play-/');
     }
 
 
