@@ -77,7 +77,6 @@ function MainMenu() {
             song_button.addEventListener("click", () => {
                 initializeMusic(song)
                 this.goNextScene()
-                return melodyOne = song.melo_principal.melody.notes.length, melodyOther = song.different_melo[0].melody.notes.length
             })
             doc.appendChild(song_button)
             splideList.appendChild(doc)

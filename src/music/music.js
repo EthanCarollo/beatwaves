@@ -2,6 +2,7 @@
 let classicSynth = new Tone.Synth();
 let gameEnd = false;
 let timeOutMelody = []
+let allMelo
 
 
 // If the music speed is at 2, this doesnt mean that the music will go faster, it means that the music is 2x slower
@@ -9,6 +10,9 @@ let globalMusicSpeed = 1.25;
 
 // Function need to be called by a button from a player action
 const initializeMusic = (song = null) => {
+    
+    allMelo = song.melo_principal.melody.notes.length + song.different_melo[0].melody.notes.length
+
     Tone.start()
     classicSynth.toDestination();
     audioIsLoad = true

@@ -14,7 +14,7 @@ function EndMenu() {
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = function () {
-        this.seeDataviz([overallScore(TouchOrNot.Touch, melodyOne + melodyOther, TouchOrNot.Miss), playerLife])
+        this.seeDataviz([overallScore(TouchOrNot.Touch, allMelo, TouchOrNot.Miss), playerLife])
         frameRate(30)
     }
 

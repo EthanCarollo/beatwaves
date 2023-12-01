@@ -1,8 +1,6 @@
 let glitch
 let timeGlitched = 0
 let gameStartDelay = 5000
-let melodyOne
-let melodyOther
 let handLifeTime = 25;
 let minusLifeTime = 0.75;
 
@@ -69,16 +67,16 @@ function Game() {
 
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
-        background(255,255,255,80)
-        showLifeOfPlayer()
-
+        
         if (DEBUGMODE === true) {
+            // background(255,255,255,80)
             this.debugScene();
             if (poses) {
                 this.drawDebugPose(poses[0])
             }
         }
         
+        showLifeOfPlayer()
         this.showScene()
         this.registerHandPosition()
         // Show Key on map

@@ -14,7 +14,7 @@ function lifeSystem(touch, recovery) {
 }
 
 const showLifeOfPlayer = () => {
-    let lifePlayer = (playerLife) - TouchOrNot.Error
+    let lifePlayer = playerLife - TouchOrNot.Error
     let rectWidth = 80;
     let rectHeight = 80;
     let spacing = 0;
