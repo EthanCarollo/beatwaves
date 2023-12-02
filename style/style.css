@@ -102,12 +102,12 @@ span {
     height: 400px;
 }
 
-#textData{
-    height: 400px; 
+#textData {
+    height: 400px;
     width: 700px;
 }
 
-#keysMiss{
+#keysMiss {
     left: 7%;
 }
 
@@ -149,6 +149,11 @@ span {
     position: absolute;
     width: 49%;
     height: 49%;
+    background: rgba(30, 30, 30, 0.47);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11px);
+    -webkit-backdrop-filter: blur(11px);
 }
 
 #topLeft {
@@ -175,7 +180,7 @@ span {
 #bottomRight {
     bottom: 0;
     right: 0;
-border-radius: 0px 0px 41px 0px;
+    border-radius: 0px 0px 41px 0px;
     background-color: gray;
 }
 
