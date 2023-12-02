@@ -1,66 +1,94 @@
 let glitch
 let timeGlitched = 0
+let gameStartDelay = 5000
+let melodyOne
+let melodyOther
+let handLifeTime = 25;
+let minusLifeTime = 0.75;
 
 /**
  * This is the Game scene played when we launch a game
  */
 function Game() {
-    let poseNet;
-    let poses;
     let sceneIsLoaded = false;
-    let lifeTime = 60;
     let handPoseHistory = {
         "right": [],
         "left": []
+
     }
 
-
-    // This is the options for load pose net
-    let poseNetOptions = {
-        imageScaleFactor: 0.3,
-        minConfidence: 0.5,
-        maxPoseDetections: 1,
-        flipHorizontal: true,
-        outputStride: 16,
-        multiplier: 0.75,
-        inputResolution: 257,
-        nmsRadius: 30
-    }
 
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = () => {
+        TouchOrNot = {
+            "Touch":0,
+            "Miss":0,
+            "Error":0
+        }
+
         initializeCenterOfWindow()
         frameRate(30)
-
-        poseNet = ml5.poseNet(video, poseNetOptions, this.modelLoaded);
-        poseNet.on('pose', (results) => { poses = results; }); // Just set the poses var on the event pose
-
+        this.launchDecount()
+        gameEnd = false;
         glitch = new Glitch();
         glitch.pixelate(1);
+        this.sceneLoaded()
+    }
+
+    this.launchDecount = () => {
+        document.getElementById("game-start-decount").style.display = "flex";
+        document.getElementById("game-start-decount").style.opacity = "80%";
+
+        let countNumber = 5
+        // This show the count progressively according to the game start delay
+        for (let i = 1; i <= countNumber; i++) {
+            setTimeout(() => {
+                document.getElementById("counter-text").innerHTML = countNumber - i
+                if (i === countNumber) {
+                    console.log("start animation")
+                    anime({
+                        targets: "#game-start-decount",
+                        opacity: 0,
+                        easing: 'easeInOutQuad'
+                    })
+                }
+            }, gameStartDelay / countNumber * (i - 1));
+        }
+
+        setTimeout(() => {
+            // Do it at the end of the timer
+            document.getElementById("game-start-decount").style.display = "none";
+        }, gameStartDelay);
+
+
     }
 
     // draw() is the normal draw function, this function work like a scene
     this.draw = () => {
+
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
         background(255,255,255,80)
-        this.registerHandPosition()
-        // Show Key on map
-        showKeyOnMap(handPoseHistory)
-        mooveKeyOnMap()
-        // Check every hands of the history
-        this.checkHand(handPoseHistory.right)
-        this.checkHand(handPoseHistory.left)
-        
+        showLifeOfPlayer()
+
         if (DEBUGMODE === true) {
             this.debugScene();
-            showLifeOfPlayer()
             if (poses) {
                 this.drawDebugPose(poses[0])
             }
         }
-
+        
+        this.showScene()
+        this.registerHandPosition()
+        // Show Key on map
+        mooveKeyOnMap()
+        showKeyOnMap()
+        showHandTrail(handPoseHistory.right)
+        showHandTrail(handPoseHistory.left)
+        // Check every hands of the history
+        this.checkHand(handPoseHistory.right)
+        this.checkHand(handPoseHistory.left)
 
         if (gameEnd === true) {
             if (DEBUGMODE === true) {
@@ -75,7 +103,7 @@ function Game() {
         // Boucle on the right hand history
         for (let i = 0; i < handPoseHist.length; i++) {
             const hand = handPoseHist[i];
-            hand.life--;
+            hand.life-=minusLifeTime;
         }
 
         // This boucle on the hand life
@@ -93,10 +121,10 @@ function Game() {
         var pose = poses[0];
 
         let _rightWrist = this.getHandForHistory(pose.pose.rightWrist)
-        if (_rightWrist.confidence > 0.6) handPoseHistory.right.push(_rightWrist);
+        if (_rightWrist.confidence > 0.4) handPoseHistory.right.push(_rightWrist);
 
         let _leftWrist = this.getHandForHistory(pose.pose.leftWrist)
-        if (_leftWrist.confidence > 0.6) handPoseHistory.left.push(_leftWrist)
+        if (_leftWrist.confidence > 0.4) handPoseHistory.left.push(_leftWrist)
 
     }
 
@@ -104,15 +132,15 @@ function Game() {
         return {
             position: createVector(hand.x, hand.y),
             confidence: hand.confidence,
-            life: lifeTime
+            life: handLifeTime
         }
     }
 
     // Function called once model is loaded
-    this.modelLoaded = () => {
+    this.sceneLoaded = () => {
         sceneIsLoaded = true
         if (DEBUGMODE === true)
-            console.log('/-Model Loaded, you can play-/');
+            console.log('/-Scene Loaded, you can play-/');
     }
 
 
@@ -126,25 +154,28 @@ function Game() {
             "right": [],
             "left": []
         }
-        SceneManager.showNextScene()
+        goToScene()
     }
 
     //#region Debug Functions
 
     // Function called if DEBUGMODE const is true
-    this.debugScene = () => {
+    this.showScene = () => {
 
         // Flip video horizontaly
         scale(-1, 1);
         image(video, -width, 0, width, height)
 
-        if(timeGlitched > 0){
-            glitch.loadImage(video);
-            // map mouseX to # of randomBytes() + mouseY to limitBytes()
-            glitch.limitBytes(map(25, 0, height, 0, 1));
-            glitch.randomBytes(map(25, 0, width, 0, 100));
-            glitch.buildImage();
-            image(glitch.image, -width, 0, width, height)
+        if (timeGlitched > 0) {
+            
+	        if(frameCount % 2 === 0) {
+                glitch.loadImage(video);
+                // map mouseX to # of randomBytes() + mouseY to limitBytes()
+                glitch.limitBytes(map(25, 0, height, 0, 1));
+                glitch.randomBytes(map(25, 0, width, 0, 100));
+                glitch.buildImage();
+                image(glitch.image, -width, 0, width, height)
+            }
             timeGlitched--
         }
         scale(-1, 1);
@@ -181,5 +212,7 @@ function Game() {
     }
 
     //#endregion
+
+
 
 }

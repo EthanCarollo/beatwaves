@@ -3,8 +3,9 @@
  * * Assets.get("nameofassets")
  */
 
-var Assets = { }
-var Instruments = { }
+var Assets = {}
+var Instruments = {}
+
 
 /**
  * This function return an asset by passing an asset slug
@@ -20,10 +21,10 @@ Assets.get = (asset_slug) => Assets[asset_slug.toUpperCase()] !== undefined ? As
  * @param {string} assetname this is the name of the asset
  * @param {array[int]} _assetIterator this is an array of one int, cause it's a reference
  */
-function loadAssets(path, assetname, _assetIterator){
+function loadAssets(path, assetname, _assetIterator) {
     fetch(path)
         .then(res => res.json())
-        .then(res => { 
+        .then(res => {
             Assets[assetname] = res;
             _assetIterator[0]++
             (_assetIterator[0] === Object.keys(ASSETSPATH).length) ? isAssetsLoaded = true : isAssetsLoaded = false
@@ -35,15 +36,15 @@ function loadAssets(path, assetname, _assetIterator){
  * A function called after an asset is loaded
  * @param {string} assetname 
  */
-function assetsLoaded (assetname){
-    if(DEBUGMODE === true)
+function assetsLoaded(assetname) {
+    if (DEBUGMODE === true)
         console.log("Extra Load for : - " + assetname)
 
-    switch(assetname){
+    switch (assetname) {
         case "INSTRUMENTS":
             // This code will add to the instruments object a new synth with every sample of
             // the instruments in the instrument.json
-            for(instrument of Object.keys(Assets.get(assetname).instruments)){
+            for (instrument of Object.keys(Assets.get(assetname).instruments)) {
                 Instruments[instrument] = new Tone.Sampler({
                     urls: Assets.get(assetname).instruments[instrument],
                     baseUrl: "./"
@@ -57,12 +58,12 @@ function assetsLoaded (assetname){
             // Fetch the differents melody in the assets and set it to the melody key
             fetchSongs()
             break;
-        default :
+        default:
             console.log("Extra Load Not registered for : - " + assetname)
             break;
     }
     // ! TEMPORARY REMOVE THAT PLZ
-    isAssetsLoaded = true 
+    isAssetsLoaded = true
 }
 
 const fetchImage = () => {
@@ -74,6 +75,7 @@ const fetchImage = () => {
     }
 }
 
+
 const fetchSongs = () => {
     let assetname = "SONGS";
     for (let i = 0; i < Assets[assetname].songs.length; i++) {
@@ -83,7 +85,7 @@ const fetchSongs = () => {
             .then(res => {
                 song.melo_principal["melody"] = res
             })
-        
+
 
         for (let j = 0; j < song.different_melo.length; j++) {
             const other_melody = song.different_melo[j];
@@ -100,11 +102,11 @@ const fetchSongs = () => {
  * Just load all Assets
  * @param {Object} _ASSETSPATH 
  */
-function loadAllAssets(_ASSETSPATH){
+function loadAllAssets(_ASSETSPATH) {
     // Need to tell the variable she is in an array to make it a reference for a function
     // This is probably stupid but it is the only solution i found quickly
     var assetsIterator = [0]
-    for(assetsName of Object.keys(_ASSETSPATH)){
+    for (assetsName of Object.keys(_ASSETSPATH)) {
         loadAssets(_ASSETSPATH[assetsName], assetsName, assetsIterator);
     }
 }
