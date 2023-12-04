@@ -78,6 +78,8 @@ body {
     bottom: 0;
     font-size: 1vw;
     padding: 1vw;
+    padding-bottom: 1.05vw;
+    color: #919191;
 }
 
 .song_element.is-active {

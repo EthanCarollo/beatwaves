@@ -143,10 +143,42 @@ function MainMenu() {
     }
 
     this.goNextScene = () => {
-        document.getElementById("game_caroussel").style.display = "none"
-        document.getElementById("select_button").style.display = "none"
-        document.getElementById("right_button").style.display = "none"
-        document.getElementById("left_button").style.display = "none"
+        anime({
+            targets:"#game_caroussel",
+            easing: "easeInOutCubic",
+            opacity:0,
+            loopComplete:()=>{
+                document.getElementById("game_caroussel").style.display = "none"
+                document.getElementById("game_caroussel").style.opacity = "1"
+            }
+        })
+        anime({
+            targets:"#select_button",
+            easing: "easeInOutCubic",
+            opacity:0,
+            loopComplete:()=>{
+                document.getElementById("select_button").style.display = "none"
+                document.getElementById("select_button").style.opacity = "1"
+            }
+        })
+        anime({
+            targets:"#right_button",
+            easing: "easeInOutCubic",
+            opacity:0,
+            loopComplete:()=>{
+                document.getElementById("right_button").style.display = "none"
+                document.getElementById("right_button").style.opacity = "1"
+            }
+        })
+        anime({
+            targets:"#left_button",
+            easing: "easeInOutCubic",
+            opacity:0,
+            loopComplete:()=>{
+                document.getElementById("left_button").style.display = "none"
+                document.getElementById("left_button").style.opacity = "1"
+            }
+        })
         goToScene()
     }
 
