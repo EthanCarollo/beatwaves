@@ -195,11 +195,6 @@ span {
     position: absolute;
     width: 49%;
     height: 49%;
-    background: rgba(30, 30, 30, 0.47);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11px);
-    -webkit-backdrop-filter: blur(11px);
 }
 
 #topLeft {
@@ -241,3 +236,5 @@ span {
     height: 300px;
     border: 10px solid transparent;
 }
+
+
