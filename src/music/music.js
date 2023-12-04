@@ -25,7 +25,7 @@ const initializeMusic = (song = null) => {
     if (song !== null) {
         initializeMelody(song)
     }
-
+    melodyOne = song.melo_principal.melody.notes
 }
 
 /**
