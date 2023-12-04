@@ -69,6 +69,7 @@ body {
     text-transform: uppercase;
     color: #CA00D3;
     font-size: 3.5vw;
+    width: 100%;
     padding: 1vw;
     padding-top: 0vw;
 }
@@ -78,11 +79,41 @@ body {
     position: absolute;
     left: 0;
     bottom: 0;
-    font-size: 1vw;
-    padding: 1vw;
-    padding-bottom: 1.05vw;
+    font-size: 1.2vw;
+    padding:0.5vw;
+    padding-top: 0.25vw;
+    padding-bottom: 0.25vw;
+    margin: 0.5vw;
+    color: #919191;
+    border-color: white;
+    border-style: solid;
+    border-radius: 0.7vw;
+    border-width: 2px;
+}
+
+.difficulty_text{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    height: 2vw;
+    width: 100%;
+    margin: 1vw;
+    margin-right: 1vw;
+    align-items: end;
+    justify-content: end;
+}
+
+.difficulty_text h3{
+    font-family: Robotro;
+    font-size: 1.2vw;
+    padding-right: 0.5rem;
     color: #919191;
 
+}
+
+.difficulty_text img{
+    height: 1.75vw;
 }
 
 .song_element.is-active {
@@ -130,6 +161,24 @@ body {
     background-size: cover;
     fill: white;
     padding: 1.5vw;
+    background-image: url("../assets/images/button/play.svg");
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 1s;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: baseline;
+    font-family: Orbitron;
+    font-size: 3vw;
+    color: rgba(240, 255, 255, 0);
+}
+
+#select_button:hover{
+    transition: all 1s;
+    background-color: aliceblue;
+    color: rgb(47, 47, 47);
 }
 
 #left_button{
@@ -150,6 +199,10 @@ body {
     background-position: center;
     background-size: cover;
     left: 25.5vw;
+    background-image: url("../assets/images/button/left-2.svg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 #right_button{
     display: none;
@@ -168,8 +221,13 @@ body {
     background-position: center;
     background-size: cover;
     bottom: 30vh;
-    right: 24.5vw;
+    right: 25.5vw;
+    background-image: url("../assets/images/button/right-2.svg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
 
 #game_caroussel {
     pointer-events: none;

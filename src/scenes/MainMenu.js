@@ -73,8 +73,11 @@ function MainMenu() {
             doc.classList.add("song_element")
             //doc.style.backgroundImage = "url(" + Assets.get("IMAGES").data[0].url + ")";
             doc.classList.add("splide__slide")
-            doc.innerHTML = "<h1>" + song.nameSong + "</h1>"
+            doc.innerHTML = "<h1><span style='font-size: 1.5vw;'>" + song.authorSong + " - </span><br> " + song.nameSong + "</h1>"
             doc.innerHTML += "<h2 style ='text-align:center;'>"+ song.styleSong +"</h2>"
+            doc.innerHTML += "<div class='difficulty_text'>"
+            + "<h3 style ='text-align:center;'>"+ song.difficultyText +"</h3>" +
+            "<img src = '"+song.difficultyImage+"'>" + "</div>";
 
             if(DEBUGMODE){
                 let song_button = document.createElement("button")
@@ -87,7 +90,7 @@ function MainMenu() {
             }
             splideList.appendChild(doc)
         }
-        document.getElementById("select_button").style.display = "block"
+        document.getElementById("select_button").style.display = "flex"
         document.getElementById("right_button").style.display = "block"
         document.getElementById("left_button").style.display = "block"
     }

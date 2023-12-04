@@ -2,28 +2,31 @@
     "songs": [
         {
             "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_four.json",
-                "instrument": "entertaining_bell"
-            },
-            "different_melo": [
-                {
-                    "melody_url": "./resources/songs/1/melo_one.json",
-                    "instrument": "digital_chimes_key"
-                }
-            ],
-            "duration": 60,
-            "nameSong": "The Real Blue",
-            "descriptionSong" : "this is the description",
-            "styleSong" : "style place holder"
-        },
-        {
-            "melo_principal": {
                 "melody_url": "./resources/songs/tokyo_ghoul/melody_two.json",
                 "instrument": "digital_chimes_key"
             },
             "different_melo": [
                 {
                     "melody_url": "./resources/songs/tokyo_ghoul/melody_one.json",
+                    "instrument": "digital_chimes_key"
+                }
+            ],
+            "duration": 60,
+            "authorSong": "Tokyo Ghoul",
+            "nameSong": "Unravel",
+            "descriptionSong" : "this is the description",
+            "styleSong" : "Manga ?",
+            "difficultyImage" : "assets/images/difficulty/musique_facile.svg",
+            "difficultyText":"Facile"
+        },
+        {
+            "melo_principal": {
+                "melody_url": "./resources/songs/1/melo_four.json",
+                "instrument": "entertaining_bell"
+            },
+            "different_melo": [
+                {
+                    "melody_url": "./resources/songs/1/melo_one.json",
                     "instrument": "digital_chimes_key"
                 }
             ],
@@ -43,9 +46,12 @@
             ],
             "descriptionSong": "this is the description",
             "duration": 60,
-            "nameSong": "Tokyo Ghoul - Unravel",
+            "authorSong": "Eiffel 65",
+            "nameSong": "The Real Blue",
             "descriptionSong" : "this is the description",
-            "styleSong" : "style place holder"
+            "styleSong" : "Techno",
+            "difficultyImage" : "assets/images/difficulty/moyennement_difficile.svg",
+            "difficultyText":"Moyen"
         },
         {
             "melo_principal": {
@@ -59,9 +65,12 @@
                 }
             ],
             "duration": 60,
+            "authorSong": "",
             "nameSong": "Place Holder",
             "descriptionSong" : "this is the description",
-            "styleSong" : "style place holder"
+            "styleSong" : "style place holder",
+            "difficultyImage" : "assets/images/difficulty/musique_difficile.svg",
+            "difficultyText":"Difficile"
         }
     ]
 }
