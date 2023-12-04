@@ -67,6 +67,7 @@ body {
     text-transform: uppercase;
     color: #CA00D3;
     font-size: 3.5vw;
+    width: 100%;
     padding: 1vw;
     padding-top: 0vw;
 }
@@ -157,6 +158,24 @@ body {
     background-size: cover;
     fill: white;
     padding: 1.5vw;
+    background-image: url("../assets/images/button/play.svg");
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 1s;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: baseline;
+    font-family: Orbitron;
+    font-size: 3vw;
+    color: rgba(240, 255, 255, 0);
+}
+
+#select_button:hover{
+    transition: all 1s;
+    background-color: aliceblue;
+    color: rgb(47, 47, 47);
 }
 
 #left_button{
@@ -177,6 +196,10 @@ body {
     background-position: center;
     background-size: cover;
     left: 25.5vw;
+    background-image: url("../assets/images/button/left-2.svg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #right_button{
@@ -197,7 +220,12 @@ body {
     background-size: cover;
     bottom: 30vh;
     right: 25.5vw;
+    background-image: url("../assets/images/button/right-2.svg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
 
 #game_caroussel {
     pointer-events: none;

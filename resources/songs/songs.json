@@ -2,6 +2,25 @@
     "songs": [
         {
             "melo_principal": {
+                "melody_url": "./resources/songs/tokyo_ghoul/melody_two.json",
+                "instrument": "digital_chimes_key"
+            },
+            "different_melo": [
+                {
+                    "melody_url": "./resources/songs/tokyo_ghoul/melody_one.json",
+                    "instrument": "digital_chimes_key"
+                }
+            ],
+            "duration": 60,
+            "authorSong": "Tokyo Ghoul",
+            "nameSong": "Unravel",
+            "descriptionSong" : "this is the description",
+            "styleSong" : "Manga ?",
+            "difficultyImage" : "assets/images/difficulty/musique_facile.svg",
+            "difficultyText":"Facile"
+        },
+        {
+            "melo_principal": {
                 "melody_url": "./resources/songs/1/melo_four.json",
                 "instrument": "entertaining_bell"
             },
@@ -12,11 +31,12 @@
                 }
             ],
             "duration": 60,
+            "authorSong": "Eiffel 65",
             "nameSong": "The Real Blue",
             "descriptionSong" : "this is the description",
             "styleSong" : "Techno",
-            "difficultyImage" : "assets/images/difficulty/musique_difficile.svg",
-            "difficultyText":"Difficile"
+            "difficultyImage" : "assets/images/difficulty/moyennement_difficile.svg",
+            "difficultyText":"Moyen"
         },
         {
             "melo_principal": {
@@ -30,29 +50,12 @@
                 }
             ],
             "duration": 60,
-            "nameSong": "Tokyo Ghoul - Unravel",
-            "descriptionSong" : "this is the description",
-            "styleSong" : "Manga ?",
-            "difficultyImage" : "assets/images/difficulty/musique_facile.svg",
-            "difficultyText":"Facile"
-        },
-        {
-            "melo_principal": {
-                "melody_url": "./resources/songs/tokyo_ghoul/melody_two.json",
-                "instrument": "digital_chimes_key"
-            },
-            "different_melo": [
-                {
-                    "melody_url": "./resources/songs/tokyo_ghoul/melody_one.json",
-                    "instrument": "digital_chimes_key"
-                }
-            ],
-            "duration": 60,
+            "authorSong": "",
             "nameSong": "Place Holder",
             "descriptionSong" : "this is the description",
             "styleSong" : "style place holder",
-            "difficultyImage" : "assets/images/difficulty/moyennement_difficile.svg",
-            "difficultyText":"Moyen"
+            "difficultyImage" : "assets/images/difficulty/musique_difficile.svg",
+            "difficultyText":"Difficile"
         }
     ]
 }
