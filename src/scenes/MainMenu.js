@@ -62,6 +62,7 @@ function MainMenu() {
         document.getElementById("game_caroussel").style.display = "flex"
         let splideList = document.getElementById("splide__list")
         splideList.innerHTML = ""
+        console.log(Assets)
         for (let i = 0; i < Assets.get("songs").songs.length; i++) {
             const song = Assets.get("songs").songs[i];
             // Appends the text document

@@ -12,9 +12,8 @@
                 }
             ],
             "nameSong": "The Real Blue",
-            "descriptionSong" : "this is the description"
-            "duration": 60,
-            "nameSong": "The Real Blue"
+            "descriptionSong": "this is the description",
+            "duration": 60
         },
         {
             "melo_principal": {
@@ -28,7 +27,7 @@
                 }
             ],
             "nameSong": "The Fake Blue",
-            "descriptionSong" : "this is the description"
+            "descriptionSong": "this is the description"
         },
         {
             "melo_principal": {
@@ -41,8 +40,7 @@
                     "instrument": "digital_chimes_key"
                 }
             ],
-            "nameSong": "The Fake Blue",
-            "descriptionSong" : "this is the description"
+            "descriptionSong": "this is the description",
             "duration": 60,
             "nameSong": "Tokyo Ghoul - Unravel"
         }
