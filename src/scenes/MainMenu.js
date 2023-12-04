@@ -40,7 +40,7 @@ function MainMenu() {
         // Create and mount the slider with splide, show the documentation here : https://splidejs.com/guides/
         this.slider = new Splide('#splide', {
             type: 'slide',
-            perPage: 3,
+            perPage: 1,
             focus: 'center',
             arrows: false,
             autoplay: false,
@@ -49,8 +49,7 @@ function MainMenu() {
             updateOnMove: true,
             pagination: false,
             gap: "2vw",
-            width: "70vw",
-            start: "1"
+            width: "30vw"
         }).mount();
 
         spawnCharacter("mainMenu")
@@ -70,7 +69,7 @@ function MainMenu() {
             //doc.style.backgroundImage = "url(" + Assets.get("IMAGES").data[0].url + ")";
             doc.classList.add("splide__slide")
             doc.innerHTML = "<h1>" + song.nameSong + "</h1>"
-            doc.innerHTML += "<h2 style ='text-align:center;'>"+ song.descriptionSong +"</h2>"
+            doc.innerHTML += "<h2 style ='text-align:center;'>"+ song.styleSong +"</h2>"
 
             if(DEBUGMODE){
                 let song_button = document.createElement("button")
