@@ -47,6 +47,7 @@
             </div>
         </div>
     </div>
+    
     <img src="./assets/images/button/play.svg" id="select_button" class =""></div>
     <img src="./assets/images/button/right-2.svg" id="right_button" class =""></div>
     <img src="./assets/images/button/left-2.svg" id="left_button" class =""></div>
@@ -54,11 +55,23 @@
     <!-- End game / Dataviz -->
     <div id="dataviz" style="display: none;">
         <div id="container">
-            <div id="circle"></div>
-            <div class="square" id="topLeft"></div>
-            <div class="square" id="topRight"></div>
-            <div class="square" id="bottomLeft"></div>
-            <div class="square" id="bottomRight"></div>
+            <div class="square" id="topLeftKeys">
+                <p>Touchés / ratés</p>
+            </div>
+            <div class="square" id="topRightLife">
+                <p>Vies restantes</p>
+            </div>
+            <div class="square" id="armCenter"></div>
+            <div class="square" id="score">
+                <p>Score</p>
+            </div>
+            <div class="square" id="note">
+                <p>Note</p>
+            </div>
+            <div id="buttonEndGame">
+                <!-- <button id="returnToStart" onclick="">Retourner au départ</button> -->
+                <!-- <button id="restart" onclick="">Recommencer</button> -->
+            </div>
             <div id="textData">
                 <p id="totalsKeys"></p>
                 <p id="keysMiss"></p>
@@ -78,7 +91,7 @@
 
     <button id="active-music-debug-button" style="display: none; position: absolute; top:100vh;">Active Music</button>
     <div id="game-start-decount">
-        <h1 id = "counter-text">count</h1>
+        <h1 id="counter-text">count</h1>
     </div>
     <div id="scene-transitor-background">
 
