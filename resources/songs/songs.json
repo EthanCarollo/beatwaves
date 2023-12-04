@@ -12,7 +12,8 @@
                 }
             ],
             "duration": 60,
-            "nameSong": "The Real Blue"
+            "nameSong": "The Real Blue",
+            "descriptionSong" : "this is the description"
         },
         {
             "melo_principal": {
@@ -26,7 +27,8 @@
                 }
             ],
             "duration": 60,
-            "nameSong": "Tokyo Ghoul - Unravel"
+            "nameSong": "Tokyo Ghoul - Unravel",
+            "descriptionSong" : "this is the description"
         }
     ]
 }

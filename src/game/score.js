@@ -37,7 +37,7 @@ const alphabeticalNotation = {
  * @returns {object} return a key object
 */
 const overallScore = (keyTouch, totalsKey, keyMiss ) => {
-    let scoreMin, minPourcent, scoreMaxPourcent, note
+    let scoreMin = 0, minPourcent = 0, scoreMaxPourcent = 0, note = 0
 
 
     /**
@@ -102,8 +102,8 @@ const overallScore = (keyTouch, totalsKey, keyMiss ) => {
     */
     function thresholdLevelPoint(gradeThreshold, scorePlayer) {
         const matchingGrades = {
-            Max: null,
-            Min: null,
+            max: { grade: "F", pourcent: "0", scoreMax: "0" },
+            min: { grade: "F", pourcent: "0", scoreMin: "0" },
         };
         Object.entries(gradeThreshold).forEach(([grade, info]) => {
             if (scorePlayer >= info.scoreMin) {
@@ -131,10 +131,10 @@ const overallScore = (keyTouch, totalsKey, keyMiss ) => {
         return proportion;
     }
 
-    scoreMin = thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, totalsKey).maxRating), resultScore(keyTouch, totalsKey).scorePlayer).Min.scoreMin
-    minPourcent = thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, totalsKey).maxRating), resultScore(keyTouch, totalsKey).scorePlayer).Min.pourcent
-    scoreMaxPourcent = thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, totalsKey).maxRating), resultScore(keyTouch, totalsKey).scorePlayer).Max.pourcent
-    note = thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, totalsKey).maxRating), resultScore(keyTouch, totalsKey).scorePlayer).Min.grade
+    scoreMin = thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, totalsKey).maxRating), resultScore(keyTouch, totalsKey).scorePlayer).min.scoreMin
+    minPourcent = thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, totalsKey).maxRating), resultScore(keyTouch, totalsKey).scorePlayer).min.pourcent
+    scoreMaxPourcent = thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, totalsKey).maxRating), resultScore(keyTouch, totalsKey).scorePlayer).max.pourcent
+    note = thresholdLevelPoint(gradeThreshold(resultScore(keyTouch, totalsKey).maxRating), resultScore(keyTouch, totalsKey).scorePlayer).min.grade
 
 
     let score = {

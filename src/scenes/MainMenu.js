@@ -39,7 +39,7 @@ function MainMenu() {
         this.setCarousselSlide()
         // Create and mount the slider with splide, show the documentation here : https://splidejs.com/guides/
         this.slider = new Splide('#splide', {
-            type: 'loop',
+            type: 'slide',
             perPage: 3,
             focus: 'center',
             arrows: false,
@@ -48,11 +48,10 @@ function MainMenu() {
             flickMaxPages: 1,
             updateOnMove: true,
             pagination: false,
-            gap: "2vw"
+            gap: "2vw",
+            width: "70vw",
+            start: "1"
         }).mount();
-        setTimeout(() => {
-            this.slider.go("+1")
-        }, 200);
 
         spawnCharacter("mainMenu")
         this.sceneLoaded()
@@ -68,21 +67,26 @@ function MainMenu() {
             // Appends the text document
             let doc = document.createElement("div")
             doc.classList.add("song_element")
-            doc.style.backgroundImage = "url(" + Assets.get("IMAGES").data[0].url + ")";
+            //doc.style.backgroundImage = "url(" + Assets.get("IMAGES").data[0].url + ")";
             doc.classList.add("splide__slide")
             doc.innerHTML = "<h1>" + song.nameSong + "</h1>"
+            doc.innerHTML += "<h2 style ='text-align:center;'>"+ song.descriptionSong +"</h2>"
 
-            let song_button = document.createElement("button")
-            song_button.innerHTML = "Choose Music"
-            song_button.addEventListener("click", () => {
-                initializeMusic(song)
-                this.goNextScene()
-                return melodyOne = song.melo_principal.melody.notes.length, melodyOther = song.different_melo[0].melody.notes.length
-            })
-            doc.appendChild(song_button)
+            if(DEBUGMODE){
+                let song_button = document.createElement("button")
+                song_button.innerHTML = "Choose Music"
+                song_button.addEventListener("click", () => {
+                    initializeMusic(song)
+                    this.goNextScene()
+                    return melodyOne = song.melo_principal.melody.notes.length, melodyOther = song.different_melo[0].melody.notes.length
+                })
+                doc.appendChild(song_button)
+            }
             splideList.appendChild(doc)
-
         }
+        document.getElementById("select_button").style.display = "block"
+        document.getElementById("right_button").style.display = "block"
+        document.getElementById("left_button").style.display = "block"
     }
 
     // draw() is the normal draw function, this function work like a scene
@@ -100,6 +104,7 @@ function MainMenu() {
 
         this.registerHandPosition()
         this.navigateMenu()
+        background(0, 0, 0, 80)
         this.drawHandPosition()
     }
 
@@ -138,6 +143,9 @@ function MainMenu() {
 
     this.goNextScene = () => {
         document.getElementById("game_caroussel").style.display = "none"
+        document.getElementById("select_button").style.display = "none"
+        document.getElementById("right_button").style.display = "none"
+        document.getElementById("left_button").style.display = "none"
         goToScene()
     }
 
@@ -176,12 +184,12 @@ function MainMenu() {
 
     }
 
-    let sizeButton = width / 8;
+    let sizeButton = width / 100 * 8;
     const interactiveButtons = [
         {
             position: {
-                x: 120,
-                y: height / 2 - sizeButton / 2
+                x: width / 100 * 30  - sizeButton / 2,
+                y: height - height / 100 * 30
             },
             width: sizeButton,
             height: sizeButton,
@@ -191,8 +199,8 @@ function MainMenu() {
         },
         {
             position: {
-                x: width - sizeButton - 120,
-                y: height / 2 - sizeButton / 2
+                x: width - width / 100 * 30 - sizeButton / 2,
+                y: height - height / 100 * 30
             },
             width: sizeButton,
             height: sizeButton,
@@ -203,7 +211,7 @@ function MainMenu() {
         {
             position: {
                 x: width / 2 - sizeButton / 2,
-                y: height - 400
+                y: height - height / 100 * 25
             },
             width: sizeButton,
             height: sizeButton,

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Orbitron";
+    src: url("../assets/fonts/orbitron/Orbitron-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Robotro";
+    src: url("../assets/fonts/roboto/Roboto-Medium.ttf");
+}
+
 body{
     position: absolute;
     top: 0%;
@@ -10,34 +20,120 @@ body{
 .caroussel_game_slider {
     position: absolute;
     left: 0;
-    top: 3vh;
-    width: 100vw;
+    top: 20vh;
+    width: 100%;
     height: 100vh;
     display: none;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+#splide__list{
+    overflow: visible;
+}
+
+#splide-track{
+    
+    overflow: visible;
+}
+
 .song_element {
-    width: 20vw;
-    height: 20vw;
+    margin-top:5vh !important;
+    height: 30vh;
     background-size: 20%;
     color: #fff;
-    opacity: 50%;
+    background: rgba( 37, 2, 90, 0.5 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
+    overflow-y: visible;
+    -webkit-backdrop-filter: blur( 13px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    opacity: 90%;
     image-rendering: pixelated;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: all 1s;
-    transform: scale(0.8);
+}
+
+.song_element h1{
+    font-family: Orbitron;
+    text-transform: uppercase;
+}
+
+.song_element h2{
+    font-family: Robotro;
 }
 
 .song_element.is-active {
     transition: all 1s;
-    transform: scale(1);
+    margin-top:0vh !important;
+    height: 40vh;
+}
+
+#select_button{
+    display: none;
+    background: rgba( 37, 2, 90, 0.5 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
+    overflow-y: visible;
+    -webkit-backdrop-filter: blur( 13px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 9vw;
+    height: 9vw;
+    position: absolute;
+    bottom: 25vh;
+    margin-bottom: -8.5vw;
+    left: 45.5vw;
+    background-position: center;
+    background-size: cover;
+    fill: white;
+    padding: 1vw;
+}
+
+#left_button{
+    display: none;
+    background: rgba( 37, 2, 90, 0.5 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
+    overflow-y: visible;
+    -webkit-backdrop-filter: blur( 13px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 9vw;
+    height: 9vw;
+    padding: 0.75vw;
+    margin-bottom: -8.5vw;
+    position: absolute;
+    bottom: 30vh;
+    background-position: center;
+    background-size: cover;
+    left: 25.5vw;
+}
+
+#right_button{
+    display: none;
+    padding: 0.75vw;
+    background: rgba( 37, 2, 90, 0.5 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
+    overflow-y: visible;
+    -webkit-backdrop-filter: blur( 13px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 9vw;
+    margin-bottom: -8.5vw;
+    height: 9vw;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    bottom: 30vh;
+    right: 25.5vw;
 }
 
 #game_caroussel {
