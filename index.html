@@ -49,49 +49,55 @@
     </div>
 
     <div id="target-mouse-hand"></div>
-    
     <div src="./assets/images/button/play.svg" id="select_button">Lancer</div>
     <div src="./assets/images/button/right-2.svg" id="right_button"></div>
     <div src="./assets/images/button/left-2.svg" id="left_button"></div>
     
+
+
     <!-- End game / Dataviz -->
     <div id="dataviz" style="display: none;">
         <div id="container">
-            <div class="square" id="topLeftKeys">
-                <p>Touchés / ratés</p>
+            <div class="square textData">
+                <p class="titleSquare textGreen">Touchés / ratés</p>
+                <div class="textInRect">
+                    <p id="keysTouch" class="textGreen"></p>
+                    <p class="textGreen" style="padding: 16px;">/</p>
+                    <p id="keysMiss" class="textGreen"></p>
+                </div>
             </div>
-            <div class="square" id="topRightLife">
-                <p>Vies restantes</p>
+            <div class="square textData">
+                <p class="titleSquare">Vies restantes</p>
+                <div class="textInRect">
+                <div id="livesRemaining"></div>
+                </div>
             </div>
-            <div class="square" id="armCenter"></div>
-            <div class="square" id="score">
-                <p>Score</p>
+            <div class="square formArms">
+                <div class="textArms">
+                    <p id="leftArm" class="textGreen"></p>
+                    <p id="rightArm" class="textGreen" style="padding-left: 20%;"></p>
+                </div>
+                <div class="imgArms">
+                    <img src="./assets/images/end/left_arm.webp" style="width: 9rem;">
+                    <img src="./assets/images/end/right_arm.webp" alt="" style="width: 9rem;">
+                </div>
             </div>
-            <div class="square" id="note">
-                <p>Note</p>
-            </div>
-            <div id="buttonEndGame">
-                <!-- <button id="returnToStart" onclick="">Retourner au départ</button> -->
-                <!-- <button id="restart" onclick="">Recommencer</button> -->
-            </div>
-            <div id="textData">
-                <p id="totalsKeys"></p>
-                <p id="keysMiss"></p>
-                <p id="keysTouch"></p>
+            <div class="square textData">
+                <p class="titleSquare textGreen">Score</p>
                 <p id="playerScore"></p>
+            </div>
+            <div class="square note textData">
+                <p class="titleSquare">Note</p>
                 <p id="playerRating"></p>
-                <p id="successPercentage"></p>
-                <p id="livesRemaining"></p>
-                <p id="leftArm"></p>
-                <p id="rightArm"></p>
+            </div>
+            <div id="textData" style="display: none;">
             </div>
         </div>
     </div>
 
 
-
-
-    <button id="active-music-debug-button" style="display: none; position: absolute; top:100vh;">Active Music</button>
+    <button id="active-music-debug-button" style="display: none; position: absolute; top:100vh;">Active
+        Music</button>
     <div id="game-start-decount">
         <h1 id="counter-text">count</h1>
     </div>

@@ -98,6 +98,11 @@ const playKey = (key) => {
         if (key.isClean === true){
             TouchOrNot.Touch++
             lifeSystem(TouchOrNot.Error, true)
+            if(key.touchedBy === "right"){
+                scoreHand.right++
+            }else{
+                scoreHand.left++
+            }
         } else if(!key.isClean){
             TouchOrNot.Miss++
             TouchOrNot.Error++
@@ -157,6 +162,7 @@ const getRandomKey = (note, velocity, noteTime, instrument = classicSynth, _isVi
         vel: velocity, // The velocity of the note
         isPlayed: false, // If the note is played or no
         instr: instrument, // The instrument of the note
+        touchedBy: "",
         // Temp :
         cells : [new Cell(_position, 50)]
     }

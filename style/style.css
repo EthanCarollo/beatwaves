@@ -1,4 +1,5 @@
 
+
 @font-face {
     font-family: "Orbitron";
     src: url("../assets/fonts/orbitron/Orbitron-Regular.ttf");
@@ -62,6 +63,7 @@ body {
     transition: all 1s;
 }
 
+
 .song_element h1{
     font-family: Orbitron;
     text-transform: uppercase;
@@ -107,6 +109,7 @@ body {
     font-size: 1.2vw;
     padding-right: 0.5rem;
     color: #919191;
+
 }
 
 .difficulty_text img{
@@ -201,7 +204,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
-
 #right_button{
     display: none;
     padding: 0.75vw;
@@ -325,64 +327,12 @@ span {
 
 
 /* DATAVIZ */
-#container {
-    position: absolute;
-    width: 700px;
-    height: 400px;
-}
-
-#textData {
-    height: 400px;
-    width: 700px;
-}
-
-#totalsKeys {
-    left: 7%;
-}
-
-#keysMiss {
-    left: 7%;
-}
-
-#keysTouch {
-    left: 7%;
-}
-
-#playerScore {
-    left: 78%;
-    top: 82%;
-}
-
-#playerRating {
-    left: 42%;
-    top: 35%;
-}
-
-#successPercentage {
-    left: 7%;
-    bottom: 10%;
-}
-
-#livesRemaining {
-    left: 79%;
-    bottom: 20%;
-}
-
-#leftArm {
-    left: 7%;
-    top: 59%;
-}
-
-#rightArm {
-    left: 7%;
-    top: 60%;
-}
-
 .square {
+    background: rgb(30, 28, 28);
     border-radius: 33.207px;
-    position: absolute;
-    width: 48%;
-    height: 48%;
+    position: relative;
+    width: 27rem;
+    height: 12rem;
     flex-shrink: 0;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(13px);
@@ -391,39 +341,94 @@ span {
 }
 
 .square p {
-    font-size: 35px;
-    position: relative;
-    left: 10% !important;
+    color: white;
+    font-family: "Orbitron";
+}
+
+.titleSquare {
+    font-size: 2rem;
+    font-family: "Orbitron";
+}
+
+.textInRect {
+    right: 10%;
+    font-size: 4rem;
+    grid-template-columns: repeat(2, 75px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    /* padding: 16px;*/
 }
 
 
-#topLeftKeys {
-    top: 0;
-    left: 0;
-    background: rgba(109, 231, 0, 0.40);
+.textData {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
-#topRightLife {
-    background: var(--090606, rgba(9, 6, 6, 0.72));
-    top: 0;
-    right: 0;
+.note {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    height: auto;
 }
 
-#armCenter {
-    background: rgba(109, 231, 0, 0.40);
-    top: 50%;
-    right: 0;
+
+#container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#score {
-    background: rgba(109, 231, 0, 0.40);
-    top: 100%;
-    right: 0;
+
+#playerScore {
+    color: #6DE700;
+    left: 30%;
+    width: 9rem;
+    font-size: 3rem;
+    top: 12%;
 }
 
-#note {
-    top: 50%;
-    left: 0;
-    height: 98% !important;
-    background: var(--090606, rgba(9, 6, 6, 0.72));
+#playerRating {
+    height: 18rem;
+    left: 25%;
+    font-size: 16rem;
+}
+
+
+.imgArms {
+    display: flex;
+    flex-direction: row;
+}
+
+.textArms {
+    display: flex;
+}
+
+.formArms {
+    padding: 16px;
+    display: flex;
+    font-size: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textGreen {
+    color: #6DE700 !important
+}
+
+#livesRemaining{
+    display: flex;
 }
