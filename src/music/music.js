@@ -42,7 +42,7 @@ const initializeMelody = (melody) => {
     // End the game at the end of the party ! (2500 ms after in fact...)
     setTimeout(() => {
         gameEnd = true;
-    }, mainMelody[mainMelody.length - 1].end * 1000 + 2500 + gameStartDelay);
+    }, (((melody.duration+8) * 1000) * globalMusicSpeed));
 }
 
 /**

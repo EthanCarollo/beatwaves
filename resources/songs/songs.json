@@ -11,6 +11,7 @@
                     "instrument": "digital_chimes_key"
                 }
             ],
+            "duration": 60,
             "nameSong": "The Real Blue"
         },
         {
@@ -24,6 +25,7 @@
                     "instrument": "digital_chimes_key"
                 }
             ],
+            "duration": 60,
             "nameSong": "The Fake Blue"
         }
     ]

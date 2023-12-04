@@ -1,4 +1,4 @@
-let playerLife = 5
+let playerLife = 50000
 
 function lifeSystem(touch, recovery) {
     if (touch != null) {
@@ -7,7 +7,7 @@ function lifeSystem(touch, recovery) {
             gameEnd = true
             playerLife = 0
         } else if (touch & recovery) {
-            playerLife = 5
+            playerLife = 500000
             TouchOrNot.Error = 0;
         }
     }

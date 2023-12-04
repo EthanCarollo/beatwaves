@@ -70,14 +70,6 @@ function Game() {
         // this scene needs to be loaded if we want to draw in
         if (sceneIsLoaded === false) return;
         background(255,255,255,80)
-        showLifeOfPlayer()
-
-        if (DEBUGMODE === true) {
-            this.debugScene();
-            if (poses) {
-                this.drawDebugPose(poses[0])
-            }
-        }
         
         this.showScene()
         this.registerHandPosition()
@@ -89,6 +81,7 @@ function Game() {
         // Check every hands of the history
         this.checkHand(handPoseHistory.right)
         this.checkHand(handPoseHistory.left)
+        showLifeOfPlayer()
 
         if (gameEnd === true) {
             if (DEBUGMODE === true) {
