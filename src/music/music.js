@@ -28,6 +28,10 @@ const initializeMusic = (song = null) => {
     melodyOne = song.melo_principal.melody.notes
 }
 
+let timeOutGameEnd = setTimeout(() => {
+    
+}, 100);
+
 /**
  * Initialize the melody for the game, played before the launch of the scene
  * @param {object} melody 
@@ -39,8 +43,9 @@ const initializeMelody = (melody) => {
         initalizeOtherMelody(melody.different_melo, melody.melo_principal)
     }, gameStartDelay + 1000);
 
+    clearTimeout(timeOutGameEnd)
     // End the game at the end of the party ! (2500 ms after in fact...)
-    setTimeout(() => {
+    timeOutGameEnd = setTimeout(() => {
         gameEnd = true;
     }, (((melody.duration+8) * 1000) * globalMusicSpeed));
 }
