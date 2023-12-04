@@ -89,6 +89,25 @@ body {
     margin-bottom:2.5vh;
 }
 
+#target-mouse-hand{
+    display: none;
+    z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: -1vw;
+    margin-top: -1vw;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 100%;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /**
+    * Change the box shadow of the target mouse in future
+    */
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    background-color: #CA00D3;
+}
+
 #select_button{
     display: none;
     background: #1E1C1C;

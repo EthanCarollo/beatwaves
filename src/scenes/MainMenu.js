@@ -32,6 +32,8 @@ function MainMenu() {
     // to this Scene
     this.enter = function () {
 
+        enableMouse()
+
         initializeCenterOfWindow()
         frameRate(30)
 
@@ -143,6 +145,7 @@ function MainMenu() {
     }
 
     this.goNextScene = () => {
+        disableMouse()
         anime({
             targets:"#game_caroussel",
             easing: "easeInOutCubic",
