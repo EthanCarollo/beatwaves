@@ -77,8 +77,7 @@ function Game() {
             if (poses) {
                 this.drawDebugPose(poses[0])
             }
-        }
-        
+        } 
         this.showScene()
         this.registerHandPosition()
         // Show Key on map
@@ -89,6 +88,7 @@ function Game() {
         // Check every hands of the history
         this.checkHand(handPoseHistory.right)
         this.checkHand(handPoseHistory.left)
+        showLifeOfPlayer()
 
         if (gameEnd === true) {
             if (DEBUGMODE === true) {

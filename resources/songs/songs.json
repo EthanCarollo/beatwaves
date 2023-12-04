@@ -13,15 +13,17 @@
             ],
             "nameSong": "The Real Blue",
             "descriptionSong" : "this is the description"
+            "duration": 60,
+            "nameSong": "The Real Blue"
         },
         {
             "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_four.json",
-                "instrument": "entertaining_bell"
+                "melody_url": "./resources/songs/tokyo_ghoul/melody_two.json",
+                "instrument": "digital_chimes_key"
             },
             "different_melo": [
                 {
-                    "melody_url": "./resources/songs/1/melo_one.json",
+                    "melody_url": "./resources/songs/tokyo_ghoul/melody_one.json",
                     "instrument": "digital_chimes_key"
                 }
             ],
@@ -41,6 +43,8 @@
             ],
             "nameSong": "The Fake Blue",
             "descriptionSong" : "this is the description"
+            "duration": 60,
+            "nameSong": "Tokyo Ghoul - Unravel"
         }
     ]
 }
