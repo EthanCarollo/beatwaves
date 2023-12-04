@@ -14,7 +14,9 @@
             "duration": 60,
             "nameSong": "The Real Blue",
             "descriptionSong" : "this is the description",
-            "styleSong" : "style place holder"
+            "styleSong" : "Techno",
+            "difficultyImage" : "assets/images/difficulty/musique_difficile.svg",
+            "difficultyText":"Difficile"
         },
         {
             "melo_principal": {
@@ -30,7 +32,9 @@
             "duration": 60,
             "nameSong": "Tokyo Ghoul - Unravel",
             "descriptionSong" : "this is the description",
-            "styleSong" : "style place holder"
+            "styleSong" : "Manga ?",
+            "difficultyImage" : "assets/images/difficulty/musique_facile.svg",
+            "difficultyText":"Facile"
         },
         {
             "melo_principal": {
@@ -46,7 +50,9 @@
             "duration": 60,
             "nameSong": "Place Holder",
             "descriptionSong" : "this is the description",
-            "styleSong" : "style place holder"
+            "styleSong" : "style place holder",
+            "difficultyImage" : "assets/images/difficulty/moyennement_difficile.svg",
+            "difficultyText":"Moyen"
         }
     ]
 }

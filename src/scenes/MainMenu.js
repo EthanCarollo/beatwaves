@@ -74,6 +74,9 @@ function MainMenu() {
             doc.classList.add("splide__slide")
             doc.innerHTML = "<h1>" + song.nameSong + "</h1>"
             doc.innerHTML += "<h2 style ='text-align:center;'>"+ song.styleSong +"</h2>"
+            doc.innerHTML += "<div class='difficulty_text'>"
+            + "<h3 style ='text-align:center;'>"+ song.difficultyText +"</h3>" +
+            "<img src = '"+song.difficultyImage+"'>" + "</div>";
 
             if(DEBUGMODE){
                 let song_button = document.createElement("button")
