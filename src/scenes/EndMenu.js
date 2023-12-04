@@ -115,6 +115,7 @@ function EndMenu() {
 
     this.numberHeart = (nber) => {
     let heart = nber
+    document.getElementById("livesRemaining").innerHTML = ""
     if(heart != 0){
         for (let index = 0; index < heart; index++) {
             let div = document.getElementById("livesRemaining")
