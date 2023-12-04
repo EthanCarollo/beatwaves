@@ -5,6 +5,7 @@ const showInteractiveButton = (interactiveButton, checkPosition) => {
 
     if (isInRect(checkPosition.x, checkPosition.y, interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height) && interactiveButton.isReady) {
         interactiveButton.loading = lerp(interactiveButton.loading, 100, 0.1)
+        document.getElementById("target-mouse-hand").classList.add("is-loading")
         if(interactiveButton.loading > 99.9){
             interactiveButton.callback()
             interactiveButton.isReady = false
@@ -44,5 +45,5 @@ const disableMouse = () => {
 }
 
 const enableMouse = () => {
-    document.getElementById("target-mouse-hand").style.display = "block"
+    document.getElementById("target-mouse-hand").style.display = "flex"
 }

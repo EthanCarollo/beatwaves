@@ -173,6 +173,7 @@ function EndMenu() {
     }
 
     this.showEndButton = () => {
+        document.getElementById("target-mouse-hand").classList.remove("is-loading")
         showInteractiveButton(interactiveButton, mousePosition)
     }
 }
