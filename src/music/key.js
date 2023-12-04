@@ -34,8 +34,9 @@ const showKeyOnMap = () => {
             }
 
             if (key.isClean === true) {
-                key.cells[0].red = 0;
-                key.cells[0].blue = 255;
+                key.cells[0].red = 30;
+                key.cells[0].green = 28;
+                key.cells[0].blue = 28;
             }else{
                 // Make a train if he isnt clean
                 if(frameCount % 40 !== 0){
@@ -176,7 +177,7 @@ const getRandomKey = (note, velocity, noteTime, instrument = classicSynth, _isVi
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/jxGS3fKPKJA
 
-function Cell(pos, r, _color = {red:255,green:0,blue:0}) {
+function Cell(pos, r, _color = {red:202,green:0,blue:211}) {
 
     if (pos) {
       this.pos = pos.copy();
@@ -188,7 +189,7 @@ function Cell(pos, r, _color = {red:255,green:0,blue:0}) {
     this.red = _color.red;
     this.blue = _color.blue;
     this.green = _color.green;
-    this.alpha = 255;
+    this.alpha = 100;
   
     this.clicked = function(x, y) {
       var d = dist(this.pos.x, this.pos.y, x, y);
