@@ -221,7 +221,7 @@ body {
     background-position: center;
     background-size: cover;
     bottom: 30vh;
-    right: 25.5vw;
+    right: 24.5vw;
     background-image: url("../assets/images/button/right-2.svg");
     background-size: 80%;
     background-position: center;
@@ -395,16 +395,21 @@ span {
 
 #playerScore {
     color: #6DE700;
-    left: 30%;
-    width: 9rem;
     font-size: 3rem;
-    top: 12%;
 }
 
 #playerRating {
     height: 18rem;
     left: 25%;
     font-size: 16rem;
+}
+
+.score-data{
+    padding-bottom: 2vh;
+}
+
+.label-key-touch{
+    padding-top: 2vh;
 }
 
 
@@ -427,6 +432,14 @@ span {
 
 .textGreen {
     color: #6DE700 !important
+}
+
+#leftArm{
+    margin-right: 2vw;
+}
+
+#rightArm{
+    margin-left: 2vw;
 }
 
 #livesRemaining{
