@@ -96,16 +96,16 @@ body {
     -webkit-backdrop-filter: blur( 13px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    width: 9vw;
+    width: 14vw;
     height: 9vw;
     position: absolute;
     bottom: 25vh;
     margin-bottom: -8.5vw;
-    left: 45.5vw;
+    left: 42.5vw;
     background-position: center;
     background-size: cover;
     fill: white;
-    padding: 1vw;
+    padding: 1.5vw;
 }
 
 #left_button{

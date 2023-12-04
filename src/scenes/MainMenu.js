@@ -49,9 +49,11 @@ function MainMenu() {
             updateOnMove: true,
             pagination: false,
             gap: "2vw",
-            width: "30vw"
+            width: "30vw",
         }).mount();
-
+        setTimeout(() => {
+            this.slider.go("+1")
+        }, 1000);
         spawnCharacter("mainMenu")
         this.sceneLoaded()
     }
@@ -209,10 +211,10 @@ function MainMenu() {
         },
         {
             position: {
-                x: width / 2 - sizeButton / 2,
+                x: width / 2 - (sizeButton * 1.5 / 2),
                 y: height - height / 100 * 25
             },
-            width: sizeButton,
+            width: sizeButton*1.5,
             height: sizeButton,
             loading: 0,
             isReady: false,
