@@ -14,7 +14,10 @@ function EndMenu() {
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = function () {
-        this.seeDataviz([getScore(TouchOrNot.Touch, melodyOne.length), playerLife])
+        this.seeDataviz({
+            score: getScore(TouchOrNot.Touch, melodyOne.length),
+            life: playerLife
+        })
         frameRate(30)
     }
 
@@ -49,26 +52,32 @@ function EndMenu() {
 
     this.seeDataviz = (data) => {
 
-        let livesRemaining = data[1]
+        let livesRemaining = data.life
+
+        console.log(scoreHand)
+
+        // Get the hand percent
+        let leftHandPercent = 0
+        let rightHandPercent = 0
+        if(scoreHand.right > 0 || scoreHand.left){
+            leftHandPercent = Math.round(scoreHand.right*100/(scoreHand.right+scoreHand.left))
+            rightHandPercent =  Math.round(scoreHand.left*100/(scoreHand.right+scoreHand.left))
+        }
 
         let fullValue = {
-            // "totalsKeys": data[0].totalsKeys,
-            "keysMiss": data[0].keysMiss,
-            "keysTouch": data[0].keysTouch,
-            "playerScore": data[0].playerScore,
-            "playerRating": data[0].playerRating,
-            // "successPercentage": data[0].successPercentage,
-            "leftArm":"33%",
-            "rightArm": "33%"
+            "keysMiss": data.score.keysMiss,
+            "keysTouch": data.score.keysTouch,
+            "playerScore": data.score.playerScore,
+            "playerRating": data.score.playerRating,
+            "leftArm":leftHandPercent+"%",
+            "rightArm":rightHandPercent+"%"
         };
 
         let domDataviz = {
-            // "totalsKeys": { "title": "Total keys", "fontSize": "2vm", "nameId": "totalsKeys" },
             "keysMiss": { "title": "", "fontSize": "2vm", "nameId": "keysMiss" },
             "keysTouch": { "title": "", "fontSize": "2vm", "nameId": "keysTouch" },
             "playerScore": { "title": "", "fontSize": "2vm", "nameId": "playerScore" },
             "playerRating": { "title": "", "fontSize": "2vm", "nameId": "playerRating" },
-            // "successPercentage": { "title": "successPercentage", "fontSize": "2vm", "nameId": "successPercentage" },
             "leftArm": { "title": "leftArm", "fontSize": "2vm", "nameId": "leftArm" },
             "rightArm": { "title": "rightArm", "fontSize": "2vm", "nameId": "rightArm" },
         };

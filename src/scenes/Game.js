@@ -84,8 +84,8 @@ function Game() {
         // Show Key on map
         mooveKeyOnMap()
         showKeyOnMap()
-        showHandTrail(handPoseHistory.right)
-        showHandTrail(handPoseHistory.left)
+        showHandTrail(handPoseHistory.right, "right")
+        showHandTrail(handPoseHistory.left, "left")
         // Check every hands of the history
         this.checkHand(handPoseHistory.right)
         this.checkHand(handPoseHistory.left)

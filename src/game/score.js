@@ -31,7 +31,7 @@ const alphabeticalNotation = [
     },
     {
         "note" : "F",
-        "minPercent": 0,
+        "minPercent": -1,
         "scoreMin": null
     }
 ]
@@ -39,7 +39,10 @@ const alphabeticalNotation = [
 // Good by threshold, hello score
 
 function getScore(keyTouch, totalKey){
-    let percent = (keyTouch*100/totalKey)
+    let percent = Math.round(keyTouch*100/totalKey)
+    if(percent < 0){
+        throw new Error("percent of score is inferior to 0")
+    }
     let rating = alphabeticalNotation.find(element => element.minPercent < percent).note
     return{
         "keysTouch": keyTouch,
