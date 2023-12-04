@@ -49,6 +49,8 @@ function EndMenu() {
 
     this.seeDataviz = (data) => {
 
+        let livesRemaining = data[1]
+
         let fullValue = {
             // "totalsKeys": data[0].totalsKeys,
             "keysMiss": data[0].keysMiss,
@@ -56,7 +58,6 @@ function EndMenu() {
             "playerScore": data[0].playerScore,
             "playerRating": data[0].playerRating,
             // "successPercentage": data[0].successPercentage,
-            "livesRemaining": data[1],
             "leftArm":"33%",
             "rightArm": "33%"
         };
@@ -68,7 +69,6 @@ function EndMenu() {
             "playerScore": { "title": "", "fontSize": "2vm", "nameId": "playerScore" },
             "playerRating": { "title": "", "fontSize": "2vm", "nameId": "playerRating" },
             // "successPercentage": { "title": "successPercentage", "fontSize": "2vm", "nameId": "successPercentage" },
-            "livesRemaining": { "title": "", "fontSize": "2vm", "nameId": "livesRemaining" },
             "leftArm": { "title": "leftArm", "fontSize": "2vm", "nameId": "leftArm" },
             "rightArm": { "title": "rightArm", "fontSize": "2vm", "nameId": "rightArm" },
         };
@@ -87,7 +87,7 @@ function EndMenu() {
 
         // this.createZooningDOM();
 
-
+        this.numberHeart(livesRemaining)
         for (let key in fullValue) {
             if (fullValue.hasOwnProperty(key)) {
                 if (domDataviz[key]) {
@@ -110,6 +110,28 @@ function EndMenu() {
         let divDataviz = document.getElementById("dataviz");
         divDataviz.style.display = "none";
         goToScene(MainMenu)
+    }
+
+    this.numberHeart = (nber) => {
+    let heart = nber
+    if(heart != 0){
+        for (let index = 0; index < heart; index++) {
+            let div = document.getElementById("livesRemaining")
+            let img = document.createElement('img')
+            img.src = Assets.get("IMAGES").data[8].url,
+            img.style.width = "5rem"
+            div.appendChild(img);
+        }
+    }else{
+        for (let index = 0; index < 5; index++) {
+            let div = document.getElementById("livesRemaining")
+            let img = document.createElement('img')
+            img.src = Assets.get("IMAGES").data[10].url,
+            img.style.width = "5rem"
+            div.appendChild(img);
+        }
+    }
+
     }
 
     let sizeButton = width / 8;
