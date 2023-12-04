@@ -26,7 +26,8 @@ function Game() {
             "Miss":0,
             "Error":0
         }
-
+        // Reset the player life to 5
+        playerLife = 5
         initializeCenterOfWindow()
         frameRate(30)
         this.launchDecount()

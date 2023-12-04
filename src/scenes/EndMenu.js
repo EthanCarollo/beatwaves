@@ -97,7 +97,7 @@ function EndMenu() {
 
     this.createZooningDOM = () => {
         let container = document.getElementById("container")
-        container.style.top = ((height / 2) - 200) + "px"
+        container.style.top = ((height / 2) - 300) + "px"
         container.style.left = ((width / 2) / 2) + "px"
     }
 

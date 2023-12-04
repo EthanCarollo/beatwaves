@@ -4,7 +4,6 @@ let mouseSize = 80;
 const showInteractiveButton = (interactiveButton, checkPosition) => {
 
     if (isInRect(checkPosition.x, checkPosition.y, interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height) && interactiveButton.isReady) {
-        console.log("Is lerping in ")
         interactiveButton.loading = lerp(interactiveButton.loading, 100, 0.1)
         if(interactiveButton.loading > 99.9){
             interactiveButton.callback()
@@ -37,4 +36,13 @@ const drawMouse = (_position) => {
     stroke(255,255,255)
     circle(_position.x, _position.y, mouseSize)
     fill(255,0,0,255)
+    document.getElementById("target-mouse-hand").style.transform = "translateY("+_position.y+"px) translateX("+_position.x+"px)"
+}
+
+const disableMouse = () => {
+    document.getElementById("target-mouse-hand").style.display = "none"
+}
+
+const enableMouse = () => {
+    document.getElementById("target-mouse-hand").style.display = "block"
 }
