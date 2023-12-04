@@ -65,6 +65,7 @@ function MainMenu() {
         document.getElementById("game_caroussel").style.display = "flex"
         let splideList = document.getElementById("splide__list")
         splideList.innerHTML = ""
+        console.log(Assets)
         for (let i = 0; i < Assets.get("songs").songs.length; i++) {
             const song = Assets.get("songs").songs[i];
             // Appends the text document
@@ -81,7 +82,6 @@ function MainMenu() {
                 song_button.addEventListener("click", () => {
                     initializeMusic(song)
                     this.goNextScene()
-                    return melodyOne = song.melo_principal.melody.notes.length, melodyOther = song.different_melo[0].melody.notes.length
                 })
                 doc.appendChild(song_button)
             }
@@ -145,6 +145,8 @@ function MainMenu() {
     }
 
     this.goNextScene = () => {
+
+
         disableMouse()
         anime({
             targets:"#game_caroussel",

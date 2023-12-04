@@ -1,4 +1,9 @@
-function showHandTrail(handPoseHistory){
+let scoreHand = {
+    "right" : 0,
+    "left" : 0
+}
+
+function showHandTrail(handPoseHistory, hand){
     let spBef = null
     let _color = "#FF007D"
     stroke(_color);
@@ -36,6 +41,9 @@ function showHandTrail(handPoseHistory){
         };
 
         for (let j = 0; j < keyOnMap.length; j++) {
+            if(keyOnMap[j].isClean === true){
+                continue;
+            }
             let cnt = 0;
             const key = keyOnMap[j];
 
@@ -78,7 +86,8 @@ function showHandTrail(handPoseHistory){
                 cnt++
             }
 
-            if (cnt % 2 === 1) {
+            if (cnt % 2 === 1 && keyOnMap[j].isClean !== true) {
+                key.touchedBy = hand
                 key.isClean = true
             }
             
