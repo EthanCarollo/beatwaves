@@ -11,7 +11,8 @@
                     "instrument": "digital_chimes_key"
                 }
             ],
-            "nameSong": "The Real Blue"
+            "nameSong": "The Real Blue",
+            "descriptionSong" : "this is the description"
         },
         {
             "melo_principal": {
@@ -24,7 +25,22 @@
                     "instrument": "digital_chimes_key"
                 }
             ],
-            "nameSong": "The Fake Blue"
+            "nameSong": "The Fake Blue",
+            "descriptionSong" : "this is the description"
+        },
+        {
+            "melo_principal": {
+                "melody_url": "./resources/songs/1/melo_four.json",
+                "instrument": "entertaining_bell"
+            },
+            "different_melo": [
+                {
+                    "melody_url": "./resources/songs/1/melo_one.json",
+                    "instrument": "digital_chimes_key"
+                }
+            ],
+            "nameSong": "The Fake Blue",
+            "descriptionSong" : "this is the description"
         }
     ]
 }
