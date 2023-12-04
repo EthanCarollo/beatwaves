@@ -21,10 +21,26 @@ let sizeKey = 80
 const showKeyOnMap = () => {
     for (key of keyOnMap) {
         if(key.isVisible === true){
+
+            key.cells[0].show()
+            key.cells[0].pos = key.position
+            for (let i = 1; i < key.cells.length; i++) {
+                const element = key.cells[i];
+                element.show()
+                element.alpha-=4;
+                element.move()
+                element.move()
+                element.move()
+            }
+
             if (key.isClean === true) {
-                image(Assets.get("IMAGES").data[6].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, sizeKey, sizeKey)
-            } else {
-                image(Assets.get("IMAGES").data[7].img, key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, sizeKey, sizeKey)
+                key.cells[0].red = 0;
+                key.cells[0].blue = 255;
+            }else{
+                // Make a train if he isnt clean
+                if(frameCount % 40 !== 0){
+                    key.cells.push(key.cells[0].mitosis())
+                }
             }
         }else{
             if(DEBUGMODE === true){
@@ -129,8 +145,9 @@ const getRandomKey = (note, velocity, noteTime, instrument = classicSynth, _isVi
     let isHorizontal = getRandomBool()
     let xPosition = isHorizontal ? getRandomInt(width) : (getRandomBool() ? width : 0)
     let yPosition = isHorizontal ? (getRandomBool() ? height : 0) : getRandomInt(height)
+    let _position = createVector(xPosition, yPosition)
     return {
-        position: createVector(xPosition, yPosition), // Position on map of the note
+        position: _position, // Position on map of the note
         note: note, // The note of... the note..
         isClean: false,
         isVisible: _isVisible,
@@ -140,6 +157,58 @@ const getRandomKey = (note, velocity, noteTime, instrument = classicSynth, _isVi
         vel: velocity, // The velocity of the note
         isPlayed: false, // If the note is played or no
         instr: instrument, // The instrument of the note
+        // Temp :
+        cells : [new Cell(_position, 50)]
     }
 }
 
+
+
+
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/jxGS3fKPKJA
+
+function Cell(pos, r, _color = {red:255,green:0,blue:0}) {
+
+    if (pos) {
+      this.pos = pos.copy();
+    } else {
+      this.pos = createVector(random(width), random(height));
+    }
+  
+    this.r = r || 180;
+    this.red = _color.red;
+    this.blue = _color.blue;
+    this.green = _color.green;
+    this.alpha = 255;
+  
+    this.clicked = function(x, y) {
+      var d = dist(this.pos.x, this.pos.y, x, y);
+      if (d < this.r) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  
+    this.mitosis = function() {
+      //this.pos.x += random(-this.r, this.r);
+      var cell = new Cell(this.pos, this.r * (0.5 + (getRandomInt(100)+1)/200), {red:this.red,blue:this.blue,green:this.green});
+      cell.alpha = 100;
+      return cell;
+    }
+  
+    this.move = function() {
+      var vel = p5.Vector.random2D();
+      this.pos.add(vel);
+    }
+  
+    this.show = function() {
+      noStroke();
+      fill(color(this.red, this.green, this.blue, this.alpha));
+      ellipse(this.pos.x, this.pos.y, this.r, this.r)
+    }
+  
+  }

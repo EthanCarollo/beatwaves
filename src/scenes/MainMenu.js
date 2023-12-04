@@ -32,6 +32,8 @@ function MainMenu() {
     // to this Scene
     this.enter = function () {
 
+        enableMouse()
+
         initializeCenterOfWindow()
         frameRate(30)
 
@@ -40,7 +42,7 @@ function MainMenu() {
         // Create and mount the slider with splide, show the documentation here : https://splidejs.com/guides/
         this.slider = new Splide('#splide', {
             type: 'slide',
-            perPage: 3,
+            perPage: 1,
             focus: 'center',
             arrows: false,
             autoplay: false,
@@ -49,10 +51,11 @@ function MainMenu() {
             updateOnMove: true,
             pagination: false,
             gap: "2vw",
-            width: "70vw",
-            start: "1"
+            width: "30vw",
         }).mount();
-
+        setTimeout(() => {
+            this.slider.go("+1")
+        }, 1000);
         spawnCharacter("mainMenu")
         this.sceneLoaded()
     }
@@ -71,7 +74,7 @@ function MainMenu() {
             //doc.style.backgroundImage = "url(" + Assets.get("IMAGES").data[0].url + ")";
             doc.classList.add("splide__slide")
             doc.innerHTML = "<h1>" + song.nameSong + "</h1>"
-            doc.innerHTML += "<h2 style ='text-align:center;'>"+ song.descriptionSong +"</h2>"
+            doc.innerHTML += "<h2 style ='text-align:center;'>"+ song.styleSong +"</h2>"
 
             if(DEBUGMODE){
                 let song_button = document.createElement("button")
@@ -143,10 +146,45 @@ function MainMenu() {
     }
 
     this.goNextScene = () => {
-        document.getElementById("game_caroussel").style.display = "none"
-        document.getElementById("select_button").style.display = "none"
-        document.getElementById("right_button").style.display = "none"
-        document.getElementById("left_button").style.display = "none"
+
+
+        disableMouse()
+        anime({
+            targets:"#game_caroussel",
+            easing: "easeInOutCubic",
+            opacity:0,
+            loopComplete:()=>{
+                document.getElementById("game_caroussel").style.display = "none"
+                document.getElementById("game_caroussel").style.opacity = "1"
+            }
+        })
+        anime({
+            targets:"#select_button",
+            easing: "easeInOutCubic",
+            opacity:0,
+            loopComplete:()=>{
+                document.getElementById("select_button").style.display = "none"
+                document.getElementById("select_button").style.opacity = "1"
+            }
+        })
+        anime({
+            targets:"#right_button",
+            easing: "easeInOutCubic",
+            opacity:0,
+            loopComplete:()=>{
+                document.getElementById("right_button").style.display = "none"
+                document.getElementById("right_button").style.opacity = "1"
+            }
+        })
+        anime({
+            targets:"#left_button",
+            easing: "easeInOutCubic",
+            opacity:0,
+            loopComplete:()=>{
+                document.getElementById("left_button").style.display = "none"
+                document.getElementById("left_button").style.opacity = "1"
+            }
+        })
         goToScene()
     }
 
@@ -211,10 +249,10 @@ function MainMenu() {
         },
         {
             position: {
-                x: width / 2 - sizeButton / 2,
+                x: width / 2 - (sizeButton * 1.5 / 2),
                 y: height - height / 100 * 25
             },
-            width: sizeButton,
+            width: sizeButton*1.5,
             height: sizeButton,
             loading: 0,
             isReady: false,

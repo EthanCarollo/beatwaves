@@ -1,6 +1,8 @@
+
+
 @font-face {
     font-family: "Orbitron";
-    src: url("../assets/fonts/orbitron/Orbitron-Medium.ttf");
+    src: url("../assets/fonts/orbitron/Orbitron-Regular.ttf");
 }
 
 @font-face {
@@ -21,8 +23,9 @@ body {
     position: absolute;
     left: 0;
     top: 20vh;
-    width: 100%;
     height: 100vh;
+    width: 30vw;
+    left: 35vw;
     display: none;
     overflow: visible;
     display: flex;
@@ -30,81 +33,114 @@ body {
     align-items: center;
 }
 
-#splide__list {
+#splide__list{
     overflow: visible;
 }
 
-#splide-track {
-
+#splide-track{
+    
     overflow: visible;
 }
 
 .song_element {
-    margin-top: 5vh !important;
+    margin-top:10vh !important;
     height: 30vh;
+    width: 100vw;
     background-size: 20%;
     color: #fff;
-    background: rgba(37, 2, 90, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(13px);
+    background-color: #1E1C1C;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
     overflow-y: visible;
-    -webkit-backdrop-filter: blur(13px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    -webkit-backdrop-filter: blur( 13px );
+    border-radius: 20px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     opacity: 90%;
     image-rendering: pixelated;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     transition: all 1s;
 }
 
-.song_element h1 {
+
+.song_element h1{
     font-family: Orbitron;
     text-transform: uppercase;
+    color: #CA00D3;
+    font-size: 3.5vw;
+    padding: 1vw;
+    padding-top: 0vw;
 }
 
-.song_element h2 {
+.song_element h2{
     font-family: Robotro;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 1vw;
+    padding: 1vw;
+    padding-bottom: 1.05vw;
+    color: #919191;
+
 }
 
 .song_element.is-active {
     transition: all 1s;
-    margin-top: 0vh !important;
-    height: 40vh;
+    margin-top:0vh !important;
+    height: 35vh;
+    margin-bottom:2.5vh;
 }
 
-#select_button {
+#target-mouse-hand{
     display: none;
-    background: rgba(37, 2, 90, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(13px);
+    z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: -1vw;
+    margin-top: -1vw;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 100%;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /**
+    * Change the box shadow of the target mouse in future
+    */
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    background-color: #CA00D3;
+}
+
+#select_button{
+    display: none;
+    background: #1E1C1C;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
     overflow-y: visible;
-    -webkit-backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur( 13px );
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    width: 9vw;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 14vw;
     height: 9vw;
     position: absolute;
     bottom: 25vh;
     margin-bottom: -8.5vw;
-    left: 45.5vw;
+    left: 42.5vw;
     background-position: center;
     background-size: cover;
     fill: white;
-    padding: 1vw;
+    padding: 1.5vw;
 }
 
-#left_button {
+#left_button{
     display: none;
-    background: rgba(37, 2, 90, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(13px);
+    background: #1E1C1C;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
     overflow-y: visible;
-    -webkit-backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur( 13px );
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 9vw;
     height: 9vw;
     padding: 0.75vw;
@@ -115,17 +151,16 @@ body {
     background-size: cover;
     left: 25.5vw;
 }
-
-#right_button {
+#right_button{
     display: none;
     padding: 0.75vw;
-    background: rgba(37, 2, 90, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(13px);
+    background: #1E1C1C;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
     overflow-y: visible;
-    -webkit-backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur( 13px );
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 9vw;
     margin-bottom: -8.5vw;
     height: 9vw;

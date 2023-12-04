@@ -36,4 +36,13 @@ const drawMouse = (_position) => {
     stroke(255,255,255)
     circle(_position.x, _position.y, mouseSize)
     fill(255,0,0,255)
+    document.getElementById("target-mouse-hand").style.transform = "translateY("+_position.y+"px) translateX("+_position.x+"px)"
+}
+
+const disableMouse = () => {
+    document.getElementById("target-mouse-hand").style.display = "none"
+}
+
+const enableMouse = () => {
+    document.getElementById("target-mouse-hand").style.display = "block"
 }

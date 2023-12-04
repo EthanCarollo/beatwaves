@@ -17,7 +17,7 @@ function Tutorial()
 
     // draw() is the normal draw function, this function work like a scene
     this.draw = function(){
-
+        
     }
 
     this.goNextScene = () => {

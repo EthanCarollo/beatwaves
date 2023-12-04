@@ -11,9 +11,10 @@
                     "instrument": "digital_chimes_key"
                 }
             ],
+            "duration": 60,
             "nameSong": "The Real Blue",
-            "descriptionSong": "this is the description",
-            "duration": 60
+            "descriptionSong" : "this is the description",
+            "styleSong" : "style place holder"
         },
         {
             "melo_principal": {
@@ -42,7 +43,25 @@
             ],
             "descriptionSong": "this is the description",
             "duration": 60,
-            "nameSong": "Tokyo Ghoul - Unravel"
+            "nameSong": "Tokyo Ghoul - Unravel",
+            "descriptionSong" : "this is the description",
+            "styleSong" : "style place holder"
+        },
+        {
+            "melo_principal": {
+                "melody_url": "./resources/songs/tokyo_ghoul/melody_two.json",
+                "instrument": "digital_chimes_key"
+            },
+            "different_melo": [
+                {
+                    "melody_url": "./resources/songs/tokyo_ghoul/melody_one.json",
+                    "instrument": "digital_chimes_key"
+                }
+            ],
+            "duration": 60,
+            "nameSong": "Place Holder",
+            "descriptionSong" : "this is the description",
+            "styleSong" : "style place holder"
         }
     ]
 }
