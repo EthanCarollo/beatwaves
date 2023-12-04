@@ -16,17 +16,17 @@
         },
         {
             "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_four.json",
-                "instrument": "entertaining_bell"
+                "melody_url": "./resources/songs/tokyo_ghoul/melody_two.json",
+                "instrument": "digital_chimes_key"
             },
             "different_melo": [
                 {
-                    "melody_url": "./resources/songs/1/melo_one.json",
+                    "melody_url": "./resources/songs/tokyo_ghoul/melody_one.json",
                     "instrument": "digital_chimes_key"
                 }
             ],
             "duration": 60,
-            "nameSong": "The Fake Blue"
+            "nameSong": "Tokyo Ghoul - Unravel"
         }
     ]
 }

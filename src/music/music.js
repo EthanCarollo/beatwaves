@@ -36,8 +36,8 @@ const initializeMelody = (melody) => {
     let mainMelody = melody.melo_principal.melody.notes
     setTimeout(() => {
         initializeGameMelody(melody.melo_principal)
-        initalizeOtherMelody(melody.different_melo)
-    }, gameStartDelay);
+        initalizeOtherMelody(melody.different_melo, melody.melo_principal)
+    }, gameStartDelay + 1000);
 
     // End the game at the end of the party ! (2500 ms after in fact...)
     setTimeout(() => {
@@ -49,11 +49,15 @@ const initializeMelody = (melody) => {
  * Initialize the other melodies of the game (the melody played in the background)
  * @param {Object} otherMelodies 
  */
-const initalizeOtherMelody = (otherMelodies) => {
+const initalizeOtherMelody = (otherMelodies, mainMelo) => {
     for (melodyObject of otherMelodies) {
         // Play the other sounds of the melody
         for (let i = 0; i < melodyObject.melody.notes.length; i++) {
             const melody_key = melodyObject.melody.notes[i];
+            // Do not show the same not, it is already in the main melo
+            if(mainMelo.melody.notes.filter(note => note.name === melody_key.name && note.start === melody_key.start).length > 0){
+                continue;
+            }
             timeOutMelody.push(setTimeout(() => {
                 //Instruments[melodyObject.instrument].triggerAttackRelease(melody_key.name, "+"+(melody_key.end - melody_key.start), Tone.now(), melody_key.velocity-0.3);
                 keyOnMap.push(getRandomKey(melody_key.name, melody_key.velocity, melody_key.end - melody_key.start, Instruments[melodyObject.instrument], false))
