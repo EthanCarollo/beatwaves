@@ -57,8 +57,8 @@ function EndMenu() {
             "playerRating": data[0].playerRating,
             // "successPercentage": data[0].successPercentage,
             "livesRemaining": data[1],
-            "leftArm": null,
-            "rightArm": null
+            "leftArm":"33%",
+            "rightArm": "33%"
         };
 
         let domDataviz = {
@@ -85,7 +85,7 @@ function EndMenu() {
         divDataviz.style.alignContent = "center";
         divDataviz.style.alignItems = "center";
 
-        this.createZooningDOM();
+        // this.createZooningDOM();
 
 
         for (let key in fullValue) {
@@ -102,8 +102,8 @@ function EndMenu() {
 
     this.createZooningDOM = () => {
         let container = document.getElementById("container")
-        container.style.top = ((height / 2) - 300) + "px"
-        container.style.left = ((width / 2) / 2) + "px"
+        // container.style.top = ((height / 2) - 300) + "px"
+        // container.style.left = ((width / 2) / 2) + "px"
     }
 
     this.goNextScene = () => {

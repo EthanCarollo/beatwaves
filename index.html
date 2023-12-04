@@ -55,30 +55,37 @@
     <!-- End game / Dataviz -->
     <div id="dataviz" style="display: none;">
         <div id="container">
-            <div class="square" id="topLeftKeys">
-                <p class="titleSquare" style="color:#6DE700 ;">Touchés / ratés</p>
-                <div
-                    style="right: 10%;font-size: 5rem;top: 10%;position: relative;grid-template-columns: repeat(2, 75px);display:grid;align-items: center;justify-content: center;">
-                    <p id="keysTouch" style="width: 9rem;color: #6DE700;"></p>
-                    <p id="keysMiss" style="width: 1rem;color: #6DE700;"></p>
+            <div class="square textData">
+                <p class="titleSquare textGreen">Touchés / ratés</p>
+                <div class="textInRect">
+                    <p id="keysTouch" class="textGreen"></p>
+                    <p class="textGreen" style="padding: 16px;">/</p>
+                    <p id="keysMiss" class="textGreen"></p>
                 </div>
             </div>
-            <div class="square" id="topRightLife">
+            <div class="square textData">
                 <p class="titleSquare">Vies restantes</p>
-                <p id="livesRemaining"></p>
+                <div class="textInRect">
+                    <p id="livesRemaining"></p>
+                </div>
             </div>
-            <div class="square" id="armCenter">
-                <p id="leftArm"></p>
-                <p id="rightArm"></p>
+            <div class="square formArms">
+                <div class="textArms">
+                    <p id="leftArm" class="textGreen"></p>
+                    <p id="rightArm" class="textGreen" style="padding-left: 20%;"></p>
+                </div>
+                <div class="imgArms">
+                    <img src="./assets/images/end/left_arm.webp" style="width: 9rem;">
+                    <img src="./assets/images/end/right_arm.webp" alt="" style="width: 9rem;">
+                </div>
             </div>
-            <div class="square" id="score">
-                <p class="titleSquare" style="color: #6DE700;">Score</p>
-                <p id="playerScore"
-                    style="color: #6DE700;left: 30%;width: 9rem;font-size: 3rem;color: #6DE700;top: 12%;"></p>
+            <div class="square textData">
+                <p class="titleSquare textGreen">Score</p>
+                <p id="playerScore"></p>
             </div>
-            <div class="square" id="note">
+            <div class="square note textData">
                 <p class="titleSquare">Note</p>
-                <p id="playerRating" style="height: 1rem;left: 25%;font-size: 18rem;"></p>
+                <p id="playerRating"></p>
             </div>
             <div id="textData" style="display: none;">
             </div>
