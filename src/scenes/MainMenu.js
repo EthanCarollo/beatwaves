@@ -271,6 +271,7 @@ function MainMenu() {
             // console.log("==== " + handPosition.y + "Y ====== ")
         }
 
+        document.getElementById("target-mouse-hand").classList.remove("is-loading")
         for (let i = 0; i < interactiveButtons.length; i++) {
             const button = interactiveButtons[i];
             fill(255, button.loading*2, 0)
