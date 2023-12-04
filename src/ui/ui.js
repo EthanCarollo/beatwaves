@@ -17,7 +17,7 @@ const showInteractiveButton = (interactiveButton, checkPosition) => {
     }
 
     fill(255, interactiveButton.loading*2, 0)
-    if(DEBUGMODE){
+    if(DEBUGMODE === true){
         rect(interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height)
     }
 

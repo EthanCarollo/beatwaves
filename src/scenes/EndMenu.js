@@ -20,12 +20,12 @@ function EndMenu() {
         })
         frameRate(30)
         enableMouse()
+        document.getElementById("button_return_to_main_menu").style.display = "block";
     }
 
     // draw() is the normal draw function, this function work like a scene
     this.draw = function () {
         clearMelody()
-        background(255, 255, 255, 80)
         this.registerHandPosition()
         this.showScene()
         this.drawHandPosition()
@@ -37,6 +37,7 @@ function EndMenu() {
         // Flip video horizontaly
         scale(-1, 1);
         image(video, -width, 0, width, height)
+        background(0, 0, 0, 80)
         scale(-1, 1);
     }
 
@@ -129,6 +130,7 @@ function EndMenu() {
     this.goNextScene = () => {
         let divDataviz = document.getElementById("dataviz");
         divDataviz.style.display = "none";
+        document.getElementById("button_return_to_main_menu").style.display = "none";
         disableMouse()
         goToScene(MainMenu)
     }
@@ -156,22 +158,21 @@ function EndMenu() {
 
     }
 
-    let sizeButton = width / 8;
+    let widthButton = width/100*15;
+    let heightButton = width/100*8;
     const interactiveButton = {
         position: {
-            x: width / 2 - sizeButton / 2,
-            y: height - sizeButton * 1.5
+            x: width / 2 - widthButton / 2,
+            y: height - heightButton - (width/100*6)
         },
-        width: sizeButton,
-        height: sizeButton,
+        width: widthButton,
+        height: heightButton,
         loading: 0,
         isReady: false,
         callback: () => { this.goNextScene() }
     }
 
     this.showEndButton = () => {
-        showInteractiveButton(interactiveButton, handPosition)
-        fill(255, interactiveButton.loading * 2, 0)
-        rect(interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height)
+        showInteractiveButton(interactiveButton, mousePosition)
     }
 }

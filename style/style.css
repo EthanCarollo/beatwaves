@@ -511,6 +511,30 @@ span {
     color: #6DE700 !important
 }
 
+#dataviz{
+    padding-bottom: 21vh;
+}
+
+#button_return_to_main_menu{
+    width: 15vw;
+    height: 8vw;
+    position: absolute;
+    bottom: 6vw;
+    left: 42.5vw;
+    background: #1E1C1C;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13px );
+    overflow-y: visible;
+    -webkit-backdrop-filter: blur( 13px );
+    border-radius: 30px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    display: none;
+    background-image: url("../assets/images/button/leave.svg");
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 #leftArm{
     margin-right: 2vw;
 }
