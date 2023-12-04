@@ -47,13 +47,13 @@
             </div>
         </div>
     </div>
-    
-    <img src="./assets/images/button/play.svg" id="select_button" class =""></div>
-    <img src="./assets/images/button/right-2.svg" id="right_button" class =""></div>
-    <img src="./assets/images/button/left-2.svg" id="left_button" class =""></div>
-    
+
+    <img src="./assets/images/button/play.svg" id="select_button" class=""></div>
+    <img src="./assets/images/button/right-2.svg" id="right_button" class=""></div>
+    <img src="./assets/images/button/left-2.svg" id="left_button" class=""></div>
+
     <!-- End game / Dataviz -->
-    <div id="dataviz" style="display: none;">
+    <!-- <div id="dataviz" style="display: none;">
         <div id="container">
             <div class="square" id="topLeftKeys">
                 <p>Touchés / ratés</p>
@@ -70,7 +70,7 @@
             </div>
             <div id="buttonEndGame">
                 <!-- <button id="returnToStart" onclick="">Retourner au départ</button> -->
-                <!-- <button id="restart" onclick="">Recommencer</button> -->
+    <!-- <button id="restart" onclick="">Recommencer</button>
             </div>
             <div id="textData">
                 <p id="totalsKeys"></p>
@@ -84,12 +84,73 @@
                 <p id="rightArm"></p>
             </div>
         </div>
+    </div> -->
+
+
+    <!-- <div id="dataviz" style="display: none;">
+        <div id="container">
+            <div class="square" id="topLeftKeys">
+                <p>Touchés / ratés</p>
+            </div>
+            <div class="square" id="topRightLife">
+                <p>Vies restantes</p>
+            </div>
+            <div class="square" id="armCenter"></div>
+            <div class="square" id="score">
+                <p>Score</p>
+            </div>
+            <div class="square" id="note">
+                <p>Note</p>
+            </div>
+            <div id="textData" style="display: none;">
+                <p id="totalsKeys"></p>
+                <p id="keysMiss"></p>
+                <p id="keysTouch"></p>
+                <p id="playerScore"></p>
+                <p id="playerRating"></p>
+                <p id="successPercentage"></p>
+                <p id="livesRemaining"></p>
+                <p id="leftArm"></p>
+                <p id="rightArm"></p>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="dataviz" style="display: none;">
+        <div id="container">
+            <div class="square" id="topLeftKeys">
+                <p class="titleSquare" style="color:#6DE700 ;">Touchés / ratés</p>
+                <div
+                    style="right: 10%;font-size: 5rem;top: 10%;position: relative;grid-template-columns: repeat(2, 75px);display:grid;align-items: center;justify-content: center;">
+                    <p id="keysTouch" style="width: 9rem;color: #6DE700;"></p>
+                    <p id="keysMiss" style="width: 1rem;color: #6DE700;"></p>
+                </div>
+            </div>
+            <div class="square" id="topRightLife">
+                <p class="titleSquare">Vies restantes</p>
+                <p id="livesRemaining"></p>
+            </div>
+            <div class="square" id="armCenter">
+                <p id="leftArm"></p>
+                <p id="rightArm"></p>
+            </div>
+            <div class="square" id="score">
+                <p class="titleSquare" style="color: #6DE700;">Score</p>
+                <p id="playerScore"
+                    style="color: #6DE700;left: 30%;width: 9rem;font-size: 3rem;color: #6DE700;top: 12%;"></p>
+            </div>
+            <div class="square" id="note">
+                <p class="titleSquare">Note</p>
+                <p id="playerRating" style="height: 1rem;left: 25%;font-size: 18rem;"></p>
+            </div>
+            <div id="textData" style="display: none;">
+            </div>
+        </div>
     </div>
 
 
-
-
-    <button id="active-music-debug-button" style="display: none; position: absolute; top:100vh;">Active Music</button>
+    <button id="active-music-debug-button" style="display: none; position: absolute; top:100vh;">Active
+        Music</button>
     <div id="game-start-decount">
         <h1 id="counter-text">count</h1>
     </div>

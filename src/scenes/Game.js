@@ -73,7 +73,7 @@ function Game() {
         showLifeOfPlayer()
 
         if (DEBUGMODE === true) {
-            this.debugScene();
+            // this.debugScene();
             if (poses) {
                 this.drawDebugPose(poses[0])
             }
