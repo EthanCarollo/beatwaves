@@ -41,20 +41,20 @@
         },
         {
             "melo_principal": {
-                "melody_url": "./resources/songs/tokyo_ghoul/melody_two.json",
+                "melody_url": "./resources/songs/naruto/melody_two.json",
                 "instrument": "digital_chimes_key"
             },
             "different_melo": [
                 {
-                    "melody_url": "./resources/songs/tokyo_ghoul/melody_one.json",
+                    "melody_url": "./resources/songs/naruto/melody_one.json",
                     "instrument": "digital_chimes_key"
                 }
             ],
             "duration": 60,
-            "authorSong": "",
-            "nameSong": "Place Holder",
+            "authorSong": "Naruto Shippuden",
+            "nameSong": "Blue Bird",
             "descriptionSong" : "this is the description",
-            "styleSong" : "style place holder",
+            "styleSong" : "Manga ?",
             "difficultyImage" : "assets/images/difficulty/musique_difficile.svg",
             "difficultyText":"Difficile"
         }
