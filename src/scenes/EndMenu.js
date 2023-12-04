@@ -19,6 +19,7 @@ function EndMenu() {
             life: playerLife
         })
         frameRate(30)
+        enableMouse()
     }
 
     // draw() is the normal draw function, this function work like a scene
@@ -26,8 +27,17 @@ function EndMenu() {
         clearMelody()
         background(255, 255, 255, 80)
         this.registerHandPosition()
+        this.showScene()
         this.drawHandPosition()
         this.showEndButton()
+    }
+
+    this.showScene = () => {
+
+        // Flip video horizontaly
+        scale(-1, 1);
+        image(video, -width, 0, width, height)
+        scale(-1, 1);
     }
 
     this.registerHandPosition = () => {
@@ -45,7 +55,7 @@ function EndMenu() {
         if (handPosition) {
             mousePosition.x = lerp(mousePosition.x, handPosition.x, 0.07)
             mousePosition.y = lerp(mousePosition.y, handPosition.y, 0.07)
-            circle(mousePosition.x, mousePosition.y, 20)
+            drawMouse(mousePosition)
         }
     }
 
@@ -119,6 +129,7 @@ function EndMenu() {
     this.goNextScene = () => {
         let divDataviz = document.getElementById("dataviz");
         divDataviz.style.display = "none";
+        disableMouse()
         goToScene(MainMenu)
     }
 

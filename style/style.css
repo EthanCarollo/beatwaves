@@ -19,6 +19,78 @@ body {
     overflow: hidden;
 }
 
+/**
+* Splash screen page
+*/
+
+.splash_screen{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8vw;
+    letter-spacing: 0;
+    line-height: 7vw;
+    text-align: left;
+    z-index: 10;
+    position: relative;
+}
+
+/**
+* Wave
+*/
+
+#background_splash_screen{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1E1C1C;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 300vh;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(to top, rgba(172, 203, 238, 0) 0%, #e7f0fd00 100%);
+    overflow: hidden;
+    z-index: 0;
+}
+
+.wave {
+    width: 200vw;
+    height: 202vw;
+    position: absolute;
+    top: -1%;
+    left: 50%;
+    margin-left: -100vw;
+    margin-top: -80vw;
+    border-radius: 35%;
+    background-color: #252525;
+    filter: blur(100px);
+    animation: wave 23s infinite linear;
+}
+
+.second{
+    background: #FF007D;
+    animation: wave 15s infinite linear;
+}
+.third{
+    top: -10%;
+    background: #6DE700;
+    animation: wave 17s infinite linear;
+}
+
+@keyframes wave {
+    from { transform: rotate(0deg);}
+    from { transform: rotate(360deg);}
+}
+
+/**
+* Caroussel
+*/
+
 .caroussel_game_slider {
     position: absolute;
     left: 0;
@@ -286,6 +358,11 @@ span {
     letter-spacing: 6px;
     margin: 0;
     line-height: 1.2;
+}
+
+.request_capture{
+    font-family: Robotro;
+    font-size: 3vw;
 }
 
 /* SCREEN BETWEEN */

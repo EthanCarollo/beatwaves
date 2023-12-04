@@ -65,25 +65,33 @@ function Intro() {
             targets: animationSplashScreen.listAll,
             delay: anime.stagger(50),
             loop: false,
+            endDelay: 150,
             complete: (anim) => {
-                // At the end, go to the stage to ask for the camera
-                document.getElementById("splash_screen").style.display = "none"
-                document.getElementById("splash_screen").innerHTML = ""
-                this.showRequest()
+                setTimeout(() => {
+                    // At the end, go to the stage to ask for the camera
+                    document.getElementById("splash_screen").style.display = "none"
+                    document.getElementById("splash_screen").innerHTML = ""
+                    this.showRequest()
+                }, 1000);
             }
         });
 
         animation
             .add({
-                translateY: -40
+                scale: 0.5,
+                skew: "20deg"
             })
             .add({
-                translateY: 0,
-                opacity: 0
+                skew: "0deg",
+                scale: 1,
             });
     }
 
     this.goNextScene = () => {
+        setTimeout(() => {
+            document.getElementById("wave_splash_screen").style.display = "none"
+            document.getElementById("background_splash_screen").style.display = "none"
+        }, 500);
         goToScene()
     }
 }
