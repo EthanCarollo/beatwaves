@@ -56,7 +56,6 @@ function MainMenu() {
         setTimeout(() => {
             this.slider.go("+1")
         }, 1000);
-        spawnCharacter("mainMenu")
         this.sceneLoaded()
     }
 
