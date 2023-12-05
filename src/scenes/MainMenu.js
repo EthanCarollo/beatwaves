@@ -99,10 +99,6 @@ function MainMenu() {
         if (sceneIsLoaded === false) return;
         background(255, 255, 255, 80)
 
-        if (DEBUGMODE === true) {
-            this.debugScene();
-        }
-
         scale(-1, 1);
         image(video, -width, 0, width, height)
         scale(-1, 1);
@@ -111,6 +107,12 @@ function MainMenu() {
         this.navigateMenu()
         background(0, 0, 0, 80)
         this.drawHandPosition()
+        if (DEBUGMODE === true) {
+            if (poses) {
+                drawDebugPose(poses[0])
+            }
+        }
+
     }
 
     this.drawHandPosition = () => {

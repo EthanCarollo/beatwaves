@@ -69,12 +69,6 @@ function Game() {
         background(255,255,255,80)
         showLifeOfPlayer()
 
-        if (DEBUGMODE === true) {
-            // this.debugScene();
-            if (poses) {
-                this.drawDebugPose(poses[0])
-            }
-        } 
         if(playerLife <= 0){
             gameEnd = true;
         }
@@ -90,6 +84,11 @@ function Game() {
         this.checkHand(handPoseHistory.left)
         showLifeOfPlayer()
 
+        if (DEBUGMODE === true) {
+            if (poses) {
+                drawDebugPose(poses[0])
+            }
+        } 
         if (gameEnd === true) {
             if (DEBUGMODE === true) {
                 console.log("GAME IS FINISH ! --->")
@@ -179,36 +178,6 @@ function Game() {
             timeGlitched--
         }
         scale(-1, 1);
-    }
-
-    // Function called when we need to show the pose
-    this.drawDebugPose = (pose) => {
-        if (!pose)
-            return
-
-        // Every position to draw on sketch
-        const positionArray = [
-            pose.pose.leftShoulder,
-            pose.pose.leftElbow,
-            pose.pose.leftWrist,
-            pose.pose.leftEye,
-            pose.pose.leftAnkle,
-            pose.pose.rightShoulder,
-            pose.pose.rightElbow,
-            pose.pose.rightWrist,
-            pose.pose.rightEye,
-            pose.pose.rightAnkle,
-        ]
-
-        // For the debug, i boucle on the array of position and then draw every parts of the body
-        // And for the color, i just check if we here in the second half of the array or not
-        // Fill the color of the circle with the confidence
-        for (let i = 0; i < positionArray.length; i++) {
-            const elementPosition = positionArray[i];
-            (i > (positionArray.length - 1) / 2) ? fill(255, 0, 0, elementPosition.confidence * 255) : fill(0, 255, 0, elementPosition.confidence * 255)
-            circle(elementPosition.x, elementPosition.y, 30)
-        }
-
     }
 
     //#endregion
