@@ -3,11 +3,7 @@ let keyWidth = 40
 let keyHeight = 40
 let keySpeed = 180
 let centerOfMap;
-let TouchOrNot = {
-    "Touch":0,
-    "Miss":0,
-    "Error":0
-}
+let touched = 0;
 
 
 
@@ -97,17 +93,15 @@ const playKey = (key) => {
     
     if(key.isVisible === true){
         if (key.isClean === true){
-            TouchOrNot.Touch++
-            lifeSystem(TouchOrNot.Error, true)
+            touched++;
+            lifeSystem(true)
             if(key.touchedBy === "right"){
                 scoreHand.right++
             }else{
                 scoreHand.left++
             }
         } else if(!key.isClean){
-            TouchOrNot.Miss++
-            TouchOrNot.Error++
-            lifeSystem(TouchOrNot.Error, false)
+            lifeSystem(false)
         }
     }
     

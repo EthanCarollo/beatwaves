@@ -15,7 +15,7 @@ function EndMenu() {
     // to this Scene
     this.enter = function () {
         this.seeDataviz({
-            score: getScore(TouchOrNot.Touch, melodyOne.length),
+            score: getScore(touched, melodyOne.length),
             life: playerLife
         })
         frameRate(30)

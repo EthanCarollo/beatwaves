@@ -21,11 +21,7 @@ function Game() {
     // enter() will be executed each time the SceneManager switches
     // to this Scene
     this.enter = () => {
-        TouchOrNot = {
-            "Touch":0,
-            "Miss":0,
-            "Error":0
-        }
+        touched = 0;
         // Reset the player life to 5
         playerLife = 5
         initializeCenterOfWindow()
@@ -79,6 +75,9 @@ function Game() {
                 this.drawDebugPose(poses[0])
             }
         } 
+        if(playerLife <= 0){
+            gameEnd = true;
+        }
         this.showScene()
         this.registerHandPosition()
         // Show Key on map
