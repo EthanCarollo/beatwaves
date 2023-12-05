@@ -29,6 +29,7 @@ function setup(){
 }
 
 function draw() {
+    cnv.mouseClicked(() => {})
     SceneManager.draw();
 }
 
