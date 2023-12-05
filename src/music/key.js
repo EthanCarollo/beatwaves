@@ -28,6 +28,7 @@ const showKeyOnMap = () => {
                 element.move()
                 element.move()
             }
+            image(Assets.get("IMAGES").data[11].img, key.position.x-50, key.position.y-50, 100, 100)
 
             if (key.isClean === true) {
                 key.cells[0].red = 30;
@@ -59,7 +60,22 @@ const mooveKeyOnMap = () => {
     // Second verification where we chech if a key has been played or no
     // ? If we wan't to save some statistics, we can do it here !
     for (let i = 0; i < keyOnMap.length; i++) {
-        (keyOnMap[i].isPlayed === true) ? keyOnMap.splice(i, 1) : null;
+        if(keyOnMap[i].isPlayed === true){
+            if(keyOnMap[i].isVisible === true){
+                if (keyOnMap[i].isClean === true){
+                    touched++;
+                    lifeSystem(true)
+                    if(keyOnMap[i].touchedBy === "right"){
+                        scoreHand.right++
+                    }else{
+                        scoreHand.left++
+                    }
+                } else if(!keyOnMap[i].isClean){
+                    lifeSystem(false)
+                }
+            }
+            keyOnMap.splice(i, 1)
+        }
     }
 }
 
@@ -91,19 +107,6 @@ const playKey = (key) => {
         console.log("/-- Key has been played --/")
     }
     
-    if(key.isVisible === true){
-        if (key.isClean === true){
-            touched++;
-            lifeSystem(true)
-            if(key.touchedBy === "right"){
-                scoreHand.right++
-            }else{
-                scoreHand.left++
-            }
-        } else if(!key.isClean){
-            lifeSystem(false)
-        }
-    }
     
 
     if(key.isVisible === false){

@@ -9,7 +9,7 @@ function logGameInformations(){
     console.log('/----------------------------/');
 }
 
-drawDebugPose = (pose) => {
+const drawDebugPose = (pose) => {
     if (!pose)
         return
 
@@ -48,4 +48,13 @@ drawDebugPose = (pose) => {
     line(positionArray[7].x, positionArray[7].y, positionArray[8].x, positionArray[8].y)
     
 
+}
+
+const setAllKeyTouched = () => {
+    console.log("set all key touched")
+    for (let i = 0; i < keyOnMap.length; i++) {
+        const key = keyOnMap[i];
+        key.touchedBy = "right"
+        key.isClean = true
+    }
 }

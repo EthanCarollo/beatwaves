@@ -85,6 +85,7 @@ function Game() {
         showLifeOfPlayer()
 
         if (DEBUGMODE === true) {
+            this.debugScene()
             if (poses) {
                 drawDebugPose(poses[0])
             }
@@ -96,6 +97,13 @@ function Game() {
             this.goNextScene()
         }
 
+    }
+
+    this.debugScene=()=>{
+        rect(100,100,150,100)
+        if(mouseIsPressed === true && mouseX > 100 && mouseX < 250 && mouseY > 100 && mouseY < 200){
+            setAllKeyTouched()
+        }
     }
 
     this.checkHand = (handPoseHist) => {

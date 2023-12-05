@@ -43,6 +43,10 @@
         {
             "id": 10,
             "url": "./assets/images/diedHeart.png"
+        },
+        {
+            "id": 11,
+            "url": "./assets/images/key/note_de_musique.png"
         }
     ]
 }
