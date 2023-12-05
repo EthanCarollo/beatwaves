@@ -242,7 +242,7 @@ body {
     width: 14vw;
     height: 9vw;
     position: absolute;
-    bottom: 25vh;
+    bottom: 35vh;
     margin-bottom: -8.5vw;
     left: 42.5vw;
     background-position: center;
@@ -263,11 +263,6 @@ body {
     color: rgba(240, 255, 255, 0);
 }
 
-#select_button:hover{
-    transition: all 1s;
-    background-color: aliceblue;
-    color: rgb(47, 47, 47);
-}
 
 #left_button{
     display: none;
@@ -527,16 +522,12 @@ span {
     color: #6DE700 !important
 }
 
-#dataviz{
-    padding-bottom: 21vh;
-}
-
 #button_return_to_main_menu{
     width: 15vw;
-    height: 8vw;
+    height: 15vh;
     position: absolute;
-    bottom: 6vw;
-    left: 42.5vw;
+    top: 42.5vh;
+    right: 10vw;
     background: #1E1C1C;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13px );

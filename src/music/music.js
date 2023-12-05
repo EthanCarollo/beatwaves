@@ -38,6 +38,7 @@ let timeOutGameEnd = setTimeout(() => {
  */
 const initializeMelody = (melody) => {
     let mainMelody = melody.melo_principal.melody.notes
+    console.log(mainMelody)
     setTimeout(() => {
         initializeGameMelody(melody.melo_principal)
         initalizeOtherMelody(melody.different_melo, melody.melo_principal)
