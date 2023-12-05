@@ -11,12 +11,12 @@
 <br />
 <div align="center">
     
-  <img src="" alt="Logo" width="80" height="80">
+  <img src="./assets/images/logo.webp" alt="Logo" width="100" height="100">
 
   <h3 align="center">TRANSLATION OF MOVEMENT INTO MUSIC</h3>
 
   <p align="center">
-    Welcome to the project : Beatwaves from the studio ... !
+    Welcome to the project : Beatwaves !
     <br>
     You are currently reading the documentation, happy reading :)
   </p>
@@ -32,6 +32,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+         <li><a href="#pitch">Pitch</a></li>
       </ul>
     </li>
     <li>
@@ -47,15 +48,14 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+##  ❕About The Project
 
 <!--[![Product Name Screen Shot](images/screenshot.png)  -->
 
-Beatwaves is a video game project for a student project in alliance with developers and designers!
+Beatwaves is a video game project for a student project in alliance with developers and designers !
 
-Currently, these are the two developers as contributors who occupy this project on GitHub
 
-This is a game called : Beatwaves produced by our studio ...
+This is a game called : Beatwaves !
 
 *Note : This project is a student project*
 
@@ -63,7 +63,7 @@ This is a game called : Beatwaves produced by our studio ...
 
 
 
-### Built With
+### 🛠️ Built With
 
 This section lists how the project was developed :
 
@@ -74,24 +74,41 @@ This section lists how the project was developed :
 
 
 
+### ❔ Pitch
+
+Digital game in which we must correct the tonality of musical notes which are represented by projectiles which head towards the user's heart. Using your arms to get the best possible score without getting a bad grade.
+
+<p align="right">(<a href="#readme-top">Back to top !</a>)</p>
+
+
+
 <!-- GETTING STARTED -->
-## Getting Started
+## 🏃‍♂️ Getting Started
 
-To be able to play Beatwaves, you must stick to it as follows :
 
-### Prerequisites
+### 📢 Prerequisites
 
-You need to play Beatwaves the software mentioned and its extension below :
+_To play Beatwaves, you must have these requirements :_
 
-<!-- * ![VSCode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
- ![ScreenEXT](https://zupimages.net/up/23/03/fri4.png) -->
+- Make sure you have a webcam,
+- Your person !
 
-### Installation
 
-_Below is how you can how to install Beatwaves . You have to_ :
+### 🕺 Installation
 
-<!-- 1. Get Visual Studio Code software,
-2. Install the Live preview extension on Visual Studio Code
-3. Launch the code and play ! -->
+
+####  _Our website :_
+
+Join our game : https://beatwaves.vercel.app !
+
+
+#### _Play Beatwave on your machine :_ 
+
+Download the project **OR** download it via HTTPS :
+```
+git clone https://github.com/EthanCarollo/Beatwaves.git
+```
+
+### 😎 Have fun !
 
 <p align="right">(<a href="#readme-top">Back to top !</a>)</p>
