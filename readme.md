@@ -48,13 +48,12 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+##  ❕About The Project
 
 <!--[![Product Name Screen Shot](images/screenshot.png)  -->
 
 Beatwaves is a video game project for a student project in alliance with developers and designers !
 
-Currently, these are the two developers as contributors who occupy this project on GitHub
 
 This is a game called : Beatwaves !
 
@@ -64,7 +63,7 @@ This is a game called : Beatwaves !
 
 
 
-### Built With
+### 🛠️ Built With
 
 This section lists how the project was developed :
 
@@ -75,7 +74,7 @@ This section lists how the project was developed :
 
 
 
-### Pitch of the game
+### ❔ Pitch
 
 Digital game in which we must correct the tonality of musical notes which are represented by projectiles which head towards the user's heart. Using your arms to get the best possible score without getting a bad grade.
 
@@ -84,33 +83,32 @@ Digital game in which we must correct the tonality of musical notes which are re
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## 🏃‍♂️ Getting Started
 
-To be able to play Beatwaves, you must stick to it as follows :
 
-### Prerequisites
+### 📢 Prerequisites
 
 _To play Beatwaves, you must have these requirements :_
 
-- A functional camera,
+- Make sure you have a webcam,
 - Your person !
 
 
-### Installation
+### 🕺 Installation
 
 
-#### _Our website :_
+####  _Our website :_
+
+Join our game : https://beatwaves.vercel.app !
 
 
+#### _Play Beatwave on your machine :_ 
 
+Download the project **OR** download it via HTTPS :
+```
+git clone https://github.com/EthanCarollo/Beatwaves.git
+```
 
-#### Play Beatwave on your machine : 
-
-_Below you will find how to play Beatwaves with its full potential. You must therefore :_
-
-1.  Join our game : https://beatwaves.vercel.app
-2.  Make sure you have a camera,
-3. Stand approximately less than a meter from the camera,
-4.  Have fun !
+### 😎 Have fun !
 
 <p align="right">(<a href="#readme-top">Back to top !</a>)</p>
