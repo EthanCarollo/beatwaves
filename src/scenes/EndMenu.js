@@ -160,10 +160,10 @@ function EndMenu() {
     }
 
     let widthButton = width/100*15;
-    let heightButton = width/100*8;
+    let heightButton = height/100*15;
     const interactiveButton = {
         position: {
-            x: width - width / 4.2,
+            x: width - width/100*25,
             y: height / 2 - heightButton / 2
         },
         width: widthButton,

@@ -251,7 +251,7 @@ function MainMenu() {
         {
             position: {
                 x: width / 2 - (sizeButton * 1.5 / 2),
-                y: height - height / 100 * 25
+                y: height - height / 100 * 35
             },
             width: sizeButton*1.5,
             height: sizeButton,
