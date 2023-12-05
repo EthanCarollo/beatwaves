@@ -32,6 +32,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+         <li><a href="#pitch">Pitch</a></li>
       </ul>
     </li>
     <li>
@@ -74,6 +75,14 @@ This section lists how the project was developed :
 
 
 
+### Pitch of the game
+
+Digital game in which we must correct the tonality of musical notes which are represented by projectiles which head towards the user's heart. Using your arms to get the best possible score without getting a bad grade.
+
+<p align="right">(<a href="#readme-top">Back to top !</a>)</p>
+
+
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -88,6 +97,14 @@ _To play Beatwaves, you must have these requirements :_
 
 
 ### Installation
+
+
+#### _Our website :_
+
+
+
+
+#### Play Beatwave on your machine : 
 
 _Below you will find how to play Beatwaves with its full potential. You must therefore :_
 
