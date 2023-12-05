@@ -2,7 +2,7 @@ var SceneManager
 const SCENELIST = [
     Intro,
     MainMenu,
-    Tutorial,
+    //Tutorial,
     Game,
     EndMenu
 ]
