@@ -1,4 +1,5 @@
 var SceneManager
+var cnv
 const SCENELIST = [
     Intro,
     MainMenu,
@@ -13,7 +14,7 @@ function preload(){
 
 
 function setup(){
-    createCanvas(window.innerWidth, window.innerHeight, P2D);
+    cnv = createCanvas(window.innerWidth, window.innerHeight, P2D);
     noSmooth();
 
     SceneManager = new SceneManager();
@@ -28,6 +29,7 @@ function setup(){
 }
 
 function draw() {
+    cnv.mouseClicked(() => {})
     SceneManager.draw();
 }
 

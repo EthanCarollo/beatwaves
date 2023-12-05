@@ -96,7 +96,7 @@ function Game() {
             }
             this.goNextScene()
         }
-
+        this.drawHeart();
     }
 
     this.debugScene=()=>{
@@ -189,6 +189,26 @@ function Game() {
     }
 
     //#endregion
+
+    this.heartSize = 200
+    this.heartValue = 2
+
+    this.drawHeart = () => {
+        image(Assets.get("IMAGES").data[10].img, 
+        width/2-this.heartSize/2, 
+        height/2-this.heartSize/2, 
+        this.heartSize, 
+        this.heartSize)
+
+        if(this.heartSize > 290){
+            this.heartValue = -2
+        }
+        if(this.heartSize < 200){
+            this.heartValue = 2
+        }
+
+        this.heartSize += this.heartValue;
+    }
 
 
 

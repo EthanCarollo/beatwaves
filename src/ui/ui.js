@@ -3,6 +3,13 @@ let mouseSize = 80;
 // Function called to show an interactive button and checking if a position is in the button
 const showInteractiveButton = (interactiveButton, checkPosition) => {
 
+    if(DEBUGMODE === true && isInRect(mouseX, mouseY, interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height)){
+        cnv.mouseClicked(() => {
+            console.log("called a button") 
+            interactiveButton.callback()
+        })
+    }
+
     if (isInRect(checkPosition.x, checkPosition.y, interactiveButton.position.x, interactiveButton.position.y, interactiveButton.width, interactiveButton.height) && interactiveButton.isReady) {
         interactiveButton.loading = lerp(interactiveButton.loading, 100, 0.1)
         document.getElementById("target-mouse-hand").classList.add("is-loading")

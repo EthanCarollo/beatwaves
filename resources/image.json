@@ -47,6 +47,30 @@
         {
             "id": 11,
             "url": "./assets/images/key/note_de_musique.png"
+        },
+        {
+            "id": 12,
+            "url": "./assets/images/key/note_1_corrupted.svg"
+        },
+        {
+            "id": 13,
+            "url": "./assets/images/key/note_1_clean.svg"
+        },
+        {
+            "id": 14,
+            "url": "./assets/images/key/note_4_corrupted.svg"
+        },
+        {
+            "id": 15,
+            "url": "./assets/images/key/note_4_clean.svg"
+        },
+        {
+            "id": 16,
+            "url": "./assets/images/key/note_5_corrupted.svg"
+        },
+        {
+            "id": 17,
+            "url": "./assets/images/key/note_5_clean.svg"
         }
     ]
 }

@@ -15,6 +15,8 @@ const initializeCenterOfWindow = () => {
 let sizeKey = 80
 // Function called every frames to show the key on map
 const showKeyOnMap = () => {
+    noStroke()
+
     for (key of keyOnMap) {
         if(key.isVisible === true){
 
@@ -25,16 +27,13 @@ const showKeyOnMap = () => {
                 element.show()
                 element.alpha-=4;
                 element.move()
-                element.move()
-                element.move()
             }
-            image(Assets.get("IMAGES").data[11].img, key.position.x-50, key.position.y-50, 100, 100)
 
+            let keyImage = key.imageNoteId
             if (key.isClean === true) {
-                key.cells[0].red = 30;
-                key.cells[0].green = 28;
-                key.cells[0].blue = 28;
+                image(Assets.get("IMAGES").data[keyImage+1].img, key.position.x-60, key.position.y-60, 120, 120)
             }else{
+                image(Assets.get("IMAGES").data[keyImage].img, key.position.x-60, key.position.y-60, 120, 120)
                 // Make a train if he isnt clean
                 if(frameCount % 40 !== 0){
                     key.cells.push(key.cells[0].mitosis())
@@ -42,7 +41,7 @@ const showKeyOnMap = () => {
             }
         }else{
             if(DEBUGMODE === true){
-                fill(0,0,255) // The fake key used for play music in background is blue
+                fill(0,0,255,20) // The fake key used for play music in background is blue
                 rect(key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, sizeKey, sizeKey);
             }
         }
@@ -161,6 +160,7 @@ const getRandomKey = (note, velocity, noteTime, instrument = classicSynth, _isVi
         isPlayed: false, // If the note is played or no
         instr: instrument, // The instrument of the note
         touchedBy: "",
+        imageNoteId: 10+((getRandomInt(3) + 1)*2),
         // Temp :
         cells : [new Cell(_position, 50)]
     }
@@ -206,6 +206,14 @@ function Cell(pos, r, _color = {red:202,green:0,blue:211}) {
   
     this.move = function() {
       var vel = p5.Vector.random2D();
+      this.pos.add(vel);
+      vel = p5.Vector.random2D();
+      this.pos.add(vel);
+      vel = p5.Vector.random2D();
+      this.pos.add(vel);
+      vel = p5.Vector.random2D();
+      this.pos.add(vel);
+      vel = p5.Vector.random2D();
       this.pos.add(vel);
     }
   
