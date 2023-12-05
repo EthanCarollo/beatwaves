@@ -15,6 +15,7 @@ const initializeCenterOfWindow = () => {
 let sizeKey = 80
 // Function called every frames to show the key on map
 const showKeyOnMap = () => {
+    noStroke()
     for (key of keyOnMap) {
         if(key.isVisible === true){
 
@@ -42,7 +43,7 @@ const showKeyOnMap = () => {
             }
         }else{
             if(DEBUGMODE === true){
-                fill(0,0,255) // The fake key used for play music in background is blue
+                fill(0,0,255,20) // The fake key used for play music in background is blue
                 rect(key.position.x - keyWidth / 2, key.position.y - keyHeight / 2, sizeKey, sizeKey);
             }
         }

@@ -261,6 +261,7 @@ body {
     font-family: Orbitron;
     font-size: 3vw;
     color: rgba(240, 255, 255, 0);
+    pointer-events: none;
 }
 
 
@@ -286,6 +287,7 @@ body {
     background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
+    pointer-events: none;
 }
 #right_button{
     display: none;
@@ -309,6 +311,7 @@ body {
     background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
+    pointer-events: none;
 }
 
 
@@ -388,11 +391,13 @@ span {
     transition: all 0.5s;
     z-index: 100;
     pointer-events: none;
+    pointer-events: none;
 }
 
 #scene-transitor-background.opacity-max {
     opacity: 100%;
     transition: all 0.5s;
+    pointer-events: none;
 }
 
 #game-start-decount {
@@ -406,11 +411,13 @@ span {
     opacity: 50%;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 }
 
 #counter-text {
     font-size: 5vw;
     color: white;
+    pointer-events: none;
 }
 
 
@@ -540,6 +547,7 @@ span {
     background-size: 40%;
     background-position: center;
     background-repeat: no-repeat;
+    pointer-events: none;
 }
 
 #leftArm{
