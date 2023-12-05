@@ -2,7 +2,6 @@
  * This is the Main Menu scene, played as the end of each game
  */
 function MainMenu() {
-    let slider
     let sceneIsLoaded = false;
     let lifeTime = 60;
     let handPosition = {
@@ -12,20 +11,6 @@ function MainMenu() {
     let mousePosition = {
         x: 0,
         y: 0
-    }
-
-
-    // This is the options for load pose net
-    // This can probably need a small improvement
-    let poseNetOptions = {
-        imageScaleFactor: 0.3,
-        minConfidence: 0.5,
-        maxPoseDetections: 1,
-        flipHorizontal: true,
-        outputStride: 16,
-        multiplier: 0.75,
-        inputResolution: 257,
-        nmsRadius: 30
     }
 
     // enter() will be executed each time the SceneManager switches
@@ -99,10 +84,6 @@ function MainMenu() {
         if (sceneIsLoaded === false) return;
         background(255, 255, 255, 80)
 
-        if (DEBUGMODE === true) {
-            this.debugScene();
-        }
-
         scale(-1, 1);
         image(video, -width, 0, width, height)
         scale(-1, 1);
@@ -111,6 +92,12 @@ function MainMenu() {
         this.navigateMenu()
         background(0, 0, 0, 80)
         this.drawHandPosition()
+        if (DEBUGMODE === true) {
+            if (poses) {
+                drawDebugPose(poses[0])
+            }
+        }
+
     }
 
     this.drawHandPosition = () => {

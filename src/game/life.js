@@ -1,20 +1,19 @@
 let playerLife = 5
 
-function lifeSystem(touch, recovery) {
-    if (touch != null) {
-        console.log("in life system")
-        if (touch === playerLife && !recovery) {
-            gameEnd = true
-            playerLife = 0
-        } else if (touch & recovery) {
-            playerLife = 5
-            TouchOrNot.Error = 0;
+function lifeSystem(recovery) {
+    if(recovery === true){
+        if(playerLife < 5){
+            playerLife++
+        }
+    }else{
+        if(playerLife > 0){
+            playerLife--
         }
     }
 }
 
 const showLifeOfPlayer = () => {
-    let lifePlayer = (playerLife) - TouchOrNot.Error
+    let lifePlayer = playerLife
     let rectWidth = 80;
     let rectHeight = 80;
     let spacing = 0;
