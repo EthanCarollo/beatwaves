@@ -65,7 +65,7 @@ function EndMenu() {
 
         let livesRemaining = data.life
 
-        console.log(scoreHand)
+        console.log(livesRemaining)
 
         // Get the hand percent
         let leftHandPercent = 0
@@ -137,6 +137,7 @@ function EndMenu() {
 
     this.numberHeart = (nber) => {
     let heart = nber
+    console.log(heart)
     document.getElementById("livesRemaining").innerHTML = ""
     if(heart != 0){
         for (let index = 0; index < heart; index++) {
@@ -162,8 +163,8 @@ function EndMenu() {
     let heightButton = width/100*8;
     const interactiveButton = {
         position: {
-            x: width / 2 - widthButton / 2,
-            y: height - heightButton - (width/100*6)
+            x: width - width / 4.2,
+            y: height / 2 - heightButton / 2
         },
         width: widthButton,
         height: heightButton,
