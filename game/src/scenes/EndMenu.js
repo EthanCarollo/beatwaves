@@ -131,7 +131,7 @@ function EndMenu() {
     }
 
     this.numberHeart = (_heart) => {
-        let heart = 3
+        let heart = _heart
         document.getElementById("livesRemaining").innerHTML = ""
         for(let i = 0; i < 5; i++){
             let div = document.getElementById("livesRemaining")
