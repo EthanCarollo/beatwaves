@@ -42,20 +42,15 @@ function EndMenu() {
     }
 
     this.registerHandPosition = () => {
-        if (!poses || !poses[0])
-            return
-
-        var pose = poses[0];
-
-        if (pose.pose.rightWrist.confidence > 0.6) handPosition = pose.pose.rightWrist;
+        handPosition = socketHandPosition.right;
     }
 
 
     this.drawHandPosition = () => {
         // ! This will need some improvement, actually it's just circle
         if (handPosition) {
-            mousePosition.x = lerp(mousePosition.x, handPosition.x, 0.07)
-            mousePosition.y = lerp(mousePosition.y, handPosition.y, 0.07)
+            mousePosition.x = lerp(mousePosition.x, width*handPosition.x, 0.07)
+            mousePosition.y = lerp(mousePosition.y, height*handPosition.y, 0.07)
             drawMouse(mousePosition)
         }
     }

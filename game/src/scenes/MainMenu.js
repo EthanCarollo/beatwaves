@@ -103,27 +103,14 @@ function MainMenu() {
     this.drawHandPosition = () => {
         // ! This will need some improvement, actually it's just circle
         if (handPosition) {
-            mousePosition.x = lerp(mousePosition.x, handPosition.x, 0.07)
-            mousePosition.y = lerp(mousePosition.y, handPosition.y, 0.07)
+            mousePosition.x = lerp(mousePosition.x, width*handPosition.x, 0.07)
+            mousePosition.y = lerp(mousePosition.y, height*handPosition.y, 0.07)
             drawMouse(mousePosition)
         }
     }
 
     this.registerHandPosition = () => {
-        if (!poses || !poses[0])
-            return
-
-        var pose = poses[0];
-
-        if (pose.pose.rightWrist.confidence > 0.6) handPosition = pose.pose.rightWrist;
-    }
-
-    this.getHandForHistory = (hand) => {
-        return {
-            position: createVector(hand.x, hand.y),
-            confidence: hand.confidence,
-            life: lifeTime
-        }
+        handPosition = socketHandPosition.right;
     }
 
     // Function called once model is loaded
@@ -176,40 +163,7 @@ function MainMenu() {
         goToScene()
     }
 
-    // Function called if DEBUGMODE const is true
-    this.debugScene = () => {
 
-        // Flip video horizontaly
-
-        if (poses) {
-            this.drawDebugPose(poses[0])
-        }
-    }
-
-    // Function called when we need to show the pose
-    this.drawDebugPose = (pose) => {
-        if (!pose)
-            return
-
-        // Every position to draw on sketch
-        const positionArray = [
-            pose.pose.rightShoulder,
-            pose.pose.rightElbow,
-            pose.pose.rightWrist,
-            pose.pose.rightEye,
-            pose.pose.rightAnkle,
-        ]
-
-        // For the debug, i boucle on the array of position and then draw every parts of the body
-        // And for the color, i just check if we here in the second half of the array or not
-        // Fill the color of the circle with the confidence
-        for (let i = 0; i < positionArray.length; i++) {
-            const elementPosition = positionArray[i];
-            (i > (positionArray.length - 1) / 2) ? fill(255, 0, 0, elementPosition.confidence * 255) : fill(0, 255, 0, elementPosition.confidence * 255)
-            circle(elementPosition.x, elementPosition.y, 30)
-        }
-
-    }
 
     let sizeButton = width / 100 * 8;
     const interactiveButtons = [

@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./game:/usr/share/nginx/html
+
+  node:
+    image: node:14-alpine
+    working_dir: /app
+    volumes:
+      - ./server:/app
+    command: npm run dev
+    ports:
+      - "3000:3000"
