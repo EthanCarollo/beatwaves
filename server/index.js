@@ -1,3 +1,6 @@
+// In fact, this server is just a proxy, he just exists cause i need
+// a connection between python & javascript
+
 const httpServer = require("http").createServer();
 const io = require("socket.io")(httpServer, {
   cors: {
