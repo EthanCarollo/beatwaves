@@ -14,7 +14,7 @@
             "duration": 60,
             "authorSong": "Tokyo Ghoul",
             "nameSong": "Unravel",
-            "styleSong" : "Manga ?",
+            "styleSong" : "OST",
             "difficultyImage" : "assets/images/difficulty/musique_facile.svg",
             "difficultyText":"Facile"
         },
@@ -51,7 +51,7 @@
             "duration": 60,
             "authorSong": "Naruto Shippuden",
             "nameSong": "Blue Bird",
-            "styleSong" : "Manga ?",
+            "styleSong" : "OST",
             "difficultyImage" : "assets/images/difficulty/musique_difficile.svg",
             "difficultyText":"Difficile"
         }
