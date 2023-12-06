@@ -31,7 +31,11 @@ const showKeyOnMap = () => {
 
             let keyImage = key.imageNoteId
             if (key.isClean === true) {
-                image(Assets.get("IMAGES").data[keyImage+1].img, key.position.x-60, key.position.y-60, 120, 120)
+                if(key.touchedBy === "right"){
+                    image(Assets.get("IMAGES").data[keyImage+1].img, key.position.x-60, key.position.y-60, 120, 120)
+                }else{
+                    image(Assets.get("IMAGES").data[keyImage+2].img, key.position.x-60, key.position.y-60, 120, 120)
+                }
             }else{
                 image(Assets.get("IMAGES").data[keyImage].img, key.position.x-60, key.position.y-60, 120, 120)
                 // Make a train if he isnt clean
@@ -161,7 +165,7 @@ const getRandomKey = (note, velocity, noteTime, instrument = classicSynth, _isVi
         isPlayed: false, // If the note is played or no
         instr: instrument, // The instrument of the note
         touchedBy: "",
-        imageNoteId: 10+((getRandomInt(3) + 1)*2),
+        imageNoteId: 12+((getRandomInt(4))*3),
         // Temp :
         cells : [new Cell(_position, 50)]
     }
