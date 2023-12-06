@@ -5,6 +5,7 @@ let melodyOne
 let melodyOther
 let handLifeTime = 25;
 let minusLifeTime = 0.75;
+let heartIsBroken = false;
 
 /**
  * This is the Game scene played when we launch a game
@@ -192,22 +193,36 @@ function Game() {
 
     this.heartSize = 200
     this.heartValue = 2
+    this.animationValue = 0;
 
     this.drawHeart = () => {
-        image(Assets.get("IMAGES").data[10].img, 
-        width/2-this.heartSize/2, 
-        height/2-this.heartSize/2, 
-        this.heartSize, 
-        this.heartSize)
-
-        if(this.heartSize > 290){
-            this.heartValue = -2
+        if(heartIsBroken ===false){
+            image(Assets.get("IMAGES").data[42].img, 
+            width/2-this.heartSize*1.77/2, 
+            height/2-this.heartSize/2, 
+            this.heartSize*1.77, 
+            this.heartSize)
+    
+            if(this.heartSize > 290){
+                this.heartValue = -2
+            }
+            if(this.heartSize < 200){
+                this.heartValue = 2
+            }
+    
+            this.heartSize += this.heartValue;
+        }else{
+            image(Assets.get("IMAGES").data[18+Math.floor(this.animationValue)].img, 
+            width/2-this.heartSize*1.77/2, 
+            height/2-this.heartSize/2, 
+            this.heartSize*1.77, 
+            this.heartSize)
+            this.animationValue += 0.8
+            if(this.animationValue > 24){
+                this.animationValue=0;
+                heartIsBroken = false;
+            }
         }
-        if(this.heartSize < 200){
-            this.heartValue = 2
-        }
-
-        this.heartSize += this.heartValue;
     }
 
 

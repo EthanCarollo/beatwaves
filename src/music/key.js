@@ -70,6 +70,7 @@ const mooveKeyOnMap = () => {
                         scoreHand.left++
                     }
                 } else if(!keyOnMap[i].isClean){
+                    heartIsBroken = true;
                     lifeSystem(false)
                 }
             }
