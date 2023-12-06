@@ -558,6 +558,11 @@ span {
 
 #livesRemaining{
     display: flex;
+    align-items: end;
+}
+
+#livesRemaining img{
+    padding: 1vh;
 }
 
 #counter-text{

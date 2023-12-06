@@ -71,7 +71,7 @@ function EndMenu() {
         }
 
         let fullValue = {
-            "keysMiss": data.score.keysMiss,
+            "keysMiss": data.score.totalsKey,
             "keysTouch": data.score.keysTouch,
             "playerScore": data.score.playerScore,
             "playerRating": data.score.playerRating,

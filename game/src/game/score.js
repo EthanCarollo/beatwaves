@@ -49,7 +49,7 @@ function getScore(keyTouch, totalKey){
         "totalsKey": totalKey,
         "keysMiss" : totalKey - keyTouch,
         "maximumScore": (totalKey*100)*totalKey*1.5+" pts",
-        "playerScore": percent*totalKey*1.5+" pts",
+        "playerScore": Math.floor(percent*totalKey*1.5)+" pts",
         "successPercentage": percent+"%",
         "playerRating": rating
     }
