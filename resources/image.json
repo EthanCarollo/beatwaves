@@ -34,7 +34,7 @@
         },
         {
             "id": 8,
-            "url": "./assets/images/heart.webp"
+            "url": "./assets/images/heart.svg"
         },
         {
             "id": 9,
@@ -54,122 +54,146 @@
         },
         {
             "id": 13,
-            "url": "./assets/images/key/note_1_clean.svg"
+            "url": "./assets/images/key/note_1_clean_right.svg"
         },
         {
             "id": 14,
-            "url": "./assets/images/key/note_4_corrupted.svg"
+            "url": "./assets/images/key/note_1_clean_left.svg"
         },
         {
             "id": 15,
-            "url": "./assets/images/key/note_4_clean.svg"
+            "url": "./assets/images/key/note_2_corrupted.svg"
         },
         {
             "id": 16,
-            "url": "./assets/images/key/note_5_corrupted.svg"
+            "url": "./assets/images/key/note_2_clean_right.svg"
         },
         {
             "id": 17,
-            "url": "./assets/images/key/note_5_clean.svg"
+            "url": "./assets/images/key/note_2_clean_left.svg"
         },
         {
             "id": 18,
-            "url": "./assets/images/broken_heart/1.png"
+            "url": "./assets/images/key/note_3_corrupted.svg"
         },
         {
             "id": 19,
-            "url": "./assets/images/broken_heart/2.png"
+            "url": "./assets/images/key/note_3_clean_right.svg"
         },
         {
             "id": 20,
-            "url": "./assets/images/broken_heart/3.png"
+            "url": "./assets/images/key/note_3_clean_left.svg"
         },
         {
             "id": 21,
-            "url": "./assets/images/broken_heart/4.png"
+            "url": "./assets/images/key/note_4_corrupted.svg"
         },
         {
             "id": 22,
-            "url": "./assets/images/broken_heart/5.png"
+            "url": "./assets/images/key/note_4_clean_right.svg"
         },
         {
             "id": 23,
-            "url": "./assets/images/broken_heart/6.png"
+            "url": "./assets/images/key/note_4_clean_left.svg"
         },
         {
             "id": 24,
-            "url": "./assets/images/broken_heart/7.png"
+            "url": "./assets/images/broken_heart/1.png"
         },
         {
             "id": 25,
-            "url": "./assets/images/broken_heart/8.png"
+            "url": "./assets/images/broken_heart/2.png"
         },
         {
             "id": 26,
-            "url": "./assets/images/broken_heart/9.png"
+            "url": "./assets/images/broken_heart/3.png"
         },
         {
             "id": 27,
-            "url": "./assets/images/broken_heart/10.png"
+            "url": "./assets/images/broken_heart/4.png"
         },
         {
             "id": 28,
-            "url": "./assets/images/broken_heart/11.png"
+            "url": "./assets/images/broken_heart/5.png"
         },
         {
             "id": 29,
-            "url": "./assets/images/broken_heart/12.png"
+            "url": "./assets/images/broken_heart/6.png"
         },
         {
             "id": 30,
-            "url": "./assets/images/broken_heart/13.png"
+            "url": "./assets/images/broken_heart/7.png"
         },
         {
             "id": 31,
-            "url": "./assets/images/broken_heart/14.png"
+            "url": "./assets/images/broken_heart/8.png"
         },
         {
             "id": 32,
-            "url": "./assets/images/broken_heart/15.png"
+            "url": "./assets/images/broken_heart/9.png"
         },
         {
             "id": 33,
-            "url": "./assets/images/broken_heart/16.png"
+            "url": "./assets/images/broken_heart/10.png"
         },
         {
             "id": 34,
-            "url": "./assets/images/broken_heart/17.png"
+            "url": "./assets/images/broken_heart/11.png"
         },
         {
             "id": 35,
-            "url": "./assets/images/broken_heart/18.png"
+            "url": "./assets/images/broken_heart/12.png"
         },
         {
             "id": 36,
-            "url": "./assets/images/broken_heart/19.png"
+            "url": "./assets/images/broken_heart/13.png"
         },
         {
             "id": 37,
-            "url": "./assets/images/broken_heart/20.png"
+            "url": "./assets/images/broken_heart/14.png"
         },
         {
             "id": 38,
-            "url": "./assets/images/broken_heart/21.png"
+            "url": "./assets/images/broken_heart/15.png"
         },
         {
             "id": 39,
-            "url": "./assets/images/broken_heart/22.png"
+            "url": "./assets/images/broken_heart/16.png"
         },
         {
             "id": 40,
-            "url": "./assets/images/broken_heart/23.png"
+            "url": "./assets/images/broken_heart/17.png"
         },
         {
             "id": 41,
-            "url": "./assets/images/broken_heart/24.png"
+            "url": "./assets/images/broken_heart/18.png"
         },
         {
             "id": 42,
+            "url": "./assets/images/broken_heart/19.png"
+        },
+        {
+            "id": 43,
+            "url": "./assets/images/broken_heart/20.png"
+        },
+        {
+            "id": 44,
+            "url": "./assets/images/broken_heart/21.png"
+        },
+        {
+            "id": 45,
+            "url": "./assets/images/broken_heart/22.png"
+        },
+        {
+            "id": 46,
+            "url": "./assets/images/broken_heart/23.png"
+        },
+        {
+            "id": 47,
+            "url": "./assets/images/broken_heart/24.png"
+        },
+        {
+            "id": 48,
             "url": "./assets/images/broken_heart/25.png"
         }
     ]

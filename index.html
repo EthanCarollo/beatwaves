@@ -80,18 +80,20 @@
     <!-- End game / Dataviz -->
     <div id="dataviz" style="display: none;">
         <div id="container">
+            <div class="square note textData">
+                <p class="titleSquare">Note</p>
+                <p id="playerRating"></p>
+            </div>
+            <div class="square textData score-data">
+                <p class="titleSquare textGreen">Score</p>
+                <p id="playerScore"></p>
+            </div>
             <div class="square textData">
-                <p class="titleSquare textGreen label-key-touch">Touchés / ratés</p>
+                <p class="titleSquare textGreen label-key-touch">Touchés / Total</p>
                 <div class="textInRect">
                     <p id="keysTouch" class="textGreen"></p>
                     <p class="textGreen" style="padding: 16px;">/</p>
                     <p id="keysMiss" class="textGreen"></p>
-                </div>
-            </div>
-            <div class="square textData">
-                <p class="titleSquare">Vies restantes</p>
-                <div class="textInRect">
-                <div id="livesRemaining"></div>
                 </div>
             </div>
             <div class="square formArms">
@@ -104,13 +106,11 @@
                     <img src="./assets/images/end/right_arm.webp" alt="" style="width: 9rem;">
                 </div>
             </div>
-            <div class="square textData score-data">
-                <p class="titleSquare textGreen">Score</p>
-                <p id="playerScore"></p>
-            </div>
-            <div class="square note textData">
-                <p class="titleSquare">Note</p>
-                <p id="playerRating"></p>
+            <div class="square textData">
+                <p class="titleSquare">Vies restantes</p>
+                <div class="textInRect">
+                <div id="livesRemaining"></div>
+                </div>
             </div>
             <div id="textData" style="display: none;">
             </div>

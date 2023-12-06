@@ -197,7 +197,7 @@ function Game() {
 
     this.drawHeart = () => {
         if(heartIsBroken ===false){
-            image(Assets.get("IMAGES").data[42].img, 
+            image(Assets.get("IMAGES").data[48].img, 
             width/2-this.heartSize*1.77/2, 
             height/2-this.heartSize/2, 
             this.heartSize*1.77, 
@@ -212,7 +212,7 @@ function Game() {
     
             this.heartSize += this.heartValue;
         }else{
-            image(Assets.get("IMAGES").data[18+Math.floor(this.animationValue)].img, 
+            image(Assets.get("IMAGES").data[24+Math.floor(this.animationValue)].img, 
             width/2-this.heartSize*1.77/2, 
             height/2-this.heartSize/2, 
             this.heartSize*1.77, 

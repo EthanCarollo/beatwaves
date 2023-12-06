@@ -14,17 +14,17 @@ function lifeSystem(recovery) {
 
 const showLifeOfPlayer = () => {
     let lifePlayer = playerLife
-    let rectWidth = 80;
-    let rectHeight = 80;
-    let spacing = 0;
+    let rectWidth = 40;
+    let rectHeight = 40;
+    let spacing = 35;
     let lifeImage = {
         "heart": Assets.get("IMAGES").data[8].img,
         "lastheart": Assets.get("IMAGES").data[9].img
     }
 
     for (let i = 0; i < lifePlayer; i++) {
-        let xPos = i * (rectWidth + spacing);
-        let yPos = 20;
+        let xPos = i * (rectWidth + spacing) + spacing;
+        let yPos = spacing;
 
         if(lifePlayer === 1) {
             image(lifeImage.lastheart, xPos, yPos, rectWidth, rectHeight);
