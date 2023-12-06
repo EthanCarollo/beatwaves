@@ -375,7 +375,7 @@ span {
 }
 
 .request_capture{
-    font-family: Robotro;
+    font-family: Orbitron;
     font-size: 3vw;
 }
 
@@ -390,7 +390,6 @@ span {
     opacity: 0%;
     transition: all 0.5s;
     z-index: 100;
-    pointer-events: none;
     pointer-events: none;
 }
 

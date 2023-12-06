@@ -14,19 +14,18 @@
             "duration": 60,
             "authorSong": "Tokyo Ghoul",
             "nameSong": "Unravel",
-            "descriptionSong" : "this is the description",
             "styleSong" : "Manga ?",
             "difficultyImage" : "assets/images/difficulty/musique_facile.svg",
             "difficultyText":"Facile"
         },
         {
             "melo_principal": {
-                "melody_url": "./resources/songs/1/melo_four.json",
+                "melody_url": "./resources/songs/blue/melo_four.json",
                 "instrument": "entertaining_bell"
             },
             "different_melo": [
                 {
-                    "melody_url": "./resources/songs/1/melo_one.json",
+                    "melody_url": "./resources/songs/blue/melo_one.json",
                     "instrument": "digital_chimes_key"
                 }
             ],
@@ -34,7 +33,6 @@
             "duration": 60,
             "authorSong": "Eiffel 65",
             "nameSong": "The Real Blue",
-            "descriptionSong" : "this is the description",
             "styleSong" : "Techno",
             "difficultyImage" : "assets/images/difficulty/moyennement_difficile.svg",
             "difficultyText":"Moyen"
@@ -53,7 +51,6 @@
             "duration": 60,
             "authorSong": "Naruto Shippuden",
             "nameSong": "Blue Bird",
-            "descriptionSong" : "this is the description",
             "styleSong" : "Manga ?",
             "difficultyImage" : "assets/images/difficulty/musique_difficile.svg",
             "difficultyText":"Difficile"

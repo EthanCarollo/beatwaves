@@ -3,6 +3,7 @@ var cnv
 const SCENELIST = [
     Intro,
     MainMenu,
+    // For the demonstration of the prototype, we actually don't need Tutorial cause it doesnt works at all lol
     //Tutorial,
     Game,
     EndMenu
@@ -30,7 +31,9 @@ function setup(){
 
 function draw() {
     cnv.mouseClicked(() => {})
-    SceneManager.draw();
+    if(sceneIsLoad === true && isAssetsLoaded === true){
+        SceneManager.draw();
+    }
 }
 
 // Just setup every scene of SCENELIST const

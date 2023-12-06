@@ -70,8 +70,7 @@ const fetchImage = () => {
     let assetname = "IMAGES";
     const images = Assets[assetname].data
     for (let i = 0; i < images.length; i++) {
-        const image = images[i];
-        image.img = loadImage(image.url);
+        images[i].img = loadImage(images[i].url);
     }
 }
 
