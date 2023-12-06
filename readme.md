@@ -66,6 +66,7 @@ Digital game in which we must correct the tonality of musical notes which are re
 
 _To play Beatwaves, you must have these requirements :_
 
+- Node js & Python3 !
 - Make sure you have a webcam,
 - Your person !
 

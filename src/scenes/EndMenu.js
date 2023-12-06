@@ -50,7 +50,7 @@ function EndMenu() {
         // ! This will need some improvement, actually it's just circle
         if (handPosition) {
             mousePosition.x = lerp(mousePosition.x, width*handPosition.x, 0.07)
-            mousePosition.y = lerp(mousePosition.y, width*handPosition.y, 0.07)
+            mousePosition.y = lerp(mousePosition.y, height*handPosition.y, 0.07)
             drawMouse(mousePosition)
         }
     }
