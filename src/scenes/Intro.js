@@ -38,11 +38,6 @@ function Intro() {
         video = createCapture(VIDEO, () => {
             video.size(width, height);
             video.hide();
-
-            // Create one instance of body pose instantly after the creation of capture video
-            poseNet = ml5.poseNet(video, poseNetOptions, () => { console.log("model loaded") });
-            poseNet.on('pose', (results) => { poses = results; }); // Just set the global poses var on the event pose
-
             // Hide request capture text and go next scene
             anime({
                 targets: ".request_capture",

@@ -87,9 +87,6 @@ function Game() {
 
         if (DEBUGMODE === true) {
             this.debugScene()
-            if (poses) {
-                drawDebugPose(poses[0])
-            }
         } 
         if (gameEnd === true) {
             if (DEBUGMODE === true) {
@@ -123,22 +120,16 @@ function Game() {
     }
 
     this.registerHandPosition = () => {
-        if (!poses || !poses[0])
-            return
+        let _rightWrist = this.getHandForHistory(socketHandPosition.right)
+        handPoseHistory.right.push(_rightWrist);
 
-        var pose = poses[0];
-
-        let _rightWrist = this.getHandForHistory(pose.pose.rightWrist)
-        if (_rightWrist.confidence > 0.4) handPoseHistory.right.push(_rightWrist);
-
-        let _leftWrist = this.getHandForHistory(pose.pose.leftWrist)
-        if (_leftWrist.confidence > 0.4) handPoseHistory.left.push(_leftWrist)
-
+        let _leftWrist = this.getHandForHistory(socketHandPosition.left)
+        handPoseHistory.left.push(_leftWrist)
     }
 
     this.getHandForHistory = (hand) => {
         return {
-            position: createVector(hand.x, hand.y),
+            position: createVector(width*hand.x, height*hand.y),
             confidence: hand.confidence,
             life: handLifeTime
         }
