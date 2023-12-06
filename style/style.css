@@ -561,3 +561,7 @@ span {
 #livesRemaining{
     display: flex;
 }
+
+#counter-text{
+    font-family: Orbitron;
+}
