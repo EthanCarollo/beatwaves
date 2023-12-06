@@ -130,28 +130,20 @@ function EndMenu() {
         goToScene(MainMenu)
     }
 
-    this.numberHeart = (nber) => {
-    let heart = nber
-    console.log(heart)
-    document.getElementById("livesRemaining").innerHTML = ""
-    if(heart != 0){
-        for (let index = 0; index < heart; index++) {
+    this.numberHeart = (_heart) => {
+        let heart = _heart
+        document.getElementById("livesRemaining").innerHTML = ""
+        for(let i = 0; i < 5; i++){
             let div = document.getElementById("livesRemaining")
             let img = document.createElement('img')
-            img.src = Assets.get("IMAGES").data[8].url,
+            if(i<heart){
+                img.src = Assets.get("IMAGES").data[8].url
+            }else{
+                img.src = Assets.get("IMAGES").data[10].url
+            }
             img.style.width = "5rem"
             div.appendChild(img);
         }
-    }else{
-        for (let index = 0; index < 5; index++) {
-            let div = document.getElementById("livesRemaining")
-            let img = document.createElement('img')
-            img.src = Assets.get("IMAGES").data[10].url,
-            img.style.width = "5rem"
-            div.appendChild(img);
-        }
-    }
-
     }
 
     let widthButton = width/100*15;
