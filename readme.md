@@ -22,33 +22,11 @@
   </p>
 </div>
 
-
-
-<!-- TABLE  -->
-<details>
-  <summary>Table of Contents :</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-         <li><a href="#pitch">Pitch</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-  </ol>
-</details>
-
+<br>
 
 
 <!-- ABOUT THE PROJECT -->
-##  ❕About The Project
+## ❕About The Project
 
 <!--[![Product Name Screen Shot](images/screenshot.png)  -->
 
@@ -62,7 +40,6 @@ This is a game called : Beatwaves !
 <p align="right">(<a href="#readme-top">Back to top !</a>)</p>
 
 
-
 ### 🛠️ Built With
 
 This section lists how the project was developed :
@@ -73,8 +50,7 @@ This section lists how the project was developed :
 <p align="right">(<a href="#readme-top">Back to top !</a>)</p>
 
 
-
-### ❔ Pitch
+### ❔Pitch
 
 Digital game in which we must correct the tonality of musical notes which are represented by projectiles which head towards the user's heart. Using your arms to get the best possible score without getting a bad grade.
 
@@ -83,7 +59,7 @@ Digital game in which we must correct the tonality of musical notes which are re
 
 
 <!-- GETTING STARTED -->
-## 🏃‍♂️ Getting Started
+## 🏃‍♂️Getting Started
 
 
 ### 📢 Prerequisites
@@ -92,7 +68,6 @@ _To play Beatwaves, you must have these requirements :_
 
 - Make sure you have a webcam,
 - Your person !
-
 
 ### 🕺 Installation
 
