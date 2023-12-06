@@ -37,7 +37,7 @@ function EndMenu() {
         // Flip video horizontaly
         scale(-1, 1);
         image(video, -width, 0, width, height)
-        background(0, 0, 0, 80)
+        background(0, 0, 0, 150)
         scale(-1, 1);
     }
 
