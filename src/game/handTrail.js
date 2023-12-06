@@ -5,7 +5,10 @@ let scoreHand = {
 
 function showHandTrail(handPoseHistory, hand){
     let spBef = null
-    let _color = "#FF007D"
+    let _color = "#6DE700"
+    if(hand === "right"){
+        _color = "#FF007D"
+    }
     stroke(_color);
     fill(_color);
 
