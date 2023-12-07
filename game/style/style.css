@@ -121,7 +121,6 @@ body {
     background-size: 20%;
     color: #fff;
     background-color: #1E1C1C;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13px );
     overflow-y: visible;
     -webkit-backdrop-filter: blur( 13px );
@@ -210,7 +209,6 @@ body {
     /**
     * Change the box shadow of the target mouse in future
     */
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     background-color: #CA00D3;
     justify-content: center;
     align-items: center;
@@ -233,7 +231,6 @@ body {
 #select_button{
     display: none;
     background: #1E1C1C;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13px );
     overflow-y: visible;
     -webkit-backdrop-filter: blur( 13px );
@@ -268,7 +265,6 @@ body {
 #left_button{
     display: none;
     background: #1E1C1C;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13px );
     overflow-y: visible;
     -webkit-backdrop-filter: blur( 13px );
@@ -293,7 +289,6 @@ body {
     display: none;
     padding: 0.75vw;
     background: #1E1C1C;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13px );
     overflow-y: visible;
     -webkit-backdrop-filter: blur( 13px );
@@ -534,7 +529,6 @@ span {
     top: 42.5vh;
     right: 2vw;
     background: #1E1C1C;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13px );
     overflow-y: visible;
     -webkit-backdrop-filter: blur( 13px );
