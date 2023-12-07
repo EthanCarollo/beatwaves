@@ -74,7 +74,13 @@ while True:
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = pose.process(imgRGB)
 
-    if results.pose_landmarks:                   
+    if results.pose_landmarks:    
+        mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS,
+                              landmark_drawing_spec=mpDraw.DrawingSpec(color=(0, 0, 255),
+                                                                      thickness=2, circle_radius=2),
+                              connection_drawing_spec=mpDraw.DrawingSpec(color=(255, 0, 0),
+                                                                         thickness=2, circle_radius=2),
+                              )               
         if results.pose_landmarks.landmark[15]:
             if isConnected == True :
                 sio.emit('send_left_hand_position', json.dumps({"x" : results.pose_landmarks.landmark[15].x, "y": results.pose_landmarks.landmark[15].y}))

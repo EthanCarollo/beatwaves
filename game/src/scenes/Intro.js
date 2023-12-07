@@ -42,6 +42,7 @@ function Intro() {
             anime({
                 targets: ".request_capture",
                 opacity: 0,
+                easing: 'easeInOutQuad',
                 complete: () => {
                     // Hide request capture text and go next scene
                     document.getElementById("request_capture").style.display = "none"
