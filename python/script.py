@@ -68,7 +68,7 @@ try:
 except Exception as e:
     print(Colors.RED + f"\n \n Connection failed: {e} \n \n" + Colors.RESET)
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 while True:
     success, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -81,18 +81,18 @@ while True:
                               connection_drawing_spec=mpDraw.DrawingSpec(color=(255, 0, 0),
                                                                          thickness=2, circle_radius=2),
                               )               
-        if results.pose_landmarks.landmark[15]:
+        if results.pose_landmarks.landmark[19]:
             if isConnected == True :
-                sio.emit('send_left_hand_position', json.dumps({"x" : results.pose_landmarks.landmark[15].x, "y": results.pose_landmarks.landmark[15].y}))
-            lmx = int(results.pose_landmarks.landmark[15].x * img.shape[1])
-            lmy = int(results.pose_landmarks.landmark[15].y * img.shape[0])
+                sio.emit('send_left_hand_position', json.dumps({"x" : results.pose_landmarks.landmark[19].x, "y": results.pose_landmarks.landmark[19].y}))
+            lmx = int(results.pose_landmarks.landmark[19].x * img.shape[1])
+            lmy = int(results.pose_landmarks.landmark[19].y * img.shape[0])
             cv2.circle(img, (lmx, lmy), 5, (0, 0, 255), -1)
 
-        if results.pose_landmarks.landmark[16]:
+        if results.pose_landmarks.landmark[20]:
             if isConnected == True :
-                sio.emit('send_right_hand_position', json.dumps({"x" : results.pose_landmarks.landmark[16].x, "y": results.pose_landmarks.landmark[16].y}))
-            lmx = int(results.pose_landmarks.landmark[16].x * img.shape[1])
-            lmy = int(results.pose_landmarks.landmark[16].y * img.shape[0])
+                sio.emit('send_right_hand_position', json.dumps({"x" : results.pose_landmarks.landmark[20].x, "y": results.pose_landmarks.landmark[20].y}))
+            lmx = int(results.pose_landmarks.landmark[20].x * img.shape[1])
+            lmy = int(results.pose_landmarks.landmark[20].y * img.shape[0])
             cv2.circle(img, (lmx, lmy), 5, (0, 255, 0), -1)
 
     cv2.imshow("Pose Detection", img)

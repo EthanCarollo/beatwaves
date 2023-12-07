@@ -87,6 +87,19 @@
             "F#5" : "assets/instruments/entertaining_bell/FS5.wav",
             "G5" : "assets/instruments/entertaining_bell/GS5.wav",
             "G#5" : "assets/instruments/entertaining_bell/G5.wav"
+        },
+        "glitch_instrument" : {
+            "C5" : "assets/instruments/glitch_instrument/C5.wav",
+            "C#5" : "assets/instruments/glitch_instrument/C5.wav",
+            "D5" : "assets/instruments/glitch_instrument/C5.wav",
+            "D#5" : "assets/instruments/glitch_instrument/C5.wav",
+            "E5" : "assets/instruments/glitch_instrument/C5.wav",
+            "F5" : "assets/instruments/glitch_instrument/C5.wav",
+            "F#5" : "assets/instruments/glitch_instrument/C5.wav",
+            "G5" : "assets/instruments/glitch_instrument/C5.wav",
+            "G#5" : "assets/instruments/glitch_instrument/C5.wav",
+            "A#5" : "assets/instruments/glitch_instrument/AS5.wav",
+            "A5" : "assets/instruments/glitch_instrument/A5.wav"
         }
     }
 }

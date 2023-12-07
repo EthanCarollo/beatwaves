@@ -119,8 +119,7 @@ const playKey = (key) => {
         if(key.isClean){
             key.instr.triggerAttackRelease(key.note, "+"+key.timeNote, Tone.now(), key.vel);
         }else{
-            key.instr.triggerAttackRelease(getRandomNote(), "+"+key.timeNote, Tone.now(), key.vel);
-            //triggerBugKey(key)
+            Instruments["glitch_instrument"].triggerAttackRelease(getRandomNote(), "+"+key.timeNote, Tone.now(), 0.2);
         }
     }
 
@@ -129,7 +128,7 @@ const playKey = (key) => {
 }
 
 const getRandomNote = () => {
-    let arrayNote = ["C#6", "F6", "D6", "C6"]
+    let arrayNote = ["C5", "A#5", "A5"]
     return arrayNote[getRandomInt(arrayNote.length)]
 }
 
