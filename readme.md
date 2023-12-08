@@ -11,7 +11,7 @@
 <br />
 <div align="center">
     
-  <img src="./assets/images/logo.webp" alt="Logo" width="100" height="100">
+  <img src="./game/assets/images/logo.webp" alt="Logo" width="100" height="100">
 
   <h3 align="center">TRANSLATION OF MOVEMENT INTO MUSIC</h3>
 
@@ -46,6 +46,8 @@ This section lists how the project was developed :
 
 * ![p5js](https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5.js&logoColor=FFFFFF)
 * ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+* ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+* ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 <p align="right">(<a href="#readme-top">Back to top !</a>)</p>
 
@@ -66,24 +68,36 @@ Digital game in which we must correct the tonality of musical notes which are re
 
 _To play Beatwaves, you must have these requirements :_
 
-- Node js & Python3 !
+- Node.JS and Python3 !
 - Make sure you have a webcam,
 - Your person !
 
 ### 🕺 Installation
 
 
-####  _Our website :_
-
-Join our game : https://beatwaves.vercel.app !
-
-
-#### _Play Beatwave on your machine :_ 
-
-Download the project **OR** download it via HTTPS :
+1. Download the project **OR** download it via HTTPS :
 ```
 git clone https://github.com/EthanCarollo/Beatwaves.git
 ```
+
+
+2. In a terminal, launch the server at this path as well as this command line :
+```
+ cd GitHub\Beatwaves\server 
+ npm install
+ npm run dev
+```
+
+3. As well as in another terminal, install the two modules and launch the script :
+```
+cd GitHub\Beatwaves\python
+pip install opencv-python
+pip install mediapipe
+pip install python-socketio
+py script.py
+```
+
+4. Launch the index.html locally on your machine and off you go !
 
 ### 😎 Have fun !
 
