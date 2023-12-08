@@ -84,6 +84,7 @@ git clone https://github.com/EthanCarollo/Beatwaves.git
 2. In a terminal, launch the server at this path as well as this command line :
 ```
  cd GitHub\Beatwaves\server 
+ npm install
  npm run dev
 ```
 
@@ -92,6 +93,7 @@ git clone https://github.com/EthanCarollo/Beatwaves.git
 cd GitHub\Beatwaves\python
 pip install opencv-python
 pip install mediapipe
+pip install python-socketio
 py script.py
 ```
 
