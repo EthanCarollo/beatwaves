@@ -75,10 +75,27 @@ _To play Beatwaves, you must have these requirements :_
 ### 🕺 Installation
 
 
-Download the project **OR** download it via HTTPS :
+1. Download the project **OR** download it via HTTPS :
 ```
 git clone https://github.com/EthanCarollo/Beatwaves.git
 ```
+
+
+2. In a terminal, launch the server at this path as well as this command line :
+```
+ cd GitHub\Beatwaves\server 
+ npm run dev
+```
+
+3. As well as in another terminal, install the two modules and launch the script :
+```
+cd GitHub\Beatwaves\python
+pip install opencv-python
+pip install mediapipe
+py script.py
+```
+
+4. Launch the index.html locally on your machine and off you go !
 
 ### 😎 Have fun !
 
